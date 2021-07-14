@@ -43,14 +43,12 @@ spiral_py_test(
         "biograph_test.py",
     ],
     data = [
+        "//datasets",
         "//golden:uncategorized_test_data",
         "//modules/biograph:bgbinary",
     ],
     tags = [
         "noasan",
-        # This test hits the CPU hard enough that it should not be run in
-        # parallel with anything.
-        "exclusive",
     ],
     deps = [
         "//python/biograph:all_modules",
@@ -134,7 +132,6 @@ spiral_py_test(
         "//python/functest/utils",
     ],
     tags = [
-        "exclusive",
         "manual",
     ],
     deps = [
@@ -164,7 +161,6 @@ spiral_py_test(
     # when this test doesn't run locally; fix this.
     local = 1,
     tags = [
-        "exclusive",
         "manual",
     ],
     deps = [

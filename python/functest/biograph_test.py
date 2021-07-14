@@ -145,7 +145,7 @@ class BioGraphTestCases(unittest.TestCase):
             Test that an error is generated when all the reads are filtered out at anchoring
         """
         golden_bam = '{0}/seqset/tiny_test.bam'.format(GOLDEN_DIR)
-        refdir = '/reference/e_coli_pairing_test/'
+        refdir = 'datasets/reference/e_coli_pairing_test/'
         generated_biograph = '{0}/tiny_test.bg'.format(self.data_dir)
 
         cmd = "bgbinary create --in {0} --ref {1} --out {2} --min-reads 0.6 --trim-after-portion 1 --max-corrections 0 --overrep-threshold 0 -f".format(golden_bam, refdir, generated_biograph)
@@ -260,12 +260,12 @@ class BioGraphTestCases(unittest.TestCase):
         """
         # self.cleanup = False
 
-        refdir = '/reference/e_coli_pairing_test/'
-        fastq1 = '/share/bams/pairing_test/pair_test1.fq'
-        fastq2 = '/share/bams/pairing_test/pair_test2.fq'
+        refdir = 'datasets/reference/e_coli_pairing_test/'
+        fastq1 = 'datasets/bams/pairing_test/pair_test1.fq'
+        fastq2 = 'datasets/bams/pairing_test/pair_test2.fq'
         test_sequences = '{out}/test.sequences'.format(out=self.data_dir)
         test_biograph = '{out}/pair_test.bg'.format(out=self.data_dir)
-        golden = '/share/bams/pairing_test/20170804/pair_test.bg/seqset'
+        golden = 'datasets/bams/pairing_test/20170804/pair_test.bg/seqset'
         golden_sequences = '{out}/golden.sequences'.format(out=self.data_dir)
 
         self.check("bgbinary create --in {0} --pair {1} --ref {2} --out {3} --trim-after-portion 1 --max-corrections 0 --overrep-threshold 0".format(fastq1, fastq2, refdir, test_biograph))
@@ -289,11 +289,11 @@ class BioGraphTestCases(unittest.TestCase):
         """
         # self.cleanup = False
 
-        refdir = '/reference/e_coli_pairing_test/'
-        fastq = '/share/bams/pairing_test/interleaved.fq'
+        refdir = 'datasets/reference/e_coli_pairing_test/'
+        fastq = 'datasets/bams/pairing_test/interleaved.fq'
         test_sequences = '{out}/test.sequences'.format(out=self.data_dir)
         test_biograph = '{out}/pair_test.bg'.format(out=self.data_dir)
-        golden = '/share/bams/pairing_test/20170804/pair_test.bg/seqset'
+        golden = 'datasets/bams/pairing_test/20170804/pair_test.bg/seqset'
         golden_sequences = '{out}/golden.sequences'.format(out=self.data_dir)
 
         self.check("bgbinary create --in {0} --ref {1} --out {2} --interleaved --trim-after-portion 1 --max-corrections 0 --overrep-threshold 0".format(fastq, refdir, test_biograph))
@@ -317,9 +317,9 @@ class BioGraphTestCases(unittest.TestCase):
         """
         # self.cleanup = False
 
-        refdir = '/reference/e_coli_pairing_test/'
-        fastq1 = '/share/bams/pairing_test/pair_test1.fq'
-        fastq2 = '/share/bams/pairing_test/pair_test2.fq'
+        refdir = 'datasets/reference/e_coli_pairing_test/'
+        fastq1 = 'datasets/bams/pairing_test/pair_test1.fq'
+        fastq2 = 'datasets/bams/pairing_test/pair_test2.fq'
         test_biograph = '{out}/pair_test.bg'.format(out=self.data_dir)
         test_vcf = '{out}/variants.vcf'.format(out=self.data_dir)
         test_vcf_with_AID = '{out}/variants-assemblies.vcf'.format(out=self.data_dir)
@@ -376,8 +376,8 @@ class BioGraphTestCases(unittest.TestCase):
         """
             Ensure multithreaded runs always have the same number of variants when the pop tracer is enabled.
         """
-        refdir = '/reference/e_coli_k12_ASM584v1/'
-        bam = '/share/bams/e_coli/e_coli_test.bam'
+        refdir = 'datasets/reference/e_coli_k12_ASM584v1/'
+        bam = 'datasets/bams/e_coli/e_coli_test.bam'
         test_biograph = '{out}/e_coli_test.bg'.format(out=self.data_dir)
         test_vcf = '{out}/variants.vcf'.format(out=self.data_dir)
 

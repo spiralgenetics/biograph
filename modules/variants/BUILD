@@ -12,11 +12,6 @@ cc_library(
 cc_test(
     name = "ref_map_test",
     srcs = ["ref_map_test.cpp"],
-    tags = [
-        # TODO(nils): Figure out why this sometimes fails when not run
-        # exclusively; perhaps conflicts in /tmp?
-        "exclusive",
-    ],
     deps = [
         ":ref_map",
         "//modules/bio_base:dna_testutil",
@@ -417,7 +412,6 @@ cc_test(
     timeout = "eternal",
     srcs = ["tinyhuman_test.cpp"],
     tags = [
-        "exclusive",
         "manual",
     ],
     deps = [
@@ -440,7 +434,6 @@ cc_test(
     timeout = "eternal",
     srcs = ["hg001_downsample_test.cpp"],
     tags = [
-        "exclusive",
         "manual",
     ],
     deps = [
@@ -455,7 +448,6 @@ cc_test(
     timeout = "eternal",
     srcs = ["hg002_test.cpp"],
     tags = [
-        "exclusive",
         "manual",
     ],
     deps = [

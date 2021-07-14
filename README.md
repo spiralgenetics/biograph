@@ -1,6 +1,3 @@
-# biograph
-The BioGraph genomic analysis platform
-=======
 # BioGraph
 This is the codebase for the BioGraph genomic analysis platform.
 

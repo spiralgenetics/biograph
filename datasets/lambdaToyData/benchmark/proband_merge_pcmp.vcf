@@ -1,0 +1,48 @@
+##fileformat=VCFv4.1
+##fileDate=20181009
+##source="Spiral Genetics BioGraph",version="4.0.1-dev",description="build-revision='ddb7d0f71ad32e553bf49e95a2fc37ccdd910461',build-time='Mon Oct  8 23:38:58 2018',command-line='variants --in family_lambda.bg/ --ref ref_lambda/ --out proband_merge.vcf --sample proband',seqset-uuid='3f64b88d-e1b5-f29d-1569-256e95595e6d'"
+##reference=ref_lambda/
+##bcftools_normVersion=1.8+htslib-1.8
+##bcftools_normCommand=norm -c s -m+any -f ref_lambda//source.fasta -; Date=Tue Oct  9 23:38:05 2018
+##source="Spiral Genetics BioGraph",version="4.0.1-dev",description="build-revision='ddb7d0f71ad32e553bf49e95a2fc37ccdd910461',build-time='Mon Oct  8 23:38:58 2018',command-line='variants --in family_lambda.bg/ --ref ref_lambda/ --out mother_merge.vcf --sample mother',seqset-uuid='3f64b88d-e1b5-f29d-1569-256e95595e6d'"
+##source="Spiral Genetics BioGraph",version="4.0.1-dev",description="build-revision='ddb7d0f71ad32e553bf49e95a2fc37ccdd910461',build-time='Mon Oct  8 23:38:58 2018',command-line='variants --in family_lambda.bg/ --ref ref_lambda/ --out father_merge.vcf --sample father',seqset-uuid='3f64b88d-e1b5-f29d-1569-256e95595e6d'"
+##CL=vcfmerge -o family.vcf.gz /tmp/tmp_2hSj4/tmpCYMb_4.vcf.gz /tmp/tmp_2hSj4/tmplyeyLV.vcf.gz /tmp/tmp_2hSj4/tmpn4GVLc.vcf.gz
+##contig=<ID=lambda,length=48502>
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=PDP,Number=1,Type=Integer,Description="Sample Pair Depth">
+##FORMAT=<ID=PAD,Number=.,Type=Integer,Description="Allelic pair depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=OV,Number=1,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="Phased genotype">
+##FORMAT=<ID=PI,Number=1,Type=Integer,Description="Phase group">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype quality">
+##FORMAT=<ID=PR,Number=1,Type=Integer,Description="PCmp Reference Allele Supporting Reads">
+##FORMAT=<ID=PA,Number=1,Type=Integer,Description="PCmp Alternate Allele Supporting Reads">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="PCmp Genotype">
+##FORMAT=<ID=PGQ,Number=1,Type=Float,Description="PCmp Genotype Quality">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	proband
+lambda	2191	.	TCTACGGAAAGCCGGTGGCCAGCATGCCACGTAAGCGAAACAAAAACGGGGTTTACCTTACCGAAATCGGTACGGATACCGCGAAAGAGCAGATTTATAAC	T	100	PASS	NS=1;END=2291;SVLEN=100;SVTYPE=DEL	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:54842:144:126:0,126:97:0,97:2:163:1/1:21.02
+lambda	2667	.	C	CA	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:54495:146:153:0,153:115:0,115:1:119:1/1:18.73
+lambda	5897	.	G	A	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:6698:145:160:0,160:118:0,118:0:109:1/1:24.28
+lambda	7146	.	G	GTA	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:49155:144:144:0,144:110:0,110:2:111:1/1:12.73
+lambda	8493	.	C	CT	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:47631:146:171:0,171:135:0,135:0:129:1/1:28.74
+lambda	9495	.	C	G	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:46498:146:162:0,162:132:0,132:1:117:1/1:18.35
+lambda	13383	.	T	A	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:41691:145:136:0,136:101:0,101:0:95:1/1:21.16
+lambda	16619	.	ACCGCAGTAATGTGGTGATGCCGGATGATGGCGCGCCGTTCCGCTACAGCTTCAGCGCCCTGAAGGACCGCCATAATGCCGTTGAGGTGAACTGGATTGACCCGAACAACGGCTGGGAGACGGCGACAGAGCTTGTTGAAGATACGCAGGCCATTGCCCGTTACGGTCGTAATGTTACGAAGATGGATGCCTTTGGCTGTACCAGCCGGGGGCAGGCACACCGCGCCGGGCTGTGGCTGATTAAAACAGAACTGCTGGAAACGCAGACCGTGGATTTCAGCGTCGGCGCAGAAGGGCTTCG	A	100	PASS	NS=1;END=16919;SVLEN=300;SVTYPE=DEL	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:37919:144:142:0,142:106:0,106:2:104:1/1:11.73
+lambda	20056	.	C	CAAGGGCAACTCGCCGTACATCTATGGGACATTTTCCGCGACCGTTCGGAACTTTCGTCTGCCGAGTCAGGATAAAGGCTGATTGAGTTTGGGAGAAAGCA	100	PASS	NS=1;END=20056;SVLEN=100;SVTYPE=INS	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:23296:145:140:0,140:87:0,87:1:108:1/1:16.69
+lambda	24304	.	TGA	T	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:29214:144:156:0,156:116:0,116:1:114:1/1:17.80
+lambda	25054	.	G	T	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:28475:144:147:0,147:107:0,107:0:106:1/1:23.61
+lambda	30278	.	G	GGCCTAGGCGGGAACGTGGGCCATGGTGGCTGCCGCATGTACTGGCGATTGATCCTCCTGCAACCTGAAGGGACGGCCGCGGGAACGTCTCCGATAATGAAGGCTTGCACTCATATACTATCCAAGCCACGGGTGATACACCCGTGGCACTAAGAACGTTATAGAGAACCTATCTTTCGGGGATGGGCCTATTGCGTCTAACATAGACACTTTAAGGCTAATGAAGTTTGTAGCTAAGACCGCTGGGGAGTGAATAGCGGGACACGAATGGTCGGGAAGCAAAACGAAACGGAGGATTCTC	100	PASS	NS=1;END=30278;SVLEN=300;SVTYPE=INS	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:36168:142:119:0,119:35:0,35:1:113:1/1:17.61
+lambda	33538	.	A	AAG	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:40313:143:135:0,135:100:0,100:1:103:1/1:15.78
+lambda	37744	.	AG	A	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:12941:145:146:0,146:102:0,102:0:90:1/1:20.05
+lambda	41165	.	GAC	G	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:8704:146:168:0,168:123:0,123:1:115:1/1:17.98
+lambda	43279	.	G	C	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:100:6241:145:117:0,117:88:0,88:0:80:1/1:17.82
+lambda	45198	.	GA	G	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:PR:PA:PGT:PGQ	1/1:1|1:96:3932:143:136:5,131:101:0,101:3:97:1/1:8.55

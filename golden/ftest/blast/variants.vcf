@@ -1,0 +1,96 @@
+##fileformat=VCFv4.1
+##fileDate=20150120
+##source=Spiral Genetics v2.1
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=MATEID,Number=1,Type=String,Description="ID of mate breakends">
+##INFO=<ID=AID,Number=.,Type=Integer,Description="Assembly IDs used in constructing this variant">
+##INFO=<ID=AMBCOUNT,Number=1,Type=Integer,Description="Count of alternate locations for this end of an ambiguous breakend">
+##INFO=<ID=AMBMATES,Number=1,Type=Integer,Description="Count of possible mate locations of an ambiguous breakend">
+##INFO=<ID=SCL,Number=0,Type=Flag,Description="Possible SNP cluster">
+##INFO=<ID=BEREF,Number=1,Type=Integer,Description="Average reference coverage across breakends">
+##INFO=<ID=ENTROPYALT,Number=A,Type=Float,Description="Shannon entropy of alt allele if longer than 100 bp">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation">
+##INFO=<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants">
+##INFO=<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants">
+##INFO=<ID=TRANSPOSE,Number=1,Type=String,Description="Transposon FASTA sequence ID that this breakpoint anchor matches">
+##INFO=<ID=SAS,Number=1,Type=Float,Description="Simple alignment score. Likelyhood a breakend is not structural but rather aligns to reference simply">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=ED,Number=1,Type=Integer,Description="Edit distance">
+##FORMAT=<ID=OV,Number=A,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=FW,Number=A,Type=Float,Description="Percent of forward reads">
+##FORMAT=<ID=AQ,Number=A,Type=Integer,Description="Average quality">
+##FILTER=<ID=low_depth,Description="The sample depth was below the minimum allowed threshold">
+##FILTER=<ID=high_depth,Description="The sample depth was above the maximum allowed threshold">
+##FILTER=<ID=low_edit_distance,Description="The edit distance is below the minimum allowed threshold">
+##FILTER=<ID=too_many_alleles,Description="The set of possible alleles was too large/supported to be called">
+##FILTER=<ID=masking_present,Description="At least 45 bp were considered masked out by DUST">
+##FILTER=<ID=missing_assembly,Description="No hits were reported by BLAST for this assembly">
+##FILTER=<ID=simple_alignment,Description="A simple alignment was found by BLAST for this assembly">
+##FILTER=<ID=missing_anchor,Description="One or more anchors were not found by BLAST">
+##FILTER=<ID=no_unique_anchor,Description="BLAST could not uniquely identify at least one of the anchors for this assembly">
+##FILTER=<ID=ambiguous_anchor,Description="A BLAST query for this anchor reported multiple ambiguous hits">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##contig=<ID=1,length=230220>
+##contig=<ID=2,length=823575>
+##contig=<ID=3,length=316621>
+##contig=<ID=4,length=1531932>
+##contig=<ID=5,length=575772>
+##contig=<ID=6,length=270165>
+##contig=<ID=7,length=1090942>
+##contig=<ID=8,length=562643>
+##contig=<ID=9,length=439891>
+##contig=<ID=10,length=745751>
+##contig=<ID=11,length=666819>
+##contig=<ID=12,length=1078180>
+##contig=<ID=13,length=924431>
+##contig=<ID=14,length=784332>
+##contig=<ID=15,length=1091291>
+##contig=<ID=16,length=948066>
+##contig=<ID=17,length=85779>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+1	12565	sv_5	CCTGTCGCACTGGTAACAGGTGGTAATGAAGAAGTAATTTCCTGACTTGTTGTTGTACTGGTAACAGGTGGTAATGATGAAGTAATTTCCTGACTT	C	100	low_edit_distance	NS=1;DP=42;SVTYPE=REP;END=12660;SVLEN=-94;AID=5	DP:AD:ED:OV	42:2,40:11:89
+1	12594	sv_10	GGAAGTAATTTCCTGACTTGTTGTTGTACTGGTAACAGGTGGTAATGATGAAGTAATTTCCTGACTTGTTGTTGTACTGGTAACAGGTGGTAATGAAGAAGTAATTTCCTGACTTGTTGTTGCACTGGTAACAGGTGGTAATGA	G	100	low_edit_distance	NS=1;DP=39;SVTYPE=REP;END=12737;SVLEN=-142;AID=10	DP:AD:ED:OV	39:1,38:11:94
+1	25490	.	G	A	100	PASS	NS=1;DP=71;AID=19	GT:DP:AD:OV:FW:AQ	1/1:71:0,71:88:0.50:67
+1	25499	.	G	A	100	PASS	NS=1;DP=77;AID=19	GT:DP:AD:OV:FW:AQ	1/1:77:0,77:88:0.52:69
+1	25508	.	CTCGGTTGTA	TTCAGTGGTG	100	PASS	NS=1;DP=76;AID=19	GT:DP:AD:OV:FW:AQ	1/1:76:0,76:88:0.55:67
+1	25538	.	G	A	100	PASS	NS=1;DP=75;AID=19	GT:DP:AD:OV:FW:AQ	1/1:75:0,75:88:0.53:69
+1	25544	.	A	G	100	PASS	NS=1;DP=76;AID=19	GT:DP:AD:OV:FW:AQ	1/1:76:0,76:88:0.53:69
+1	25562	.	G	A	100	PASS	NS=1;DP=79;AID=19	GT:DP:AD:OV:FW:AQ	1/1:79:0,79:88:0.46:67
+1	25586	.	A	G	100	PASS	NS=1;DP=57;AID=19	GT:DP:AD:OV:FW:AQ	1/1:57:0,57:88:0.42:65
+1	25598	.	GGTG	AGTA	100	PASS	NS=1;DP=62;AID=19	GT:DP:AD:OV:FW:AQ	1/1:62:0,62:88:0.44:66
+1	25607	.	CTCA	TTCT	100	PASS	NS=1;DP=66;AID=19	GT:DP:AD:OV:FW:AQ	1/1:66:0,66:88:0.47:68
+1	25622	.	G	T	100	PASS	NS=1;DP=86;AID=19	GT:DP:AD:OV:FW:AQ	1/1:86:0,86:88:0.46:67
+1	25634	.	A	G	100	PASS	NS=1;DP=101;AID=19	GT:DP:AD:OV:FW:AQ	1/1:101:0,101:88:0.53:67
+1	25645	sv_19	C	<DEL>	100	PASS	NS=1;DP=122;SVTYPE=DEL;END=26999;SVLEN=-1350;AID=19;IMPRECISE;CIPOS=0,0;CIEND=0,0	DP:AD:ED:OV	122:0,122:43:88
+1	27029	.	AGTTCTGATG	TGTTTTGACA	100	PASS	NS=1;DP=168;AID=19	GT:DP:AD:OV:FW:AQ	1/1:168:0,168:88:0.58:68
+1	27046	.	C	T	100	PASS	NS=1;DP=179;AID=19	GT:DP:AD:OV:FW:AQ	1/1:179:0,179:88:0.55:67
+1	27062	.	AACG	TACA	100	PASS	NS=1;DP=161;AID=19	GT:DP:AD:OV:FW:AQ	1/1:161:0,161:88:0.55:66
+1	27074	.	ACCGGTGACGGTG	GCCAGTGATAGTA	100	PASS	NS=1;DP=139;AID=19	GT:DP:AD:OV:FW:AQ	1/1:139:0,139:88:0.53:66
+1	27092	.	T	C	100	PASS	NS=1;DP=115;AID=19	GT:DP:AD:OV:FW:AQ	1/1:115:0,115:88:0.51:67
+1	27101	.	T	C	100	PASS	NS=1;DP=106;AID=19	GT:DP:AD:OV:FW:AQ	1/1:106:0,106:88:0.49:67
+1	27107	.	A	G	100	PASS	NS=1;DP=89;AID=19	GT:DP:AD:OV:FW:AQ	1/1:89:0,89:88:0.41:67
+1	27128	.	TTCC	CTCG	100	PASS	NS=1;DP=67;AID=19	GT:DP:AD:OV:FW:AQ	1/1:67:0,67:88:0.36:68
+2	651125	.	AAAAAAAAAAAAAATTTTTTTAAAAA	TGCGGAATAGGAAAATGTTTTGGCTG	100	PASS	NS=1;DP=27;AID=11	GT:DP:AD:OV:FW:AQ	1/1:27:0,27:85:0.46:68
+2	756753	.	CATCTGCA	C	100	PASS	NS=1;DP=41;AID=7	GT:DP:AD:OV:FW:AQ	1/1:41:0,41:87:0.44:69
+3	148614	bnd_26	T	T[10:538103[	100	PASS	NS=1;DP=43;SVTYPE=BND;AID=13;MATEID=bnd_27;SAS=0.46;AMBMATES=85	DP:ED:OV	43:66:86
+4	817531	.	T	TA	100	PASS	NS=1;DP=63;AID=12	GT:DP:AD:OV:FW:AQ	1/1:63:0,63:91:0.52:69
+7	541687	bnd_28	A	A[12:818470[	100	ambiguous_anchor	NS=1;DP=86;SVTYPE=BND;AID=14;MATEID=bnd_29;SAS=0.47;AMBCOUNT=44	DP:ED:OV	86:62:86
+10	538103	bnd_27	T	]3:148614]T	100	ambiguous_anchor	NS=1;DP=43;SVTYPE=BND;AID=13;MATEID=bnd_26;SAS=0.46;AMBCOUNT=85	DP:ED:OV	43:66:86
+11	576490	bnd_4	G	G[15:427957[	100	masking_present	NS=1;DP=10;SVTYPE=BND;AID=2;MATEID=bnd_5;SAS=0.00	DP:ED:OV	10:35:83
+12	460001	.	CA	C	100	PASS	NS=1;DP=186;AID=0	GT:DP:AD:OV:FW:AQ	1/1:186:0,186:96:0.17:46
+12	460476	.	A	AT	100	PASS	NS=1;DP=25;AID=3	GT:DP:AD:OV:FW:AQ	1/1:25:0,25:82:0.52:64
+12	818470	bnd_29	T	]7:541687]T	100	PASS	NS=1;DP=86;SVTYPE=BND;AID=14;MATEID=bnd_28;SAS=0.47;AMBMATES=44	DP:ED:OV	86:62:86
+13	908273	sv_6	CCGTCTAGCGTAGTGAGTTCAGAAGCTCCATCGTCAACATCTAGCTCAGTGAGTTCCGAAATTTCGTCAACAACATCTAGCTCAGTAAGTTCAGAAGCTCCATTGGCAACGTCTAGCGTAGTGAGTTCAGAAGCTCCATCGTCAAC	C	100	low_edit_distance	NS=1;DP=16;SVTYPE=DEL;END=908418;SVLEN=-144;AID=6	DP:AD:ED:OV	16:0,16:18:87
+13	924275	bnd_18	A	A]15:101]	100	masking_present	NS=1;DP=61;SVTYPE=BND;AID=9;MATEID=bnd_19;SAS=0.00	DP:ED:OV	61:56:89
+15	101	bnd_19	C	C]13:924275]	100	masking_present	NS=1;DP=61;SVTYPE=BND;AID=9;MATEID=bnd_18;SAS=0.00	DP:ED:OV	61:55:89
+15	31114	sv_4	TTGAACCGGAGACTGATGAGCCCGATTCAGTGGCGGAGGATGAGCCTGATGTAATGGAAGTAG	T	100	PASS	NS=1;DP=37;SVTYPE=REP;END=31176;SVLEN=-61;AID=4	DP:AD:ED:OV	37:0,37:28:93
+15	427957	bnd_5	T	]11:576490]T	100	masking_present	NS=1;DP=10;SVTYPE=BND;AID=2;MATEID=bnd_4;SAS=0.00	DP:ED:OV	10:34:83
+16	144689	.	AGGAAACGTC	A	100	PASS	NS=1;DP=52;AID=8	GT:DP:AD:OV:FW:AQ	1/1:52:0,52:92:0.38:66
+17	20345	.	GA	G	100	PASS	NS=1;DP=179;AID=1	GT:DP:AD:OV:FW:AQ	1/1:179:0,179:95:0.59:65

@@ -1,0 +1,25 @@
+# Run a command on an Azure VM
+
+VMNAME="$1"
+
+# RG default is in tools/azure/common.
+
+if [ -z "$VMNAME" ]; then
+	echo "Usage: `basename $0` [vm name]"
+	exit 1
+fi
+shift
+
+SSHKEY="${HOME}/.azure/ssh/$VMNAME-key.pem"
+if [ ! -r $SSHKEY ]; then
+	echo "$SSHKEY not found."
+	exit 1
+fi
+
+LOCATION=${LOCATION:-'West US'}
+
+# domain is the lower case location with no spaces
+declare -l location=${LOCATION// /}
+VMHOST="${VMNAME}.${location}.cloudapp.azure.com"
+
+ssh -i ~/.azure/ssh/$VMNAME-key.pem spiral@${VMHOST} $*

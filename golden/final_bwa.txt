@@ -1,0 +1,7 @@
+seq	pos	ref_base	depth	rms_qual	var_qual	call	call_depth	call_qual	a_depth	c_depth	g_depth	t_depth	snp_effect	gene	gene_type	gene_status	gene_description	dbsnp_id	in_hapmap	in_1000_genome	known_alleles	risk_alleles	phenotype	phenotype_description	study
+NC_008253.1	7764	G	38	35	141	A	38	141	38	0	0	0							0	0					
+NC_008253.1	541	G	48	37	171	T	48	171	0	0	0	48							0	0					
+NC_008253.1	2778	T	36	37	135	C	36	135	0	36	0	0							0	0					
+NC_008253.1	6650	G	41	37	150	A	41	150	41	0	0	0							0	0					
+NC_008253.1	9173	T	38	37	141	C	38	141	0	38	0	0							0	0					
+NC_008253.1	9384	G	39	37	144	A	39	144	39	0	0	0							0	0					

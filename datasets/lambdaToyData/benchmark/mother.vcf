@@ -1,0 +1,29 @@
+##fileformat=VCFv4.1
+##fileDate=20181009
+##source="Spiral Genetics BioGraph",version="4.0.1-dev",description="build-revision='ddb7d0f71ad32e553bf49e95a2fc37ccdd910461',build-time='Mon Oct  8 23:38:58 2018',command-line='variants --in mother_lambda.bg/ --ref ref_lambda/ --out mother.vcf',seqset-uuid='01d59544-ff89-818b-ca67-4cf459476143'"
+##reference=ref_lambda/
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=PDP,Number=1,Type=Integer,Description="Sample Pair Depth">
+##FORMAT=<ID=PAD,Number=.,Type=Integer,Description="Allelic pair depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=OV,Number=1,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="Phased genotype">
+##FORMAT=<ID=PI,Number=1,Type=Integer,Description="Phase group">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype quality">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##contig=<ID=lambda,length=48502>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	mother
+lambda	8493	.	C	CT	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:48718:143:139:0,139:106:0,106
+lambda	13383	.	T	A	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:42648:145:139:0,139:108:0,108
+lambda	16619	.	ACCGCAGTAATGTGGTGATGCCGGATGATGGCGCGCCGTTCCGCTACAGCTTCAGCGCCCTGAAGGACCGCCATAATGCCGTTGAGGTGAACTGGATTGACCCGAACAACGGCTGGGAGACGGCGACAGAGCTTGTTGAAGATACGCAGGCCATTGCCCGTTACGGTCGTAATGTTACGAAGATGGATGCCTTTGGCTGTACCAGCCGGGGGCAGGCACACCGCGCCGGGCTGTGGCTGATTAAAACAGAACTGCTGGAAACGCAGACCGTGGATTTCAGCGTCGGCGCAGAAGGGCTTCG	A	100	PASS	NS=1;END=16919;SVLEN=-300;SVTYPE=DEL	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:20813:146:152:0,152:114:0,114
+lambda	20056	.	C	CAAGGGCAACTCGCCGTACATCTATGGGACATTTTCCGCGACCGTTCGGAACTTTCGTCTGCCGAGTCAGGATAAAGGCTGATTGAGTTTGGGAGAAAGCA	100	PASS	NS=1;END=20056;SVLEN=100;SVTYPE=INS	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:34824:144:155:0,155:106:0,106
+lambda	33538	.	A	AAG	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:41957:146:158:0,158:122:0,122
+lambda	41165	.	GAC	G	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:51492:144:146:0,146:116:0,116
+lambda	43279	.	G	C	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:53962:145:146:0,146:113:0,113
+lambda	45198	.	GA	G	100	PASS	NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:96:56247:142:131:4,127:100:0,100

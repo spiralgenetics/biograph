@@ -1,0 +1,1 @@
+{"chr_order":["F","Chromosome"],"chromosomes":[{"index":1,"len":4639675,"name":"Chromosome"},{"index":0,"len":99159,"name":"F"}],"supercontigs":[{"chr":"Chromosome","len":4639675,"name":"Chromosome:0","offset":0},{"chr":"F","len":99159,"name":"F:0","offset":0}]}

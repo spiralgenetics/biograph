@@ -1,0 +1,140 @@
+Mon Aug  7 18:38:53 2017 biograph[47654]: Built at Mon Aug  7 18:38:53 2017 by ubuntu on rob-trusty (i-07f6891f410c8445f) from revision b6f1084efddcf1d063d569540ff5c4656d23ee90 (Clean build)
+Mon Aug  7 18:38:53 2017 biograph[47654]: create --in /share/bams/pairing_test/pair_test1.fq --pair /share/bams/pairing_test/pair_test2.fq --ref /reference/e_coli_pairing_test/ --out /scratch/.cache/bazel/_bazel_ubuntu/d7534fda21850369e84fffe00d41220b/execroot/fno/_tmp/2a7fd20ad50942c6807d7e7e3b26203f/2017-08-07.18_35_52/SEQSETTestCases.test_paired_fastq/pair_test.bg --trim-after-portion 1 --max-corrections 0
+Mon Aug  7 18:38:53 2017 biograph[47654]:  bg version: 2.0.2-dev
+Mon Aug  7 18:38:53 2017 biograph[47654]:  os release: Ubuntu 14.04.5 LTS
+Mon Aug  7 18:38:53 2017 biograph[47654]:      kernel: Linux 3.13.0-119-generic #166-Ubuntu SMP Wed May 3 12:18:55 UTC 2017 x86_64
+Mon Aug  7 18:38:53 2017 biograph[47654]:        node: rob-trusty
+Mon Aug  7 18:38:53 2017 biograph[47654]:         cpu: 16
+Mon Aug  7 18:38:53 2017 biograph[47654]:     sys_mem: 120 GB
+Mon Aug  7 18:38:53 2017 biograph[47654]:   mem_limit: unlimited
+Mon Aug  7 18:38:53 2017 biograph[47654]:    tmp_free: 13 GB on /tmp/fabric_uo0EB4
+Mon Aug  7 18:38:53 2017 biograph[47654]: Listening on port 40047
+Mon Aug  7 18:38:53 2017 biograph_taskdb[47656]: Starting taskdb
+Mon Aug  7 18:38:53 2017 biograph_taskdb[47656]: taskdb::restore_global_state> Restoring global state from file:///tmp/fabric_uo0EB4/taskdb/db.4
+Mon Aug  7 18:38:53 2017 biograph_taskdb[47656]: taskdb::restore_global_state> Taskdb backup not found
+Mon Aug  7 18:38:53 2017 biograph_taskdb[47656]: Starting on port ...
+Mon Aug  7 18:38:53 2017 biograph_taskdb[47656]: HTTP server listening on 127.0.0.1 port 40047
+Mon Aug  7 18:38:54 2017 biograph_manager[47661]: Starting manager: profile 'normal', num_procs 16
+Mon Aug  7 18:38:54 2017 biograph[47654]: Start Stage::importing
+Mon Aug  7 18:38:54 2017 biograph_manager[47662]: Starting manager: profile 'himem', num_procs 1
+Mon Aug  7 18:38:54 2017 biograph[47654]: 50100 reads imported
+Mon Aug  7 18:38:54 2017 biograph[47654]: End Stage::importing
+Mon Aug  7 18:38:54 2017 biograph[47654]: Start Stage::kmerization
+Mon Aug  7 18:38:54 2017 biograph[47654]: task_mgr::add_job> generated job ID seqset-1
+Mon Aug  7 18:38:55 2017 biograph_worker[47666]: kmerize_bf_task::run> kmerize
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> using kmer_size: 30
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> using error_rate: 5.00%
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> using num_threads: 16
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> detected read_parts: 2
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> detected read_length: 100
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> user specified memory_bound: 48 GB
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> loading ref
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> ref loaded.
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> detected ref_size: 100239 from reference: 
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::compute_partitions> Trying 1 partitions: BF:5469kB + KC:16777216kB = Total:16782685kB
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> computed partitions: 1
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> Making data structures
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> counting_bloom_filter
+Mon Aug  7 18:38:57 2017 biograph_worker[47670]: kmerizer::prepare> kmer_counter_prime
+Mon Aug  7 18:39:02 2017 biograph_worker[47670]: kmerizer::run> Running partitions
+Mon Aug  7 18:39:02 2017 biograph_worker[47670]: kmerizer::partition> Partition 0 starting
+Mon Aug  7 18:39:03 2017 biograph_worker[47670]: kmerizer::partition> Processed 3557100 kmers
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::partition> Results written in 1782 ms.
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::partition> Partition 0 finished
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::run> Total kmers: 3557100
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::run> Total unique: 335506
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::run> Total survivors: 97327
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerizer::run> Total overrep: 0
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerize_bf_subtask::run> Writing overrep data
+Mon Aug  7 18:39:07 2017 biograph_worker[47670]: kmerize_bf_subtask::run> Writing final data manifest
+Mon Aug  7 18:39:07 2017 biograph_worker[47714]: kmerize_bf_task::run> sort
+Mon Aug  7 18:39:09 2017 biograph_worker[47716]: sort_task::run> stage 1: creating reduce_part_tasks 
+Mon Aug  7 18:39:12 2017 biograph_worker[47721]: sort_task::run> stage 2: gathering the results of reduce_part_tasks
+Mon Aug  7 18:39:13 2017 biograph_worker[47723]: kmerize_bf_task::run> final
+Mon Aug  7 18:39:14 2017 biograph[47654]: End Stage::kmerization
+Mon Aug  7 18:39:14 2017 biograph[47654]: Start Stage::read_correcting
+Mon Aug  7 18:39:14 2017 biograph[47654]: task_mgr::add_job> generated job ID seqset-2
+Mon Aug  7 18:39:15 2017 biograph_worker[47725]: read_correction_task::run> Start
+Mon Aug  7 18:39:21 2017 biograph_worker[47734]: read_correction_task::run> Start
+Mon Aug  7 18:39:22 2017 biograph_worker[47736]: kmers_to_db_task::run> Loading k-mers into memory
+Mon Aug  7 18:39:22 2017 biograph_worker[47736]: kmers_to_db_task::run> Writing k-mers out
+Mon Aug  7 18:39:24 2017 biograph_worker[47739]: read_correction_task::run> Start
+Mon Aug  7 18:39:31 2017 biograph_worker[47751]: read_correction_task::run> Start
+Mon Aug  7 18:39:31 2017 biograph_worker[47751]: read_correction_task::run> Done
+Mon Aug  7 18:39:32 2017 biograph[47654]: 35516 / 50100 reads survived read correction.
+Mon Aug  7 18:39:32 2017 biograph[47654]: Deleting imported reads
+Mon Aug  7 18:39:32 2017 biograph[47654]: Deleting kmers
+Mon Aug  7 18:39:32 2017 biograph[47654]: End Stage::read_correcting
+Mon Aug  7 18:39:32 2017 biograph[47654]: Start Stage::seqset_created
+Mon Aug  7 18:39:32 2017 biograph[47654]: task_mgr::add_job> generated job ID seqset-3
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Running with 16 threads, max_buf_size: 0
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Loading reads into in-memory repo
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Reference size = 100239
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: 3551600 corrected reads bases.
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: mem_seqset_task::count_flyweights> 93856
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: bwt_file::bwt_file> BWT loaded, 100240 entries
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Starting reference read mapping
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Reference read mapping complete
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: base_counts size = 1, base_counts[0] = 3300
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Accumulated bases = 3300
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Repo memmap buffer starts at 0x7f354c1b2000
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Record count 23464, base count = 103539, paired = 1
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: mem_needed: 1087472 mem_available: 51538520080
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Mapping non-ref reads
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: m_repo_iter starts at 0x7f354c1ca78f
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: m_repo_iter offset = 100239
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: m_repo_offsets.back() = 3300
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Non-reference read mapping complete
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Size of flyweight = 8
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Doing original sort
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Deduping
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: New size = 59644
+Mon Aug  7 18:39:33 2017 biograph_worker[47752]: Doing read expansion
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Output size is: 137161
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Doing out sort
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Dedupping out
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Output size is: 137128
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Making file out of vector, size = 137128
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: New output size is: 137128, truncating to 1097024
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: File name = /tmp/fabric_uo0EB4/28966595-ac72-7ca3-6b68-58b945ad0a06
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Closing originals mmap
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Making file out of vector, size = 59644
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: New output size is: 59644, truncating to 477152
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Merging all things
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Total size = 196772
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: i = 0, reading 137128 entries
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: i = 1, reading 59644 entries
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Lowest EOF = TTTTTTTTTGCCCGGTTTTCTTTGCTTCGCGGATAATGTCCAGAATTAGCATATCAAGCACATCAACGGCATCGTCTAATGCCGTTATTTCCTGTGCT
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: i = 0, actual size = 137128
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: i = 1, actual size = 59644
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Sorting top 196772 entries
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Uniqing top 196772 entries
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Final output size = 196772
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Computing letter break for base 3 (T)
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Result is 145746, seq = TAAAAAAAACACCCCCGTAGTGGGGGTGTTGAAACTTCAACCTATGTACTCATTATCCTTGGATGGATGAGTAGCGTGCGATATTGAATCATATTCAGC
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Prev seq = GTTTTTTTTCTTCCCGGCAACAAGAAGCGTGTACGACGCGGTGTTAACGTGGATATTTCGGGTACTCATCCTGCTTTCTCCTCTCTCTGG
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Computing letter break for base 2 (G)
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Result is 98416, seq = GAAAAAAAACACCGGGGAAGAGTGGGACGTCCTGGAATTCAGCAGCCTGACTGAGCTGAAAAAATATCGCAAAAGCCACCCGGAAAAGATGGCCTTCAG
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Prev seq = CTTTTTTTTTGCCCGGTTTTCTTTGCTTCGCGGATAATGTCCAGAATTAGCATATCAAGCACATCAACGGCATCGTCTAATGCCGTTATTTCCTGTGCT
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Computing letter break for base 1 (C)
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Result is 51055, seq = CAAAAAAAAAGACTCAGGACACTGAAAGATCTTGATCAGGCCGCATTGTTACTGGCGCGGGCATGTGCATTGTTGCTGGATGATAATACAGATGTCCCAG
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Prev seq = ATTTTTTTTGTCATAAAATACATAGCATTACGATGGCACTTGATGATTTGTGCTCAAACTGAAAAGAATATTCTGATTTTTCGTGATGTTGAGGGTATTC
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: Running final step
+Mon Aug  7 18:39:34 2017 biograph_worker[47752]: tot_size = 196772, m_base_pos[0] = 0, m_base_pos[1] = 51055, m_base_pos[2] = 98416, m_base_pos[3] = 145746, m_base_pos[4] = 196772
+Mon Aug  7 18:39:35 2017 biograph_worker[47752]: Finalizing
+Mon Aug  7 18:39:35 2017 biograph_worker[47752]: offset = 196772, m_entries = 196772
+Mon Aug  7 18:39:35 2017 biograph_worker[47752]: Writing manifest!
+Mon Aug  7 18:39:35 2017 biograph[47654]: End Stage::seqset_created
+Mon Aug  7 18:39:35 2017 biograph[47654]: Start Stage::readmap_created
+Mon Aug  7 18:39:35 2017 biograph[47654]: make_readmap::do_make> Creating readmap, is_paired = 1
+Mon Aug  7 18:39:35 2017 biograph[47654]: Constructing mate table builder.
+Mon Aug  7 18:39:35 2017 biograph[47654]: Allocated 93856 entries at 12 bytes each, total memory = 1126272
+Mon Aug  7 18:39:35 2017 biograph[47654]: Constructing parallel_mate_pair_table_builder, file_info_count = 1, manifest_record_count = 23464
+Mon Aug  7 18:39:35 2017 biograph[47654]: Starting mate table build.
+Mon Aug  7 18:39:36 2017 biograph[47654]: Mate pair table has 93856 entries, 48208 paired and 45648 unpaired
+Mon Aug  7 18:39:36 2017 biograph[47654]: Mate pair table is sorted.
+Mon Aug  7 18:39:36 2017 biograph[47654]: Mate pair table empty entries dropped. Length = 71032.
+Mon Aug  7 18:39:36 2017 biograph[47654]: End Stage::readmap_created
+Mon Aug  7 18:39:36 2017 biograph[47654]: Shutting down.
+Mon Aug  7 18:39:36 2017 biograph_taskdb[47656]: Caught signal: 15
+Mon Aug  7 18:39:36 2017 biograph_taskdb[47656]: HTTP server shutting down

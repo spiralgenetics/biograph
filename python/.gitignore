@@ -1,0 +1,6 @@
+build
+dist
+dist32
+pkg
+Spiral.dmg
+*.egg-info

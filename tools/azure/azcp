@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Like aws s3 cp, but for single azure blobs
+#
+# No recursive copy yet. Use 'az storage blob download-batch' instead.
+#
+if [ -z "$2" ]; then
+	echo "Usage: `basename $0` src dest"
+	exit 1
+fi
+
+if $(echo $1 | grep -q :); then
+	if $(echo $2 | grep -q :); then
+		echo "A : may only appear in the src or dest, not both."
+		exit 1
+	fi
+	CMD="download"
+	AZ=$1
+	LOCAL=$2
+else
+	CMD="upload"
+	AZ=$2
+	LOCAL=$1
+fi
+
+CONTAINER=${AZ/:*}
+AZPATH=${AZ/*:}
+
+if [ -d "${LOCAL}" ]; then
+	LOCAL="${LOCAL}/`basename ${AZPATH}`"
+fi
+
+az storage blob ${CMD} -c ${CONTAINER} --name ${AZPATH} --file ${LOCAL}

@@ -1,0 +1,204 @@
+Key	Type	Section	Description
+Total_Reads	Integer	AlignStats Report	Total number of reads in the bam
+Unfiltered_Reads	Integer	AlignStats Report	Number of reads that were not filtered from -f/-F
+Unfiltered_Reads_Pct	Float	AlignStats Report	Unfiltered_Reads / Yield_Reads
+Filtered_Reads	Integer	AlignStats Report	Number of reads filtered with -f/-F
+Filtered_Reads_Pct	Float	AlignStats Report	Number of reads filtered with -f/-F over Total_Reads
+Yield_Reads	Integer	Alignment Statistics	Total number of reads
+Yield_Bases	Integer	Alignment Statistics	Total number of bases
+Unmapped_Reads	Integer	Alignment Statistics	Number of unmapped reads
+Unmapped_Reads_Pct	Float	Alignment Statistics	Unmapped reads as percentage of Yield_Reads
+Unmapped_Bases	Integer	Alignment Statistics	Sum of bases in unmapped reads
+Unmapped_Bases_Pct	Float	Alignment Statistics	Bases in unmapped reads as percentage of Yield_Bases
+Duplicate_Reads	Integer	Alignment Statistics	Number of mapped duplicate reads
+Duplicate_Reads_Pct	Float	Alignment Statistics	Mapped duplicate reads as percentage of aligned reads
+Duplicate_Bases	Integer	Alignment Statistics	Sum of bases in duplicate reads
+Duplicate_Bases_Pct	Float	Alignment Statistics	Sum of bases in duplicate reads as percentage of Aligned_Bases
+Mapped_Reads	Integer	Alignment Statistics	Number of mapped reads
+Mapped_Reads_Pct	Float	Alignment Statistics	Mapped reads as percentage of Yield_Reads
+Mapped_Bases	Integer	Alignment Statistics	Sum of bases in mapped reads
+Mapped_Bases_Pct	Float	Alignment Statistics	Bases in mapped reads as percentage of Yield_Reads
+Aligned_Bases	Integer	Alignment Statistics	Mapped_Bases minus Soft-Clipped Bases
+Aligned_Bases_Pct	Float	Alignment Statistics	Aligned_Bases as percentage of Yield_Reads
+Matched_Bases	Integer	Alignment Statistics	Number of aligned bases matching reference base
+Matched_Bases_Pct	Float	Alignment Statistics	Aligned bases matching reference base as percentage of Aligned_Bases
+Mismatched_Bases	Integer	Alignment Statistics	Number of aligned bases not matching reference base
+Mismatched_Bases_Pct	Float	Alignment Statistics	Aligned bases not matching reference base as percentage of Aligned_Bases
+Inserted_Bases	Integer	Alignment Statistics	Number of insertion error bases
+Inserted_Bases_Pct	Float	Alignment Statistics	Insertion error bases as percentage of Aligned_Bases
+Deleted_Bases	Integer	Alignment Statistics	Number of deletion error bases
+Deleted_Bases_Pct	Float	Alignment Statistics	Deletion error bases as percentage of Aligned_Bases
+SoftClipped_Reads	Integer	Alignment Statistics	Number of reads with soft-clipping
+SoftClipped_Reads_Pct	Float	Alignment Statistics	Reads with soft-clipping as percentage of Mapped_Reads
+SoftClipped_Bases	Integer	Alignment Statistics	Number of soft-clipped error bases
+SoftClipped_Bases_Pct	Float	Alignment Statistics	Soft-clipped error bases as percentage of Mapped_Bases
+Perfect_Reads	Integer	Alignment Statistics	Number of aligned reads without any mismatches, insertions, or deletions
+Perfect_Reads_Pct	Float	Alignment Statistics	Aligned reads without any mismatches, insertions, or deletions as percentage of Mapped_Reads
+Perfect_Bases	Integer	Alignment Statistics	Sum of bases in Perfect_Bases
+Perfect_Bases_Pct	Float	Alignment Statistics	Bases in Perfect_Bases as percentage of Mapped_Bases
+MAPQ20_Reads	Integer	Alignment Statistics	Number of reads with MAPQ >= 20 (less than 1/100 chance of wrong alignment)
+MAPQ20_Reads_Pct	Float	Alignment Statistics	Percent of reads with MAPQ >= 20 as percentage of Mapped_Reads
+Q20_Bases	Integer	Alignment Statistics	Number of bases with quality scores of at least 20
+Q20_Bases_Pct	Float	Alignment Statistics	Bases with quality scores of at least 20 as percentage of Aligned_Bases
+R1_Yield_Reads	Integer	Alignment Statistics	Total number of reads for R1
+R1_Yield_Bases	Integer	Alignment Statistics	Total number of bases for R1
+R1_Unmapped_Reads	Integer	Alignment Statistics	Number of unmapped reads for R1
+R1_Unmapped_Reads_Pct	Float	Alignment Statistics	Unmapped reads as percentage of Yield_Reads for R1
+R1_Unmapped_Bases	Integer	Alignment Statistics	Sum of bases in unmapped reads for R1
+R1_Unmapped_Bases_Pct	Float	Alignment Statistics	Bases in unmapped reads as percentage of Yield_Bases for R1
+R1_Mapped_Reads	Integer	Alignment Statistics	Number of mapped reads for R1
+R1_Mapped_Reads_Pct	Float	Alignment Statistics	Mapped reads as percentage of Yield_Reads for R1
+R1_Mapped_Bases	Integer	Alignment Statistics	Sum of bases in mapped reads for R1
+R1_Mapped_Bases_Pct	Float	Alignment Statistics	Sum of bases in mapped reads as percentage of Yield_Reads for R1
+R1_Aligned_Bases	Integer	Alignment Statistics	Mapped_Bases minus Soft-Clipped Bases for R1
+R1_Aligned_Bases_Pct	Float	Alignment Statistics	Aligned_Bases as percentage of Yield_Reads for R1
+R1_Matched_Bases	Integer	Alignment Statistics	Number of aligned bases matching reference base for R1
+R1_Matched_Bases_Pct	Float	Alignment Statistics	Aligned bases matching reference base as percentage of Aligned_Bases for R1
+R1_Mismatched_Bases	Integer	Alignment Statistics	Number of aligned bases not matching reference base for R1
+R1_Mismatched_Bases_Pct	Float	Alignment Statistics	Aligned bases not matching reference base as percentage of Aligned_Bases for R1
+R1_Inserted_Bases	Integer	Alignment Statistics	Number of insertion error bases for R1
+R1_Inserted_Bases_Pct	Float	Alignment Statistics	Insertion error bases as percentage of Aligned_Bases for R1
+R1_Deleted_Bases	Integer	Alignment Statistics	Number of deletion error bases for R1
+R1_Deleted_Bases_Pct	Float	Alignment Statistics	Deletion error bases as percentage of Aligned_Bases for R1
+R1_SoftClipped_Reads	Integer	Alignment Statistics	Number of reads with soft-clipping for R1
+R1_SoftClipped_Reads_Pct	Float	Alignment Statistics	Reads with soft-clipping as percentage of Mapped_Reads for R1
+R1_SoftClipped_Bases	Integer	Alignment Statistics	Number of soft-clipped error bases for R1
+R1_SoftClipped_Bases_Pct	Float	Alignment Statistics	Soft-clipped error bases as percentage of Mapped_Bases for R1
+R1_Perfect_Reads	Integer	Alignment Statistics	Number of aligned reads without any mismatches, insertions, or deletions for R1
+R1_Perfect_Reads_Pct	Float	Alignment Statistics	Aligned reads without any mismatches, insertions, or deletions as percentage of Mapped_Reads for R1
+R1_Perfect_Bases	Integer	Alignment Statistics	Sum of bases in Perfect_Bases for R1
+R1_Perfect_Bases_Pct	Float	Alignment Statistics	Bases in Perfect_Bases as percentage of Mapped_Bases for R1
+R1_MAPQ20_Reads	Integer	Alignment Statics	Reads with a MAPQ >= 20 for R1
+R1_MAPQ20_Reads_Pct	Float	Alignment Statics	Reads with a MAPQ >= 20 for R1 over total number of R1_Mapped_Reads
+R1_Q20_Bases	Integer	Alignment Statistics	Number of bases with quality scores of at least 20 for R1
+R1_Q20_Bases_Pct	Float	Alignment Statistics	Bases with quality scores of at least 20 as percentage of Aligned_Bases for R1
+R2_Yield_Reads	Integer	Alignment Statistics	Total number of reads for R2
+R2_Yield_Bases	Integer	Alignment Statistics	Total number of bases for R2
+R2_Unmapped_Reads	Integer	Alignment Statistics	Number of unmapped reads for R2
+R2_Unmapped_Reads_Pct	Float	Alignment Statistics	Unmapped reads as percentage of Yield_Reads for R2
+R2_Unmapped_Bases	Integer	Alignment Statistics	Sum of bases in unmapped reads for R2
+R2_Unmapped_Bases_Pct	Float	Alignment Statistics	Bases in unmapped reads as percentage of Yield_Bases for R2
+R2_Mapped_Reads	Integer	Alignment Statistics	Number of mapped reads for R2
+R2_Mapped_Reads_Pct	Float	Alignment Statistics	Mapped reads as percentage of Yield_Reads for R2
+R2_Mapped_Bases	Integer	Alignment Statistics	Sum of bases in mapped reads for R2
+R2_Mapped_Bases_Pct	Float	Alignment Statistics	Bases in mapped reads as percentage of Yield_Reads for R2
+R2_Aligned_Bases	Integer	Alignment Statistics	Mapped_Bases minus Soft-Clipped Bases for R2
+R2_Aligned_Bases_Pct	Float	Alignment Statistics	Aligned_Bases as percentage of Yield_Reads for R2
+R2_Matched_Bases	Integer	Alignment Statistics	Number of aligned bases matching reference base for R2
+R2_Matched_Bases_Pct	Float	Alignment Statistics	Aligned bases matching reference base as percentage of Aligned_Bases for R2
+R2_Mismatched_Bases	Integer	Alignment Statistics	Number of aligned bases not matching reference base for R2
+R2_Mismatched_Bases_Pct	Float	Alignment Statistics	Aligned bases not matching reference base as percentage of Aligned_Bases for R2
+R2_Inserted_Bases	Integer	Alignment Statistics	Number of insertion error bases for R2
+R2_Inserted_Bases_Pct	Float	Alignment Statistics	Insertion error bases as percentage of Aligned_Bases for R2
+R2_Deleted_Bases	Integer	Alignment Statistics	Number of deletion error bases for R2
+R2_Deleted_Bases_Pct	Float	Alignment Statistics	Deletion error bases as percentage of Aligned_Bases for R2
+R2_SoftClipped_Reads	Integer	Alignment Statistics	Number of reads with soft-clipping for R2
+R2_SoftClipped_Reads_Pct	Float	Alignment Statistics	Reads with soft-clipping as percentage of Mapped_Reads for R2
+R2_SoftClipped_Bases	Integer	Alignment Statistics	Number of soft-clipped error bases for R2
+R2_SoftClipped_Bases_Pct	Float	Alignment Statistics	Soft-clipped error bases as percentage of Mapped_Bases for R2
+R2_Perfect_Reads	Integer	Alignment Statistics	Number of aligned reads without any mismatches, insertions, or deletions for R2
+R2_Perfect_Reads_Pct	Float	Alignment Statistics	Aligned reads without any mismatches, insertions, or deletions as percentage of Mapped_Reads for R2
+R2_Perfect_Bases	Integer	Alignment Statistics	Sum of bases in Perfect_Bases for R2
+R2_Perfect_Bases_Pct	Float	Alignment Statistics	Bases in Perfect_Bases as percentage of Mapped_Bases for R2
+R2_MAPQ20_Reads	Integer	Alignment Statics	Reads with a MAPQ >= 20
+R2_MAPQ20_Reads_Pct	Float	Alignment Statics	Reads with a MAPQ >= 20 over total number of R2_Mapped_Reads
+R2_Q20_Bases	Integer	Alignment Statistics	Number of bases with quality scores of at least 20 for R2
+R2_Q20_Bases_Pct	Float	Alignment Statistics	Bases with quality scores of at least 20 as percentage of Aligned_Bases for R2
+Mean_Aligned_Read_Length	Float	Alignment Statistics	Mean alignment length
+Median_Aligned_Read_Length	Integer	Alignment Statistics	Median alignment length
+Mode_Aligned_Read_Length	Integer	Alignment Statistics	Mode alignment length
+R1_Mean_Aligned_Read_Length	Float	Alignment Statistics	Mean alignment length for R1
+R1_Median_Aligned_Read_Length	Integer	Alignment Statistics	Median alignment length for R1
+R1_Mode_Aligned_Read_Length	Integer	Alignment Statistics	Mode alignment length for R1
+R2_Mean_Aligned_Read_Length	Float	Alignment Statistics	Mean alignment length for R2
+R2_Median_Aligned_Read_Length	Integer	Alignment Statistics	Median alignment length for R2
+R2_Mode_Aligned_Read_Length	Integer	Alignment Statistics	Mode alignment length for R2
+Total_Pairs	Integer	Alignment Statistics	Number of reads with both pairs mapped
+Total_Same_Chr_Pairs	Integer	Alignment Statistics	Number of reads with both pairs mapped to the same chromosome
+Total_Same_Chr_Pairs_Pct	Float	Alignment Statistics	Reads with both pairs mapped to the same chromosome as percentage of Total_Pairs
+Unpaired_Reads	Integer	Alignment Statistics	Number of unpaired reads
+Unpaired_Reads_Pct	Float	Alignment Statistics	Number of unpaired reads as percentage of Total_Pairs
+R1_Unpaired_Reads	Integer	Alignment Statistics	Number of unpaired reads for R1
+R1_Unpaired_Reads_Pct	Float	Alignment Statistics	Number of unpaired reads as percentage of Total_Pairs for R1
+R2_Unpaired_Reads	Integer	Alignment Statistics	Number of unpaired reads for R2
+R2_Unpaired_Reads_Pct	Float	Alignment Statistics	Number of unpaired reads as percentage of Total_Pairs for R2
+Chimeric_Rate	Float	Alignment Statistics	Reads in improper pair as percentage of Mapped_Reads (samtools view -F 1806 reads / samtools view -F 1804)
+Mean_Insert_Size	Float	Alignment Statistics	Mean observed insert size (read must be in proper pair)
+Median_Insert_Size	Integer	Alignment Statistics	Median observed insert size (read must be in proper pair)
+Mode_Insert_Size	Integer	Alignment Statistics	Mode observed insert size (read must be in proper pair)
+Wgs_Total_Reads	Integer	Whole Genome Metrics	Total number of reads
+Wgs_Cov_Duplicate_Reads	Integer	Whole Genome Metrics	Number of duplicate reads
+Wgs_Cov_Duplicate_Reads_Pct	Float	Whole Genome Metrics	Duplicate reads as percentage of total reads
+Wgs_Aligned_Reads	Integer	Whole Genome Metrics	Number of aligned reads
+Wgs_Aligned_Reads_Pct	Float	Whole Genome Metrics	Aligned reads as percentage of total reads
+Wgs_Reads_Paired	Integer	Whole Genome Metrics	Number of paired reads
+Wgs_Reads_Paired_With_Mates	Integer	Whole Genome Metrics	Number of paired reads with mate mapped
+Wgs_Average_Coverage	Float	Whole Genome Metrics	Average coverage
+Wgs_Median_Coverage	Integer	Whole Genome Metrics	Median coverage
+Wgs_Expected_Aligned_Reads	Integer	Whole Genome Metrics	Number of aligned reads
+Wgs_Calculated_Aligned_Reads	Integer	Whole Genome Metrics	Sum of reads in target, reads in buffer, and reads out of target and buffer
+Wgs_Coverage_Bases_1	Integer	Whole Genome Metrics	Number of bases with coverage of at least 1 read
+Wgs_Coverage_Bases_1_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 1 read as percentage of total bases
+Wgs_Coverage_Bases_10	Integer	Whole Genome Metrics	Number of bases with coverage of at least 10 reads
+Wgs_Coverage_Bases_10_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 10 reads as percentage of total bases
+Wgs_Coverage_Bases_20	Integer	Whole Genome Metrics	Number of bases with coverage of at least 20 reads
+Wgs_Coverage_Bases_20_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 20 reads as percentage of total bases
+Wgs_Coverage_Bases_30	Integer	Whole Genome Metrics	Number of bases with coverage of at least 30 reads
+Wgs_Coverage_Bases_30_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 30 reads as percentage of total bases
+Wgs_Coverage_Bases_40	Integer	Whole Genome Metrics	Number of bases with coverage of at least 40 reads
+Wgs_Coverage_Bases_40_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 40 reads as percentage of total bases
+Wgs_Coverage_Bases_50	Integer	Whole Genome Metrics	Number of bases with coverage of at least 50 reads
+Wgs_Coverage_Bases_50_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 50 reads as percentage of total bases
+Wgs_Coverage_Bases_100	Integer	Whole Genome Metrics	Number of bases with coverage of at least 100 reads
+Wgs_Coverage_Bases_100_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 100 reads as percentage of total bases
+Wgs_Coverage_Bases_1000	Integer	Whole Genome Metrics	Number of bases with coverage of at least 1000 reads
+Wgs_Coverage_Bases_1000_Pct	Float	Whole Genome Metrics	Bases with coverage of at least 1000 reads as percentage of total bases
+Cap_Total_Reads	Integer	Capture Metrics	Total number of reads
+Cap_Cov_Duplicate_Reads	Integer	Capture Metrics	Number of duplicate reads
+Cap_Cov_Duplicate_Reads_Pct	Float	Capture Metrics	Duplicate reads as percentage of total reads
+Cap_Aligned_Reads	Integer	Capture Metrics	Number of aligned reads
+Cap_Aligned_Reads_Pct	Float	Capture Metrics	Aligned reads as percentage of total reads
+Cap_Reads_Paired	Integer	Capture Metrics	Number of paired reads
+Cap_Reads_Paired_With_Mates	Integer	Capture Metrics	Number of paired reads with mate mapped
+Cap_Average_Coverage	Float	Capture Metrics	Average coverage within target regions
+Cap_Median_Coverage	Integer	Capture Metrics	Median coverage within target regions
+Cap_Expected_Aligned_Reads	Integer	Capture Metrics	Number of aligned reads
+Cap_Calculated_Aligned_Reads	Integer	Capture Metrics	Sum of reads in target, reads in buffer, and reads out of target and buffer
+Cap_Coverage_Bases_1	Integer	Capture Metrics	Bases with coverage of at least 1 read within target regions
+Cap_Coverage_Bases_1_Pct	Float	Capture Metrics	Bases with coverage of at least 1 read as percentage of total bases within target regions
+Cap_Coverage_Bases_10	Integer	Capture Metrics	Bases with coverage of at least 10 reads within target regions
+Cap_Coverage_Bases_10_Pct	Float	Capture Metrics	Bases with coverage of at least 10 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_20	Integer	Capture Metrics	Bases with coverage of at least 20 reads within target regions
+Cap_Coverage_Bases_20_Pct	Float	Capture Metrics	Bases with coverage of at least 20 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_30	Integer	Capture Metrics	Bases with coverage of at least 30 reads within target regions
+Cap_Coverage_Bases_30_Pct	Float	Capture Metrics	Bases with coverage of at least 30 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_40	Integer	Capture Metrics	Bases with coverage of at least 40 reads within target regions
+Cap_Coverage_Bases_40_Pct	Float	Capture Metrics	Bases with coverage of at least 40 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_50	Integer	Capture Metrics	Bases with coverage of at least 50 reads within target regions
+Cap_Coverage_Bases_50_Pct	Float	Capture Metrics	Bases with coverage of at least 50 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_100	Integer	Capture Metrics	Bases with coverage of at least 100 reads within target regions
+Cap_Coverage_Bases_100_Pct	Float	Capture Metrics	Bases with coverage of at least 100 reads as percentage of total bases within target regions
+Cap_Coverage_Bases_1000	Integer	Capture Metrics	Bases with coverage of at least 1000 reads within target regions
+Cap_Coverage_Bases_1000_Pct	Float	Capture Metrics	Bases with coverage of at least 1000 reads as percentage of total bases within target regions
+Cap_Buffer_Aligned_Reads	Integer	Capture Metrics	Number of aligned reads in buffer regions but not in target regions
+Cap_Buffer_Aligned_Reads_Pct	Float	Capture Metrics	Number of aligned reads in buffer regions but not in target regions as percentage of aligned reads
+Cap_Target_Aligned_Reads	Integer	Capture Metrics	Number of aligned reads in target regions
+Cap_Target_Aligned_Reads_Pct	Float	Capture Metrics	Aligned reads in target regions as percentage of aligned reads
+Cap_Target_Aligned_Bases	Integer	Capture Metrics	Number of bases in Target_Aligned_Reads
+Cap_Target_Aligned_Bases_Pct	Float	Capture Metrics	Number of bases in Target_Aligned_Reads over Aligned_Bases
+Cap_Target_MAPQ20_Reads	Integer	Capture Metrics	Number of reads on target with MAPQ >= 20 (less than 1/100 chance of wrong alignment)
+Cap_Target_MAPQ20_Reads_Pct	Float	Capture Metrics	Percent of reads on target with MAPQ >= 20 as percentage of Aligned_Reads
+Cap_Target_MAPQ20_Bases	Integer	Capture Metrics	Number of bases within target reads with MAPQ >= 20
+Cap_Target_MAPQ20_Bases_Pct	Float	Capture Metrics percentage of Q20 bases within target regions over Cap_Target_Read_Bases
+Cap_Targets_Hit	Integer	Capture Metrics	Number of targets capturing at least one aligned read
+Cap_Targets_Hit_Pct	Float	Capture Metrics	Targets capturing at least one aligned read as percentage of total targets
+Cap_Target_Buffers_Hit	Integer	Capture Metrics	Number of targets not capturing any reads whose buffer regions capture at least one aligned read
+Cap_Target_Buffers_Hit_Pct	Float	Capture Metrics	Targets not capturing any reads whose buffer regions capture at least one aligned read as percentage of total targets
+Cap_Total_Targets	Integer	Capture Metrics	Total number of targets from capture file
+Cap_High_Coverage_Non_Target_Hits	Integer	Capture Metrics	Number of contiguous regions of coverage outside of target regions or target buffer regions with coverage of at least 20 for at least one base
+Cap_Bases_On_Target	Integer	Capture Metrics	Number of bases covered by target regions
+Cap_Bases_On_Buffer	Integer	Capture Metrics	Number of bases within target buffer regions but outside of target regions ((Cap_Total_Targets * 2) * Buffer)
+Cap_Reads_On_Target_Or_Buffer	Integer	Capture Metrics	Number of reads captured by either target regions or target buffer regions
+Cap_Reads_On_Target_Or_Buffer_Pct	Float	Capture Metrics	Reads captured by either target regions or target buffer regions as percentage of aligned reads
+Cap_Target_Coverage_Header	String	Capture Metrics	Space delimited header of Cap_Target_Coverage keys
+Cap_Target_Coverage	String	Capture Metrics	Space delimited values of per-target coverage stats

@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+# Extract stats from json and push to graphite. Requires jq (apt install jq).
+#
+set -e
+
+# the graphite host and port
+export GRAPHITE="jenkins 2003"
+
+if [ "${DEBUG}" ]; then
+	export NC="cat"
+else
+	export NC="nc ${GRAPHITE}"
+fi
+
+if [ -z "$2" ]; then
+	cat <<EOM
+Extract runtime stats from a biograph stats.json and push to graphite.
+
+Usage: `basename $0` path/to/stats.json build_number
+
+EOM
+	exit 1
+fi
+
+JSON="$1"
+BUILD_NUMBER="$2"
+
+if [ ! -r "${JSON}" ]; then
+	echo "Can't open ${JSON}, exiting."
+	exit 1
+fi
+
+# alphanumeric only, space is _
+METRIC=$(jq -r '.accession_id' ${JSON} | tr ' ' _ | tr -dc '[A-Za-z0-9_+]')
+# create, variants, or merge
+COMMAND=$(jq -r '.command' ${JSON})
+DATE=$(date +%s)
+
+for stat in $(jq -r 'keys[] | select(. != "accession_id") | select(. != "timings") | select (. != "command") | select (. != "version")' ${JSON}); do
+	if [ "${stat}" != "command" -a "${stat}" != "timings" ]; then
+		echo ${METRIC}.${BUILD_NUMBER}.${COMMAND}.${stat} $(jq -r ".${stat}" ${JSON}) ${DATE} | ${NC}
+	fi
+done
+
+for time in $(jq -r '.timings[] | keys | @tsv' ${JSON}); do
+	echo ${METRIC}.${BUILD_NUMBER}.${COMMAND}.time.${time} $(jq -r ".timings[] | select(.${time})[]" ${JSON}) ${DATE} | ${NC}
+done
+
+# end

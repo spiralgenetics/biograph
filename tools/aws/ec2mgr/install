@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e
+
+export DEST='/usr/local/sbin'
+
+if [ "$EUID" != "0" ]; then
+	echo "This script must be run as root"
+	exit 1
+fi
+
+pushd /tmp
+apt-get install python3-pip
+pip3 install -U boto3
+popd
+
+cp ec2mgr ${DEST}/ec2mgr
+chmod a+x ${DEST}/ec2mgr
+cp ec2mgr-warn.sh /etc/profile.d/
+
+echo "@reboot      root ${DEST}/ec2mgr boot" > /etc/cron.d/ec2mgr
+echo "0,30 * * * *   root ${DEST}/ec2mgr poll" >> /etc/cron.d/ec2mgr
+
+echo
+echo "ec2mgr has been installed"
+
+${DEST}/ec2mgr boot

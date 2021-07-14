@@ -1,0 +1,29 @@
+Tue Oct  9 23:37:59 2018 biograph[32712]: Built at Tue Oct  9 23:37:59 2018 by english on englishdev (englishdev) from revision ddb7d0f71ad32e553bf49e95a2fc37ccdd910461 (Clean build)
+Tue Oct  9 23:37:59 2018 biograph[32712]: variants --in father_lambda.bg/ --ref ref_lambda/ --out father.vcf
+Tue Oct  9 23:37:59 2018 biograph[32712]:  bg version: 4.0.1-dev
+Tue Oct  9 23:37:59 2018 biograph[32712]:  os release: Ubuntu 16.04.4 LTS
+Tue Oct  9 23:37:59 2018 biograph[32712]:      kernel: Linux 4.15.0-1022-azure #22~16.04.1-Ubuntu SMP Thu Aug 16 10:31:05 UTC 2018 x86_64
+Tue Oct  9 23:37:59 2018 biograph[32712]:        node: englishdev
+Tue Oct  9 23:37:59 2018 biograph[32712]:         cpu: 16
+Tue Oct  9 23:37:59 2018 biograph[32712]:     sys_mem: 110 GB
+Tue Oct  9 23:37:59 2018 biograph[32712]:   mem_limit: unlimited
+Tue Oct  9 23:37:59 2018 biograph[32712]:    tmp_free: 12 GB on /tmp/spiral_zqd24z
+Tue Oct  9 23:37:59 2018 biograph[32712]:     threads: 16
+Tue Oct  9 23:37:59 2018 biograph[32712]: Listening on port 44195
+Tue Oct  9 23:37:59 2018 biograph[32712]: Start Stage::load_seqset
+Tue Oct  9 23:37:59 2018 biograph[32712]: Loading seqset: father_lambda.bg/seqset
+Tue Oct  9 23:37:59 2018 biograph[32712]: Caching seqset into RAM
+Tue Oct  9 23:38:00 2018 biograph[32712]: End Stage::load_seqset  Wall time: 0.41 sec Avg parallelism: 9.78  CPU time: 4.02 sec:  0.50s sec user (12.51%) + 3.52 sec system)
+Tue Oct  9 23:38:00 2018 biograph[32712]: Loading readmap: father_lambda.bg/coverage/eaadda41cd028724a5e63c35ef62b77044b8cb04.readmap
+Tue Oct  9 23:38:00 2018 biograph[32712]: Opening reference
+Tue Oct  9 23:38:00 2018 biograph[32712]: Start Stage::generate_refmap
+Tue Oct  9 23:38:00 2018 biograph[32712]: Generating refmap in memory
+Tue Oct  9 23:38:00 2018 biograph[32712]: Marking 48502 bases in 1 extents (4 extent sections, including RCs) as reference
+Tue Oct  9 23:38:00 2018 biograph[32712]: 94371 nodes marked by walking reference (96.29%)
+Tue Oct  9 23:38:00 2018 biograph[32712]: End Stage::generate_refmap  Wall time: 0.01 sec Avg parallelism: 2.90  CPU time: 0.02 sec:  0.02s sec user (99.18%) + 0.00 sec system)
+Tue Oct  9 23:38:00 2018 biograph[32712]: Using min_overlap of 0.70 * 150 = 105
+Tue Oct  9 23:38:00 2018 biograph[32712]: Assembling whole reference
+Tue Oct  9 23:38:00 2018 biograph[32712]: Start Stage::assemble
+Tue Oct  9 23:38:00 2018 biograph[32712]: End Stage::assemble  Wall time: 0.49 sec Avg parallelism: 1.98  CPU time: 0.98 sec:  0.98s sec user (100.00%) + 0.00 sec system)
+Tue Oct  9 23:38:00 2018 biograph[32712]: Stats: ambiguous_branch_cost: 5, base_cost: 97071, decrease_overlap_cost: 55557, found_pairs: 39978, increase_max_between_pair_cost: 6175, matched_pairs: 53171, max_ambiguous_step_count: 2, max_assembly_len: 601, output_count: 59557, pairs_used_cost: 53171, ref_reads: 59559, step_count: 60750, traverse_ref_cost: 59557
+Tue Oct  9 23:38:00 2018 biograph[32712]: Shutting it down.

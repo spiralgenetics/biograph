@@ -1,0 +1,2 @@
+#!/bin/bash
+bazel test //python/functest:vdb_test --test_env=VDB_USER=$VDB_USER --test_env=VDB_PASSWORD=$VDB_PASSWORD --test_env=VDB_PASSWORD=$VDB_PASSWORD --test_env=VDB_DB=$VDB_DB --test_env=VDB_WAREHOUSE=$VDB_WAREHOUSE --test_env=VDB_BUCKET=$VDB_BUCKET --test_env=VDB_ACCOUNT=$VDB_ACCOUNT $*

@@ -1,0 +1,46 @@
+##fileformat=VCFv4.1
+##fileDate=20190724
+##source="Spiral Genetics BioGraph",version="5.0.0-rc6",description="build-revision='07efc6d37608f8bc25b0573803aa564cf52fbd91',build-time='Tue Jul 23 17:39:31 2019',command-line='variants --in benchmark/father_lambda.bg --ref toy_reference --out father_variants.vcf --assemblies-out father_assemblies.csv',seqset-uuid='5362c89b-743d-b7bf-0ca2-a6109a96d0eb'"
+##source="Spiral Genetics BioGraph Genotype",version="5.0.0-rc6",description="build-revision='07efc6d37608f8bc25b0573803aa564cf52fbd91',command-line='/scratch/biograph_sdk-5.0.0-rc6/env/bin/bgtools pcmp -b benchmark/father_lambda.bg -v father_variants.vcf.gz -r toy_reference/ -o father.pcmp.vcf'"
+##reference=toy_reference/
+##INFO=<ID=AID,Number=.,Type=Integer,Description="Assembly IDs used in constructing this variant">
+##INFO=<ID=POP,Number=0,Type=Flag,Description="Found using pop tracer">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##FORMAT=<ID=PDP,Number=1,Type=Integer,Description="Sample Pair Depth">
+##FORMAT=<ID=PAD,Number=.,Type=Integer,Description="Allelic pair depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=OV,Number=1,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="Phased genotype">
+##FORMAT=<ID=PI,Number=1,Type=Integer,Description="Phase group">
+##FORMAT=<ID=US,Number=R,Type=Integer,Description="Length of best-spanning read upstream">
+##FORMAT=<ID=DS,Number=R,Type=Integer,Description="Length of best-spanning read dnstream">
+##FORMAT=<ID=UC,Number=R,Type=Integer,Description="Number of reads spanning upstream">
+##FORMAT=<ID=DC,Number=R,Type=Integer,Description="Number of reads spanning dnstream">
+##FORMAT=<ID=UDC,Number=R,Type=Integer,Description="Upstream Direct-strand Coverage">
+##FORMAT=<ID=UCC,Number=R,Type=Integer,Description="Upstream Compliment-strand Coverage">
+##FORMAT=<ID=DDC,Number=R,Type=Integer,Description="Dnstream Direct-strand Coverage">
+##FORMAT=<ID=DCC,Number=R,Type=Integer,Description="Dnstream Compliment-strand Coverage">
+##FORMAT=<ID=UMO,Number=R,Type=Integer,Description="Upstream Minimum read-Overlap">
+##FORMAT=<ID=DMO,Number=R,Type=Integer,Description="Dnstream Minimum read-Overlap">
+##FORMAT=<ID=UXO,Number=R,Type=Integer,Description="Upstream maximum read-Overlap">
+##FORMAT=<ID=DXO,Number=R,Type=Integer,Description="Dnstream maximum read-Overlap">
+##FORMAT=<ID=NR,Number=R,Type=Integer,Description="Number of Reads supporting assembly">
+##FORMAT=<ID=MO,Number=R,Type=Integer,Description="Minimum Overlap of reads supporting assembly">
+##FORMAT=<ID=XO,Number=R,Type=Integer,Description="Maximum Overlap of reads supporting assembly">
+##FORMAT=<ID=XC,Number=R,Type=Integer,Description="Maximum Coverage over assembly">
+##FORMAT=<ID=AC,Number=R,Type=Integer,Description="Average Coverage over assembly">
+##FORMAT=<ID=EC,Number=R,Type=Integer,Description="Median Coverage over assembly">
+##FORMAT=<ID=MC,Number=R,Type=Integer,Description="Minimum Coverage over assembly">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled likelihoods of the genotypes at a locus">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##contig=<ID=lambda,length=48502>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	father
+lambda	2191	.	TCTACGGAAAGCCGGTGGCCAGCATGCCACGTAAGCGAAACAAAAACGGGGTTTACCTTACCGAAATCGGTACGGATACCGCGAAAGAGCAGATTTATAAC	T	50	PASS	AID=58320,2295;NS=1;SVTYPE=DEL;SVLEN=-100;END=2291	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:58320:144:119:0,119:115:0,115:0,74:0,74:0,143:0,143:0,71:0,72:0,71:0,72:0,103:0,103:0,150:0,150:0,143:0,103:0,150:0,143:0,143:0,143:0,143:99,72,5
+lambda	30278	.	G	GGCCTAGGCGGGAACGTGGGCCATGGTGGCTGCCGCATGTACTGGCGATTGATCCTCCTGCAACCTGAAGGGACGGCCGCGGGAACGTCTCCGATAATGAAGGCTTGCACTCATATACTATCCAAGCCACGGGTGATACACCCGTGGCACTAAGAACGTTATAGAGAACCTATCTTTCGGGGATGGGCCTATTGCGTCTAACATAGACACTTTAAGGCTAATGAAGTTTGTAGCTAAGACCGCTGGGGAGTGAATAGCGGGACACGAATGGTCGGGAAGCAAAACGAAACGGAGGATTCTC	41	PASS	AID=25052,33726;NS=1;SVTYPE=INS;SVLEN=300;END=30278	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:11:25052:143:254:0,254:42:0,42:0,75:0,73:0,166:0,150:0,83:0,83:0,71:0,79:0,103:0,144:0,150:0,150:0,460:0,103:0,150:0,179:0,150:0,144:0,124:99,99,11

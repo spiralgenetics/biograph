@@ -1,0 +1,48 @@
+#!/bin/bash
+# set -x
+
+TIMEOUT=${TIMEOUT:-5}
+RATIO=${RATIO:-0.001}
+BAM2SPEC=${BAM2SPEC:-/home/rob/spiral/build-release/out/stage/spec/bam2spec}
+REF=${REF:-/share/flat_refs/homo_sapiens_GRCh37.flat}
+INPUT=${1:-medium.bam}
+OUTPUT=${2:-test}
+
+RESULTS="$OUTPUT/results"
+
+mkdir -p $RESULTS
+
+echo > test.bam
+$BAM2SPEC test.bam foo bar 2> $RESULTS/invalid.out
+
+while :; do
+	SEED=$RANDOM
+	zzuf -r $RATIO -s $SEED < $INPUT > test.bam
+	timeout $TIMEOUT $BAM2SPEC test.bam $REF $OUTPUT/test.spec -f 2> $SEED.out
+	if [ $? == 124 ]; then
+		echo TIMEOUT >> $SEED.out
+		mv $SEED.out $RESULTS/
+		mv test.bam $RESULTS/$SEED.bam
+		echo -n 'T'
+		continue
+	fi
+
+	FOUND=0
+	for out in $RESULTS/*.out; do
+		diff -q $SEED.out $out >/dev/null 2>&1
+		if [ $? == 0 ]; then
+			FOUND=1
+			break
+		fi
+	done
+
+	if [ $FOUND == 1 ]; then
+		echo -n .
+		rm -f $SEED.out
+		FOUND=0
+	else
+		echo -n '*'
+		mv $SEED.out $RESULTS/
+		mv test.bam $RESULTS/$SEED.bam
+	fi
+done

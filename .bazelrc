@@ -1,0 +1,118 @@
+build --workspace_status_command=tools/get_workspace_status
+build --crosstool_top=//tools/cpp:default-toolchain
+test --test_output=errors
+
+# Using a distinct host configuration breaks some of the python versioning.
+build --nodistinct_host_configuration
+
+# Default to using tcmalloc instead of system malloc.
+build --config=tcmalloc
+
+# Always optimize
+build --copt=-O3
+build --copt=-mpopcnt
+
+#common --experimental_ui
+common --show_timestamps
+common --show_task_finish
+
+# Unfortunately it doesn't seem like bazelrc can do variable expansion, so we're stuck
+# with specifying the base mulitple times:
+build --define=DOCKER_REPO_BASE=docker.io
+build:manylinux2014 --experimental_docker_image=spiralgenetics/manylinux2014:latest
+
+build:docker-sandbox --spawn_strategy=docker
+build:docker-sandbox --define=EXECUTOR=remote
+build:docker-sandbox --experimental_docker_verbose
+build:docker-sandbox --experimental_enable_docker_sandbox
+build:docker-sandbox --experimental_strict_action_env
+build:docker-sandbox --incompatible_do_not_split_linking_cmdline=true
+
+# Version of linux + libc from 2014 which many things can run.  Enable with --config=manylinux2014
+build:manylinux2014 --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+build:manylinux2014 --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
+build:manylinux2014 --platform_suffix=manylinux2014
+build:manylinux2014 --config=docker-sandbox
+
+# TODO(nils): Make us compatible with these bazel changes.
+common --incompatible_disable_deprecated_attr_params=false
+build --incompatible_use_python_toolchains=true
+build --incompatible_do_not_split_linking_cmdline=false
+build --incompatible_linkopts_to_linklibs
+
+# Default to python version 3
+build --define=PYTHON=3
+
+# Release build; build statically, with tcmalloc, without debugging.
+build:release -c opt
+build:release --define=RELEASE=1
+build:release --config=tcmalloc
+build:release --stamp
+build:release --config=manylinux2014
+
+# Build using tcmalloc instead of system malloc.
+build:tcmalloc --define=TCMALLOC=1
+build:tcmalloc --copt=-fno-builtin-malloc
+build:tcmalloc --copt=-fno-builtin-free
+build:tcmalloc --copt=-fno-builtin-realloc
+build:tcmalloc --copt=-fno-builtin-calloc
+build:tcmalloc --copt=-fno-builtin-cfree
+build:tcmalloc --copt=-fno-builtin-memalign
+build:tcmalloc --copt=-fno-builtin-posix_memalign
+build:tcmalloc --copt=-fno-builtin-valloc
+build:tcmalloc --copt=-fno-builtin-pvalloc
+
+build:heapcheck --custom_malloc=@gperftools//:tcmalloc
+test:heapcheck --test_env=HEAPCHECK=normal
+test:heapcheck --test_env=PPROF_PATH=/usr/bin/google-pprof
+
+# Build with profiling support.  (The gperftools packackage currently
+# includes both the profiler and tcmalloc in the "tcmalloc" target.)
+build:gperftools --define=TCMALLOC=1
+build:gperftools --copt=-DGPERFTOOLS
+build:gperftools --define=GPERFTOOLS=1
+# Make sure we get source information.
+build:gperftools --copt=-g
+build:gperftools --strip=never
+
+# Address sanitizer.  Use --config=asan
+build:asan --define=TCMALLOC=0
+build:asan --compiler clang
+build:asan --strip=never
+build:asan --copt -fsanitize=address
+build:asan --copt -DADDRESS_SANITIZER
+build:asan --copt -O1
+build:asan --copt -g
+build:asan --copt -fno-omit-frame-pointer
+build:asan --linkopt -fsanitize=address
+build:asan --platform_suffix=asan
+test:asan --test_env ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-8/bin/llvm-symbolizer
+test:asan --test_env ASAN_OPTIONS=symbolize=1,detect_leaks=0
+test:asan --test_tag_filters -noasan,-pylint
+# lengthen the default timeouts from 60,300,900,3600 since address
+# sanitizer causes a slowdown
+test:asan --test_timeout=300,1000,2500,7200
+
+# Thread sanitizer.  Use --config=tsan
+build:tsan --define=TCMALLOC=0
+build:tsan --compiler clang
+build:tsan --strip=never
+build:tsan --copt -fsanitize=thread
+build:tsan --copt -DTHREAD_SANITIZER
+build:tsan --copt -DDYNAMIC_ANNOTATIONS_ENABLED=1
+build:tsan --copt -DDYNAMIC_ANNOTATIONS_EXTERNAL_IMPL=1
+build:tsan --copt -O1
+build:tsan --copt -fno-omit-frame-pointer
+build:tsan --copt -Wno-gcc-compat
+build:tsan --linkopt -fsanitize=thread
+build:tsan --platform_suffix=asan
+
+# Python version 2
+build:python2 --define=PYTHON=2
+
+# Run python tests under tcmalloc with heap check
+test:pyheapcheck --run_under=//tools:heapcheck
+test:pyheapcheck --test_tag_filters py_test
+test:pyheapcheck --test_env=HEAPCHECK=normal
+test:pyheapcheck --test_env=HEAP_CHECK_AFTER_DESTRUCTORS=true
+test:pyheapcheck --test_env=PPROF_PATH=/usr/bin/google-pprof

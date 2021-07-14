@@ -1,0 +1,39 @@
+#include "pipeline/build_reference_task.h"
+#include "mapred/task_mgr.h"
+#include "mapred/manifest.h"
+#include "io/config.h"
+#include "io/defaults.h"
+#include "io/make_unique.h"
+#include "pipeline/primitives.h"
+
+#include <pybind11/pybind11.h>
+#include <boost/filesystem.hpp>
+
+namespace fs = boost::filesystem;
+
+static
+std::string build_ref(const std::string& ref_name, const std::string& fasta_path)
+{
+	add_primitives();
+
+	auto ref_root = fs::path(CONF_S(reference_path));
+	auto ref_dir = ref_root / ref_name;
+	fs::create_directories(ref_dir);
+	fs::create_symlink(fasta_path, ref_dir + "/" + defaults::original_fasta);
+
+	auto task_path = fs::temp_directory_path() / fs::unique_path("build_ref-%%%%-%%%%");
+	auto task = make_unique<build_reference_task>(ref_root.native(), ref_name);
+
+	manifest out;
+	task_mgr_local tm;
+	tm.run_task(out, task_path.native(), std::move(task));
+
+	fs::remove_all(task_path);
+
+	return ref_dir.native();
+}
+
+void bind_build_ref()
+{
+	boost::python::def("build_ref", build_ref);
+}

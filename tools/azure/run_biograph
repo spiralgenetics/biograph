@@ -1,0 +1,35 @@
+#!/bin/bash
+# Upload this to an azure instance and run it in tmux, or call from queue_run
+
+set -e
+
+if [ -z "$1" ]; then
+	echo "Run biograph on the given accession id, fetching the SRA from Azure blob storage."
+	echo "Usage: `basename $0` [e.g. SRR2098280]"
+	exit 1
+fi
+
+export BIOGRAPH="${HOME}/biograph-1.0.0/biograph"
+export ID=$1
+export INCOMING=${INCOMING:-'/mnt'}
+export TEMPDIR=${TEMPDIR:-'/scratch'}
+export REFERENCE=${REFERENCE:-'/reference/human_g1k_v37/'}
+export MAXMEM=${MAXMEM:-80}
+export TRIM=${TRIM:-0}
+export RESULTS="${TEMPDIR}/results"
+
+mkdir -p $RESULTS
+
+cd ${INCOMING}
+wget -c https://sgstoragewest.blob.core.windows.net/sras/${ID}.sra
+
+cd ${TEMPDIR} && time fastq-dump --split-spot --stdout ${INCOMING}/${ID}.sra | ${BIOGRAPH} create --in - --seqset ${RESULTS}/${ID}.seqset --readmap ${RESULTS}/${ID}.readmap --ref ${REFERENCE} --tmp ${TEMPDIR} --keep-tmp --max-mem ${MAXMEM} --trim ${TRIM}
+
+# save the log
+mv ${TEMPDIR}/spiral_*/log.txt ${RESULTS}/${ID}.txt
+
+# cleanup
+rm -rf ${TEMPDIR}/spiral_* ${INCOMING}/${ID}.sra&
+
+#blobxfer --storageaccountkey ${AZURE_STORAGE_ACCESS_KEY} ${AZURE_STORAGE_ACCOUNT} results ${ID}.seqset --upload --timeout 6000&
+#blobxfer --storageaccountkey ${AZURE_STORAGE_ACCESS_KEY} ${AZURE_STORAGE_ACCOUNT} results ${ID}.readmap --upload --timeout 6000&

@@ -1,0 +1,7 @@
+# Remap fasta contigs
+# bam_contig_name	spec_contig_name
+1	chr1
+2	chr2
+M	chrM
+X	chrX
+Y	chrY

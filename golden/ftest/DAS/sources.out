@@ -1,0 +1,55 @@
+access-control-allow-origin: *
+access-control-expose-headers: X-DAS-Version, X-DAS-Status, X-DAS-Capabilities, X-DAS-Server
+content-length: 5060
+content-type: application/xml
+x-das-capabilities: sources/1.0
+x-das-server: SpiralGeneticsDAS
+x-das-status: 200
+x-das-version: DAS/1.6
+
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/das/das.xsl"?>
+<SOURCES>
+	<SOURCE uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/e_coli.variants" title="e_coli.variants" doc_href="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/e_coli.variants" description="e_coli.variants">
+		<MAINTAINER email="raphael@spiralgenetics.com"/>
+		<VERSION uri="e_coli.variants" created="TEST_FILE">
+			<COORDINATES uri="" source="Chromosome" authority="AGP" taxid="4577" version="2" test_range="">AGP_2,Chromosome,Zea mays</COORDINATES>
+			<CAPABILITY type="das1:sources" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/sources"/>
+			<CAPABILITY type="das1:types" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/e_coli.variants/types"/>
+			<CAPABILITY type="das1:features" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/e_coli.variants/features"/>
+			<CAPABILITY type="das1:stylesheet" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/e_coli.variants/stylesheet"/>
+		</VERSION>
+	</SOURCE>
+	<SOURCE uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.sorted_variants" title="yeast.sorted_variants" doc_href="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.sorted_variants" description="yeast.sorted_variants">
+		<MAINTAINER email="raphael@spiralgenetics.com"/>
+		<VERSION uri="yeast.sorted_variants" created="TEST_FILE">
+			<COORDINATES uri="http://www.dasregistry.org/dasregistry/coordsys/CS_DS594" source="Chromosome" authority="EF" taxid="4932" version="4" test_range="I:1,100000">EF_4,Chromosome,Saccharomyces cerevisiae</COORDINATES>
+			<CAPABILITY type="das1:sources" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/sources"/>
+			<CAPABILITY type="das1:types" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.sorted_variants/types"/>
+			<CAPABILITY type="das1:features" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.sorted_variants/features"/>
+			<CAPABILITY type="das1:stylesheet" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.sorted_variants/stylesheet"/>
+		</VERSION>
+	</SOURCE>
+	<SOURCE uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.unsorted_variants" title="yeast.unsorted_variants" doc_href="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.unsorted_variants" description="yeast.unsorted_variants">
+		<MAINTAINER email="raphael@spiralgenetics.com"/>
+		<VERSION uri="yeast.unsorted_variants" created="TEST_FILE">
+			<COORDINATES uri="http://www.dasregistry.org/dasregistry/coordsys/CS_DS594" source="Chromosome" authority="EF" taxid="4932" version="4" test_range="I:1,100000">EF_4,Chromosome,Saccharomyces cerevisiae</COORDINATES>
+			<CAPABILITY type="das1:sources" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/sources"/>
+			<CAPABILITY type="das1:types" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.unsorted_variants/types"/>
+			<CAPABILITY type="das1:features" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.unsorted_variants/features"/>
+			<CAPABILITY type="das1:stylesheet" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.unsorted_variants/stylesheet"/>
+		</VERSION>
+	</SOURCE>
+	<SOURCE uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants" title="yeast.variants" doc_href="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants" description="yeast.variants">
+		<MAINTAINER email="raphael@spiralgenetics.com"/>
+		<VERSION uri="yeast.variants" created="TEST_FILE">
+			<COORDINATES uri="http://www.dasregistry.org/dasregistry/coordsys/CS_DS594" source="Chromosome" authority="EF" taxid="4932" version="4" test_range="I:1,100000">EF_4,Chromosome,Saccharomyces cerevisiae</COORDINATES>
+			<CAPABILITY type="das1:sources" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/sources"/>
+			<CAPABILITY type="das1:types" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants/types"/>
+			<CAPABILITY type="das1:features" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants/features"/>
+			<CAPABILITY type="das1:stylesheet" query_uri="http://BASE_URL/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants/stylesheet"/>
+		</VERSION>
+	</SOURCE>
+</SOURCES>
+
+

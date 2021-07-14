@@ -1,0 +1,64 @@
+{
+  "name": "biograph_reference",
+  "title": "BioGraph: reference",
+  "summary": "Create a new BioGraph reference archive from a FASTA",
+  "dxapi": "1.0.0",
+  "version": "4.0.0+build.20181004.1223",
+  "inputSpec": [
+    {
+      "name": "fasta",
+      "label": "FASTA to convert",
+      "class": "file",
+      "patterns": [
+        "*.fasta",
+        "*.fasta.gz",
+        "*.fa",
+        "*.fa.gz"
+      ],
+      "optional": false,
+      "help": "A genomic reference in FASTA format, optionally gzipped"
+    },
+    {
+      "name": "reference_name",
+      "label": "Reference name",
+      "class": "string",
+      "optional": false,
+      "help": "A name for this reference (eg. hs37d5)"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "reference",
+      "label": "BioGraph reference archive",
+      "class": "file",
+      "patterns": [
+        "*.tgz"
+      ],
+      "help": "A gzipped tar archive of the BioGraph reference directory"
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 6
+      }
+    },
+    "interpreter": "bash",
+    "release": "16.04",
+    "distribution": "Ubuntu",
+    "file": "src/biograph_reference.sh"
+  },
+  "authorizedUsers": [
+    "user-carolspiralgenetics.com",
+    "user-rob"
+  ],
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x32"
+        }
+      }
+    }
+  }
+}

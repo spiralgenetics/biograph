@@ -1,0 +1,1 @@
+{"command":"merge","version":"3.1.1","accession_id":"merged_id","samples":2,"uuid":"cd14050f-fcd7-5538-5ab7-f1b8b4051c1c","timings":[{"make_flats":2},{"make_mergemaps":2},{"final_merge":2},{"create_readmaps":1},{"total":8}]}

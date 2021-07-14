@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Immediately delete an azure resource group
+#
+VMNAME="$1"
+shift
+
+if [ -z "$VMNAME" ]; then
+	echo "Usage: `basename $0` [vm name]"
+	exit 1
+fi
+
+echo "About to delete ${VMNAME}. This cannot be undone."
+
+az group delete --name ${VMNAME} $*
+
+echo "$VMNAME deleted."

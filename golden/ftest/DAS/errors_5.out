@@ -1,0 +1,10 @@
+access-control-allow-origin: *
+access-control-expose-headers: X-DAS-Version, X-DAS-Status, X-DAS-Capabilities, X-DAS-Server
+content-length: 41
+content-type: application/xml
+x-das-capabilities: types/1.1; features/1.1; stylesheet/1.1
+x-das-server: SpiralGeneticsDAS
+x-das-status: 402
+x-das-version: DAS/1.6
+
+Bad command arguments (arguments invalid)

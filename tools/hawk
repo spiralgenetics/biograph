@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# Run a command when changes are detected somewhere under the current
+# directory.  This is great for runnig a syntax checker or quick compile
+# (eg. 'hawk pylint')
+#
+# $MATCH can be used to specify a grep pattern to match the changed file.
+# If the changed file does not match $MATCH, then nothing happens.
+#
+# Requires inotify-tools (apt-get install inotify-tools)
+#
+if [ -z "$1" ]; then
+  echo "Usage: hawk [command]"
+  exit 1
+fi
+
+if ! which $1 > /dev/null; then
+  echo "Can't execute $1, exiting."
+  exit 1
+fi
+
+MSG="Watching $PWD"
+if [ "$MATCH" ]; then
+  MSG="$MSG (suffix: $MATCH)"
+fi
+MSG="$MSG with $*"
+
+clear
+echo $MSG; echo
+
+while :; do
+    change=$(inotifywait -r -q -e modify .)
+    change=${change/ MODIFY /}
+    if [ -f "$change" ]; then
+        if [ "$MATCH" ]; then
+            if echo $change | grep -q "${MATCH}$"; then
+                clear
+                echo $MSG; echo
+                echo -e $change "\n"
+                OUTPUT=`$* "$change" 2>&1`
+                if [ -z "$OUTPUT" ]; then
+                    echo "$* $change returned nothing, exit code $?"
+                else
+                    echo "$OUTPUT"
+                fi
+            fi
+        else
+            clear
+            echo $MSG; echo
+            $*
+        fi
+    fi
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""
+Nucleotide colorization
+
+Use 'less -R' for viewing large inputs.
+"""
+from __future__ import print_function
+
+A = r"[0m[38;5;198mA[0m"
+C = r"[0m[38;5;83mC[0m"
+G = r"[0m[38;5;184mG[0m"
+T = r"[0m[38;5;129mT[0m"
+N = r"[0m[38;5;243mN[0m"
+
+import fileinput
+for line in fileinput.input():
+    print(line.replace("A", A).replace("C", C).replace("G", G).replace("T", T).replace("N", N), end='')

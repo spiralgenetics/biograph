@@ -1,0 +1,55 @@
+
+# Create a master instance WITHOUT local SSDs
+
+# gcloud compute instances create jenkins-master --machine-type=n1-standard-64 --image-family=ubuntu-1804-lts --image-project=ubuntu-os-cloud
+
+# log in and run the following as root:
+
+apt-get install apt-transport-https
+add-apt-repository ppa:openjdk-r/ppa -y
+add-apt-repository ppa:deadsnakes/ppa -y
+
+apt-get update
+
+apt-get install nfs-common openjdk-8-jre openjdk-8-jre-headless openjdk-8-jdk libgomp1 git jq gnuplot sysstat python-requests ecryptfs-utils libcurl4 python3.6 python3.6-dev python3-virtualenv python-virtualenv build-essential libbz2-dev liblzma-dev zlib1g-dev awscli unzip htop iptraf-ng iftop lnav nmon pv joe gce-compute-image-packages google-compute-engine-oslogin -y
+#apt-get install libcurl3
+
+(
+cat <<-"EOM"
+#!/bin/bash
+pvcreate /dev/nvme*n*
+vgcreate vg0 /dev/nvme*n*
+lvcreate --extents 100%FREE --stripes `ls /dev/nvme*n* |wc -l` --stripesize 256 --name lv0 vg0
+mkfs -t ext4 /dev/vg0/lv0
+mount /dev/vg0/lv0 /mnt
+chown jenkins /mnt
+EOM
+) > /etc/rc.local
+chmod +x /etc/rc.local
+
+cp /etc/default/instance_configs.cfg.distro /etc/default/instance_configs.cfg
+
+
+# shut it down
+
+# Create an image:
+#   https://console.cloud.google.com/compute/images?project=spiral-dev-compute
+# ...or run:
+#   gcloud beta compute images create jenkins-worker-20191009 --project=spiral-dev-compute --source-disk=jenkins-master --source-disk-zone=us-west1-a --storage-location=us
+
+# Create an instance template:
+#   https://console.cloud.google.com/compute/instanceTemplates/add?project=spiral-dev-compute
+# ...or run:
+#   gcloud beta compute --project=spiral-dev-compute instance-templates create jenkins-worker-20191009 --machine-type=n1-standard-64 --network=projects/spiral-dev-compute/global/networks/default --network-tier=PREMIUM --maintenance-policy=MIGRATE --no-service-account --no-scopes --image=jenkins-worker-20191009 --image-project=spiral-dev-compute --boot-disk-size=10GB --boot-disk-type=pd-standard --boot-disk-device-name=jenkins-worker-20191009 --local-ssd=interface=NVME --local-ssd=interface=NVME --reservation-affinity=any
+
+# Click "Management, security, disks, networking, sole tenancy" and add two local SSD NVME disks
+
+# Save it
+
+# Enter that template name in Jenkins: https://leeroy.spiralgenetics.com/configure
+
+# Watch provisioning progress here:
+# https://console.cloud.google.com/compute/operations?project=spiral-dev-compute
+
+# Watch Jenkins progress on the node log:
+# https://leeroy.spiralgenetics.com/computer/

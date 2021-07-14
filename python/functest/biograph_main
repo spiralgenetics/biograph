@@ -1,0 +1,10 @@
+#!/usr/bin/env python3.6
+
+"""
+Invokes the 'biograph' main.  This is to allow unit tests to run the
+'biograph' command without building and installing the whole
+biograph package using setuptools.
+"""
+
+import biograph.__main__
+biograph.__main__.main()

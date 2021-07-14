@@ -1,0 +1,25 @@
+#!/bin/bash
+# push a biograph release to AWS ECR
+
+if [ -z "$1" ]; then
+	echo "Usage: $(basename $0) [biograph version]"
+	exit 1
+fi
+
+export VERSION=$1
+
+if [ "$(docker images biograph-${VERSION}:latest|wc -l)" != "2" ]; then
+	echo "No docker image exists for biograph-${VERSION}. Run 'prepare_container' first."
+	exit 1
+fi
+
+set -e
+
+export REGION=${AWS_DEFAULT_REGION:-"us-west-2"}
+export ACCOUNT=$(aws sts get-caller-identity |grep Account|cut -f 4 -d '"')
+
+aws ecr get-login-password --region ${REGION} |
+    docker login --username AWS --password-stdin ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com
+
+docker tag biograph-${VERSION}:latest ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/releases:biograph-${VERSION}
+docker push ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/releases:biograph-${VERSION}

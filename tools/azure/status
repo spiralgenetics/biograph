@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Show account status, logging in if necessary
+#
+# set -x
+. `dirname $0`/common
+
+echo "Showing VMs running in ${RG}"
+azure vm list -g $RG

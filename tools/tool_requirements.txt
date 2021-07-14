@@ -1,0 +1,17 @@
+# Python dependencies required for building and testing.
+setuptools
+# Pin pylint to specific version since the warnings change between versions
+pylint==2.3.1
+# csub:
+pyyaml
+boto3
+azure-mgmt-resource==3.0.0
+azure-mgmt-network~=2.2
+azure-mgmt-compute~=4.3
+azure-batch==6.0.0
+azure-storage-blob==1.4.0
+# sv_perf_check:
+Truvari==1.1
+# This version of astroid causes some errors: https://github.com/PyCQA/astroid/issues/1017
+# TODO(nils): See if this has been fixed in more recent astroids.
+astroid<2.5.8

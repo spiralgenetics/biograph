@@ -1,0 +1,25 @@
+FROM quay.io/pypa/manylinux2014_x86_64
+
+# References needed for tests.  Installed first because they don't
+# change much, and are slow and big to regenerate.
+
+RUN mkdir /reference
+RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/grch38/grch38.tar.gz  |tar xfz -
+RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/human_g1k_v37/human_g1k_v37.tar.gz  |tar xfz -
+RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/hs37d5/hs37d5.tar.gz  |tar xfz -
+
+# Packages biograph uses:
+RUN yum install -y libpng-devel libxml2-devel libxslt-devel expect-devel \
+		   bzip2-devel openssl samtools words
+
+# These are necessary for static linking, and don't have to be
+# installed if we're only doing dynamic linking:
+RUN yum install -y libstdc++-static glibc-static libsepol-static libxml2-static \
+    libselinux-static zlib-static pcre-static glib2-static libpng-static zip
+
+# Packages used by biograph for tests:
+RUN yum install -y htslib-tools vcftools
+
+RUN ln -s /opt/python/cp36-cp36m/bin/python /usr/bin/python3 && \
+    ln -s /opt/python/cp36-cp36m/bin/python /usr/bin/python3.6
+

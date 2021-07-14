@@ -1,0 +1,17 @@
+FROM centos:{TAG}
+
+# htslib-tools, vcftools, and bwa are in "EPEL" repository.  But
+# adding the "EPEL" repository requires upgrading certificates and yum
+# to be able to deal with it.
+
+RUN yum install -y \
+    python3 python-virtualenv \
+        gcc bzip2-devel zlib-devel python3-devel make which && \
+    yum update -y ca-certificates yum curl && \
+    yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+    yum install -y htslib-tools vcftools bwa
+
+RUN adduser spiral
+USER spiral
+RUN virtualenv /home/spiral/venv -p python3
+RUN . /home/spiral/venv/bin/activate && pip install --upgrade pip

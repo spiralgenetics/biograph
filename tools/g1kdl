@@ -1,0 +1,40 @@
+#!/bin/bash
+# Download FASTQ via ftp at ENA.
+
+if [ -z "$1" ]; then
+        echo "Usage: `basename $0` [ID]"
+        exit 1
+fi
+
+export ID=$1
+export DEST="s3://sgbiodata/datasets/1000G"
+
+mkdir -p ${ID}
+
+head -1 igsr_samples.tsv > ${ID}/README.txt
+grep ${ID} igsr_samples.tsv >> ${ID}/README.txt
+echo >> ${ID}/README.txt
+echo "For more information: https://www.internationalgenome.org/data-portal/sample/${ID}" >> ${ID}/README.txt
+echo >> ${ID}/README.txt
+grep ${ID}$ all-files.tsv |cut -f 1 -d $'\t' >> ${ID}/README.txt
+
+for URL in `grep ${ID}$ all-files.tsv|cut -f 1 -d $'\t'`; do
+        (
+        OUTFILE="${ID}/`basename ${URL}`"
+        echo ${OUTFILE}
+        until wget -c ${URL} -O ${OUTFILE}
+        do
+                echo "Download failed, retrying..."
+                sleep 1
+        done
+        )&
+done
+
+wait
+
+until aws s3 sync ${ID} ${DEST}/${ID}/
+do
+        echo "Upload failed, retrying..."
+        sleep 1
+done
+rm -rf ${ID}

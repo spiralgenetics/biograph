@@ -1,0 +1,213 @@
+Fri Sep 20 13:12:27 2019 biograph[40629]: Built at Fri Sep 20 13:12:27 2019 by jenkins-agent on trusty-builder (trusty-builder) from revision f29c4c56a3f93d28363c51cec25222db6e4cd673 (Clean build)
+Fri Sep 20 13:12:27 2019 biograph[40629]: create --in /share/hiv/fastq/ERR732129_1.fastq --pair /share/hiv/fastq/ERR732129_2.fastq --ref /share/hiv/hiv-1-NC_001802.1/ --out /share/hiv/biograph/ERR732129.bg --min-kmer-count 1000 --min-reads 0.15 --trim-after-portion 1 -f
+Fri Sep 20 13:12:27 2019 biograph[40629]:  bg version: 5.0.1
+Fri Sep 20 13:12:27 2019 biograph[40629]:  os release: Ubuntu 16.04.3 LTS
+Fri Sep 20 13:12:27 2019 biograph[40629]:      kernel: Linux 4.15.0-1049-azure #54-Ubuntu SMP Mon Jun 24 20:59:24 UTC 2019 x86_64
+Fri Sep 20 13:12:27 2019 biograph[40629]:        node: dev-rob-xenial
+Fri Sep 20 13:12:27 2019 biograph[40629]:         cpu: 16
+Fri Sep 20 13:12:27 2019 biograph[40629]:     sys_mem: 110 GB
+Fri Sep 20 13:12:27 2019 biograph[40629]:   mem_limit: unlimited
+Fri Sep 20 13:12:27 2019 biograph[40629]:    tmp_free: 837 GB on /tmp/spiral_oEsQwN
+Fri Sep 20 13:12:27 2019 biograph[40629]:     threads: 16
+Fri Sep 20 13:12:27 2019 biograph[40629]: Listening on port 33399
+Fri Sep 20 13:12:27 2019 biograph[40629]: Start Stage::import
+Fri Sep 20 13:12:27 2019 biograph[40629]: Limiting probabilistic table entries from 205356257327 to 918100
+Fri Sep 20 13:12:27 2019 biograph[40629]: Using 918100 probabilistic table entries, 0.22 MB RAM
+Fri Sep 20 13:12:27 2019 biograph[40629]: Initializing kmer counter
+Fri Sep 20 13:12:27 2019 biograph[40629]: Creating probabilistic filters with 3587 entries per partition, 256 partitions
+Fri Sep 20 13:12:27 2019 biograph[40629]: kmer_counter: starting probabilistic pass
+Fri Sep 20 13:12:27 2019 biograph[40629]: Importing reads
+Fri Sep 20 13:12:34 2019 biograph[40629]: 562420 reads imported
+Fri Sep 20 13:12:34 2019 biograph[40629]: 281210 reads present after pair association
+Fri Sep 20 13:12:34 2019 biograph[40629]: End Stage::import  Wall time: 6.77 sec Avg parallelism: 1.68  CPU time: 11.38 sec:  9.99s sec user (87.83%) + 1.39 sec system)
+Fri Sep 20 13:12:34 2019 biograph[40629]: Start Stage::kmerization
+Fri Sep 20 13:12:34 2019 biograph[40629]: Small dataset. Limiting kmerization to 2 threads.
+Fri Sep 20 13:12:34 2019 biograph[40629]: Closing probalistic pass
+Fri Sep 20 13:12:35 2019 biograph[40629]: 918272 probabilistic bitmap entries with the following counts:
+Fri Sep 20 13:12:35 2019 biograph[40629]:  0:         4165 (  0.45% avg per partition,   0.17% min,   0.89% max)
+Fri Sep 20 13:12:35 2019 biograph[40629]:  1:        16544 (  1.80% avg per partition,   1.28% min,   2.51% max)
+Fri Sep 20 13:12:35 2019 biograph[40629]:  2:        34230 (  3.73% avg per partition,   2.93% min,   4.57% max)
+Fri Sep 20 13:12:35 2019 biograph[40629]:  3:       863333 ( 94.02% avg per partition,  92.95% min,  95.07% max)
+Fri Sep 20 13:12:35 2019 biograph[40629]: Estimating 201536341 total kmers, 14430086 (7.16%) of which need exact counts.
+Fri Sep 20 13:12:35 2019 biograph[40629]: Overflow table has 13595858 entries using 207.46 MB RAM
+Fri Sep 20 13:12:35 2019 biograph[40629]: Requiring 271917173 exact table entries
+Fri Sep 20 13:12:35 2019 biograph[40629]: Exact entries need 4149.24 MB of memory; using 1 passes.
+Fri Sep 20 13:12:35 2019 biograph[40629]: done close_prob_pass
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> using kmer_size: 30
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> using error_rate: 5.00%
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> using num_threads: 0
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> detected read_parts: 2
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> detected read_length: 250
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> user specified memory_bound: 48 GB
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> loading ref
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> ref loaded.
+Fri Sep 20 13:12:35 2019 biograph[40629]: kmerizer::prepare> detected ref_size: 9181 from reference: 
+Fri Sep 20 13:12:35 2019 biograph[40629]: Creating exact counter with 11983699 entries for 256 partitions.  RAM use: 0.11 MB for prob table, 46811.32 MB for exact table
+Fri Sep 20 13:12:41 2019 biograph[40629]: kmer_counter: starting exact pass 1/1.
+Fri Sep 20 13:12:44 2019 biograph[40629]: Exact pass 1/1 complete; 85004/124294820 (0.07%) skipped due to probabilistic lookup
+Fri Sep 20 13:12:49 2019 biograph[40629]: Exact pass main counters used 4875560 of 3067826944 total entries (0.16%) 
+Fri Sep 20 13:12:49 2019 biograph[40629]: Total kmers with exact counts 1: 3559132 (0.12%): 2: 386313 (0.01%)
+Fri Sep 20 13:12:49 2019 biograph[40629]: Per partition min=0.15% avg=0.16% max=0.16% target max=70.00%
+Fri Sep 20 13:12:49 2019 biograph[40629]: Saving exact counts
+Fri Sep 20 13:12:49 2019 biograph[40629]: ALLOC: BioGraph using significantly more memory than its previous maximum. Raised to 47018 M  from 0 b
+Fri Sep 20 13:12:49 2019 biograph[40629]: Done saving exact counts
+Fri Sep 20 13:12:50 2019 biograph[40629]: Overflow used: 16996/13595858 (0.13%)
+Fri Sep 20 13:12:50 2019 biograph[40629]: Extracting exact counts
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_set> Allocating in RAM lookup of 16386, table = 29253360
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_set> m_lookup_bases = 7, m_tail_bases = 23
+Fri Sep 20 13:12:50 2019 biograph[40629]: Generating kmer set for 4875560 kmers of size 30
+Fri Sep 20 13:12:50 2019 biograph[40629]: ALLOC: Resetting high water mark from 47018 M  to 207 M 
+Fri Sep 20 13:12:50 2019 biograph[40629]: Extracting exact counts
+Fri Sep 20 13:12:50 2019 biograph[40629]: After filtering, keeping 12085/4875560 kmers (0.25%)
+Fri Sep 20 13:12:50 2019 biograph[40629]: Extracting exact counts
+Fri Sep 20 13:12:50 2019 biograph[40629]: Sorting kmer set
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_set> Saving kmer set to resource manager
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_set> Allocating lookup of 16386, table = 72510
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_set> m_lookup_bases = 7, m_tail_bases = 23
+Fri Sep 20 13:12:50 2019 biograph[40629]: Done with kmer set generation, lookup size 16384, table size 12085, 6 tail bytes, 0.13 MB total
+Fri Sep 20 13:12:50 2019 biograph[40629]: kmer_counter: closing
+Fri Sep 20 13:12:50 2019 biograph[40629]: 4875560 total kmers before filtering, resulting in:
+Fri Sep 20 13:12:50 2019 biograph[40629]:   PASSED               12085 (  0.25%)
+Fri Sep 20 13:12:50 2019 biograph[40629]:   BELOW_MIN_COUNT    4863475 ( 99.75%)
+Fri Sep 20 13:12:50 2019 biograph[40629]: Writing k-mers out
+Fri Sep 20 13:12:50 2019 biograph[40629]: Kmers written to {"kmer_size":30,"lookup":{"all_metadata":{"m_data":{}},"meta":"","num_records":0,"partitions":[{"files":[{"file":"file:///tmp/spiral_oEsQwN/789407a7-df0a-694d-59d1-8f959b363fc4","first_key":"","last_key":"","num_records":0,"size":65544}],"num_records":0,"size":65544}],"size":65544,"sort":"","tags":{}},"orig_size":4875560,"size":12085,"table":{"all_metadata":{"m_data":{}},"meta":"","num_records":0,"partitions":[{"files":[{"file":"file:///tmp/spiral_oEsQwN/70a836c3-333b-acd1-5a08-440c3db56e97","first_key":"","last_key":"","num_records":0,"size":72510}],"num_records":0,"size":72510}],"size":72510,"sort":"","tags":{}}}
+Fri Sep 20 13:12:50 2019 biograph[40629]: run_kmerize_subtask> Writing final data manifest
+Fri Sep 20 13:12:50 2019 biograph[40629]: End Stage::kmerization  Wall time: 16.23 sec Avg parallelism: 12.42  CPU time: 201.54 sec:  50.80s sec user (25.20%) + 150.75 sec system)
+Fri Sep 20 13:12:50 2019 biograph[40629]: Start Stage::read_correction
+Fri Sep 20 13:12:50 2019 biograph[40629]: Using a partition depth of 2 (16 partitions)
+Fri Sep 20 13:12:50 2019 biograph[40629]: Fast creation enabled
+Fri Sep 20 13:12:50 2019 biograph[40629]: Found 9181 bases of reference
+Fri Sep 20 13:12:50 2019 biograph[40629]: Loaded 2296 bytes of repo into RAM
+Fri Sep 20 13:12:50 2019 biograph[40629]: Loading kmer set into RAM
+Fri Sep 20 13:12:50 2019 biograph[40629]: 9184 initial bases present for seqset build.  1290/12085 kmers (10.67%) matched.
+Fri Sep 20 13:12:50 2019 biograph[40629]: Correcting reads...
+Fri Sep 20 13:12:53 2019 biograph[40629]: Generated 282916 corrected reads, 70729000 bases (avg 250.00 bases/read)
+Fri Sep 20 13:12:53 2019 biograph[40629]: 282916 corrected reads processed; 0 (0.00%) matched reference, 282916 (100.00%) did not, including 0 (0.00%) which included a kmer matching reference but did not entirely match.
+Fri Sep 20 13:12:53 2019 biograph[40629]: 110856 bases were corrected in 74927 (0.26%) reads, averaging 1.48 bases per corrected read.
+Fri Sep 20 13:12:53 2019 biograph[40629]: 0 bases dropped from the end of 0 (0.00%) reads, averaging -nan bases per truncated read.
+Fri Sep 20 13:12:53 2019 biograph[40629]: Removing kmer db object /tmp/spiral_oEsQwN/70a836c3-333b-acd1-5a08-440c3db56e97
+Fri Sep 20 13:12:53 2019 biograph[40629]: Removing kmer db object /tmp/spiral_oEsQwN/789407a7-df0a-694d-59d1-8f959b363fc4
+Fri Sep 20 13:12:53 2019 biograph[40629]: 7703.84x estimated corrected coverage
+Fri Sep 20 13:12:53 2019 biograph[40629]: Warning: Fewer than 70% of reads (set by --warn-corrected-reads) survived correction (282916 / 562420 remain)
+Fri Sep 20 13:12:53 2019 biograph[40629]: Deleting kmers
+Fri Sep 20 13:12:53 2019 biograph[40629]: End Stage::read_correction  Wall time: 3.36 sec Avg parallelism: 9.60  CPU time: 32.28 sec:  31.28s sec user (96.90%) + 1.00 sec system)
+Fri Sep 20 13:12:53 2019 biograph[40629]: Start Stage::make_seqset
+Fri Sep 20 13:12:53 2019 biograph[40629]: Fast creation enabled
+Fri Sep 20 13:12:53 2019 biograph[40629]: Loaded 17684546 bytes of repo into RAM
+Fri Sep 20 13:12:53 2019 biograph[40629]: Expanding
+Fri Sep 20 13:12:53 2019 biograph[40629]: Sorting and deduping "" + "initial" -> "init_sorted" + "", reserving 16.87 MB RAM for sequence repo, limiting sort/dedup to 49135.13 MB RAM
+Fri Sep 20 13:12:53 2019 biograph[40629]: ALLOC: Resetting high water mark from 207 M  to 0 b
+Fri Sep 20 13:12:54 2019 biograph[40629]: Expand stats: Stats: dedup_msecs: 234, new_entries: 571037, output_entries: 27065, prefetch_msecs: 61, sort_msecs: 1058
+Fri Sep 20 13:12:54 2019 biograph[40629]: Expanding with stride=7, count=255
+Fri Sep 20 13:12:54 2019 biograph[40629]: Expand pass completed with 98197 (362.82%) new entries
+Fri Sep 20 13:12:54 2019 biograph[40629]: Sorting and deduping "init_sorted" + "init_expanded" -> "pass2_sorted" + "pass2_expanded", reserving 16.87 MB RAM for sequence repo, limiting sort/dedup to 49135.13 MB RAM
+Fri Sep 20 13:12:55 2019 biograph[40629]: Expand stats: Stats: dedup_msecs: 116, expanded_output: 105090, new_entries: 98197, output_entries: 44580, sort_msecs: 228, sorted_entries: 27065
+Fri Sep 20 13:12:55 2019 biograph[40629]: Sorting and deduping "pass2_sorted" + "pass2_expanded" -> "complete" + "", reserving 16.87 MB RAM for sequence repo, limiting sort/dedup to 49135.13 MB RAM
+Fri Sep 20 13:12:55 2019 biograph[40629]: Expand stats: Stats: dedup_msecs: 87, new_entries: 105090, output_entries: 82548, prefetch_msecs: 4, sort_msecs: 243, sorted_entries: 44580
+Fri Sep 20 13:12:55 2019 biograph[40629]: Building seqset
+Fri Sep 20 13:12:55 2019 biograph[40629]: Computing seqset parts
+Fri Sep 20 13:12:55 2019 biograph[40629]: Maximum entry size: 250
+Fri Sep 20 13:12:55 2019 biograph[40629]: Shared prefix compares: fast: 21809 (26.42%) slow: 60723 (73.58%)
+Fri Sep 20 13:12:55 2019 biograph[40629]: Shared prefix histogram:
+Fri Sep 20 13:12:55 2019 biograph[40629]:      2:         48 (+  0.06=  0.06)     3:        192 (+  0.23=  0.29)     4:        756 (+  0.92=  1.21)
+Fri Sep 20 13:12:55 2019 biograph[40629]:      5:       2527 (+  3.06=  4.27)     6:       5927 (+  7.18= 11.45)     7:       5984 (+  7.25= 18.70)
+Fri Sep 20 13:12:55 2019 biograph[40629]:      8:       2929 (+  3.55= 22.25)     9:       1084 (+  1.31= 23.56)    10:        393 (+  0.48= 24.04)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     11:        180 (+  0.22= 24.26)    12:        121 (+  0.15= 24.40)    13:        123 (+  0.15= 24.55)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     14:        114 (+  0.14= 24.69)    15:        121 (+  0.15= 24.84)    16:        123 (+  0.15= 24.99)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     17:        117 (+  0.14= 25.13)    18:        114 (+  0.14= 25.27)    19:        115 (+  0.14= 25.41)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     20:        113 (+  0.14= 25.54)    21:        108 (+  0.13= 25.67)    22:        107 (+  0.13= 25.80)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     23:        106 (+  0.13= 25.93)    24:        104 (+  0.13= 26.06)    25:        101 (+  0.12= 26.18)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     26:        101 (+  0.12= 26.30)    27:        101 (+  0.12= 26.42)    28:        101 (+  0.12= 26.55)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     29:        101 (+  0.12= 26.67)    30:        105 (+  0.13= 26.80)    31:        111 (+  0.13= 26.93)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     32:        112 (+  0.14= 27.07)    33:        114 (+  0.14= 27.21)    34:        118 (+  0.14= 27.35)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     35:        120 (+  0.15= 27.49)    36:        127 (+  0.15= 27.65)    37:        131 (+  0.16= 27.81)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     38:        133 (+  0.16= 27.97)    39:        133 (+  0.16= 28.13)    40:        137 (+  0.17= 28.29)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     41:        135 (+  0.16= 28.46)    42:        134 (+  0.16= 28.62)    43:        134 (+  0.16= 28.78)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     44:        134 (+  0.16= 28.95)    45:        138 (+  0.17= 29.11)    46:        139 (+  0.17= 29.28)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     47:        137 (+  0.17= 29.45)    48:        137 (+  0.17= 29.61)    49:        136 (+  0.16= 29.78)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     50:        136 (+  0.16= 29.94)    51:        141 (+  0.17= 30.11)    52:        141 (+  0.17= 30.28)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     53:        146 (+  0.18= 30.46)    54:        150 (+  0.18= 30.64)    55:        149 (+  0.18= 30.82)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     56:        151 (+  0.18= 31.01)    57:        151 (+  0.18= 31.19)    58:        153 (+  0.19= 31.37)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     59:        155 (+  0.19= 31.56)    60:        155 (+  0.19= 31.75)    61:        155 (+  0.19= 31.94)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     62:        157 (+  0.19= 32.13)    63:        157 (+  0.19= 32.32)    64:        157 (+  0.19= 32.51)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     65:        158 (+  0.19= 32.70)    66:        162 (+  0.20= 32.90)    67:        164 (+  0.20= 33.10)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     68:        168 (+  0.20= 33.30)    69:        182 (+  0.22= 33.52)    70:        206 (+  0.25= 33.77)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     71:        227 (+  0.28= 34.04)    72:        237 (+  0.29= 34.33)    73:        236 (+  0.29= 34.62)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     74:        239 (+  0.29= 34.91)    75:        230 (+  0.28= 35.19)    76:        227 (+  0.28= 35.46)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     77:        222 (+  0.27= 35.73)    78:        224 (+  0.27= 36.00)    79:        228 (+  0.28= 36.28)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     80:        227 (+  0.28= 36.55)    81:        228 (+  0.28= 36.83)    82:        226 (+  0.27= 37.10)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     83:        226 (+  0.27= 37.38)    84:        226 (+  0.27= 37.65)    85:        236 (+  0.29= 37.94)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     86:        242 (+  0.29= 38.23)    87:        262 (+  0.32= 38.55)    88:        265 (+  0.32= 38.87)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     89:        268 (+  0.32= 39.19)    90:        270 (+  0.33= 39.52)    91:        266 (+  0.32= 39.84)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     92:        262 (+  0.32= 40.16)    93:        265 (+  0.32= 40.48)    94:        266 (+  0.32= 40.80)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     95:        269 (+  0.33= 41.13)    96:        263 (+  0.32= 41.45)    97:        259 (+  0.31= 41.76)
+Fri Sep 20 13:12:55 2019 biograph[40629]:     98:        261 (+  0.32= 42.08)    99:        264 (+  0.32= 42.40)   100:        265 (+  0.32= 42.72)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    101:        266 (+  0.32= 43.04)   102:        266 (+  0.32= 43.36)   103:        265 (+  0.32= 43.68)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    104:        266 (+  0.32= 44.01)   105:        267 (+  0.32= 44.33)   106:        270 (+  0.33= 44.66)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    107:        268 (+  0.32= 44.98)   108:        268 (+  0.32= 45.31)   109:        270 (+  0.33= 45.63)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    110:        274 (+  0.33= 45.97)   111:        273 (+  0.33= 46.30)   112:        273 (+  0.33= 46.63)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    113:        275 (+  0.33= 46.96)   114:        275 (+  0.33= 47.29)   115:        276 (+  0.33= 47.63)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    116:        276 (+  0.33= 47.96)   117:        279 (+  0.34= 48.30)   118:        284 (+  0.34= 48.64)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    119:        284 (+  0.34= 48.99)   120:        285 (+  0.35= 49.33)   121:        282 (+  0.34= 49.68)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    122:        281 (+  0.34= 50.02)   123:        292 (+  0.35= 50.37)   124:        291 (+  0.35= 50.72)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    125:        291 (+  0.35= 51.07)   126:        292 (+  0.35= 51.43)   127:        292 (+  0.35= 51.78)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    128:        292 (+  0.35= 52.14)   129:        294 (+  0.36= 52.49)   130:        292 (+  0.35= 52.85)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    131:        292 (+  0.35= 53.20)   132:        292 (+  0.35= 53.55)   133:        292 (+  0.35= 53.91)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    134:        292 (+  0.35= 54.26)   135:        290 (+  0.35= 54.61)   136:        290 (+  0.35= 54.96)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    137:        290 (+  0.35= 55.32)   138:        293 (+  0.36= 55.67)   139:        295 (+  0.36= 56.03)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    140:        296 (+  0.36= 56.39)   141:        298 (+  0.36= 56.75)   142:        296 (+  0.36= 57.11)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    143:        297 (+  0.36= 57.47)   144:        304 (+  0.37= 57.83)   145:        303 (+  0.37= 58.20)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    146:        302 (+  0.37= 58.57)   147:        301 (+  0.36= 58.93)   148:        301 (+  0.36= 59.30)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    149:        301 (+  0.36= 59.66)   150:        299 (+  0.36= 60.02)   151:        299 (+  0.36= 60.39)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    152:        299 (+  0.36= 60.75)   153:        300 (+  0.36= 61.11)   154:        300 (+  0.36= 61.48)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    155:        302 (+  0.37= 61.84)   156:        302 (+  0.37= 62.21)   157:        302 (+  0.37= 62.57)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    158:        301 (+  0.36= 62.94)   159:        300 (+  0.36= 63.30)   160:        300 (+  0.36= 63.67)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    161:        306 (+  0.37= 64.04)   162:        305 (+  0.37= 64.41)   163:        305 (+  0.37= 64.77)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    164:        305 (+  0.37= 65.14)   165:        306 (+  0.37= 65.52)   166:        304 (+  0.37= 65.88)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    167:        304 (+  0.37= 66.25)   168:        304 (+  0.37= 66.62)   169:        304 (+  0.37= 66.99)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    170:        306 (+  0.37= 67.36)   171:        309 (+  0.37= 67.73)   172:        307 (+  0.37= 68.11)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    173:        309 (+  0.37= 68.48)   174:        316 (+  0.38= 68.86)   175:        315 (+  0.38= 69.24)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    176:        318 (+  0.39= 69.63)   177:        317 (+  0.38= 70.01)   178:        315 (+  0.38= 70.40)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    179:        319 (+  0.39= 70.78)   180:        315 (+  0.38= 71.16)   181:        315 (+  0.38= 71.55)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    182:        314 (+  0.38= 71.93)   183:        314 (+  0.38= 72.31)   184:        322 (+  0.39= 72.70)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    185:        330 (+  0.40= 73.10)   186:        332 (+  0.40= 73.50)   187:        331 (+  0.40= 73.90)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    188:        333 (+  0.40= 74.30)   189:        330 (+  0.40= 74.70)   190:        329 (+  0.40= 75.10)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    191:        329 (+  0.40= 75.50)   192:        327 (+  0.40= 75.90)   193:        328 (+  0.40= 76.29)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    194:        328 (+  0.40= 76.69)   195:        339 (+  0.41= 77.10)   196:        337 (+  0.41= 77.51)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    197:        336 (+  0.41= 77.92)   198:        336 (+  0.41= 78.32)   199:        333 (+  0.40= 78.73)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    200:        333 (+  0.40= 79.13)   201:        337 (+  0.41= 79.54)   202:        336 (+  0.41= 79.95)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    203:        344 (+  0.42= 80.36)   204:        348 (+  0.42= 80.79)   205:        354 (+  0.43= 81.21)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    206:        354 (+  0.43= 81.64)   207:        362 (+  0.44= 82.08)   208:        366 (+  0.44= 82.53)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    209:        382 (+  0.46= 82.99)   210:        385 (+  0.47= 83.45)   211:        384 (+  0.47= 83.92)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    212:        384 (+  0.47= 84.39)   213:        387 (+  0.47= 84.85)   214:        395 (+  0.48= 85.33)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    215:        383 (+  0.46= 85.80)   216:        385 (+  0.47= 86.26)   217:        388 (+  0.47= 86.73)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    218:        392 (+  0.47= 87.21)   219:        392 (+  0.47= 87.68)   220:        392 (+  0.47= 88.16)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    221:        392 (+  0.47= 88.63)   222:        393 (+  0.48= 89.11)   223:        392 (+  0.47= 89.58)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    224:        385 (+  0.47= 90.05)   225:        381 (+  0.46= 90.51)   226:        378 (+  0.46= 90.97)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    227:        378 (+  0.46= 91.43)   228:        377 (+  0.46= 91.89)   229:        381 (+  0.46= 92.35)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    230:        386 (+  0.47= 92.81)   231:        397 (+  0.48= 93.30)   232:        392 (+  0.47= 93.77)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    233:        387 (+  0.47= 94.24)   234:        381 (+  0.46= 94.70)   235:        376 (+  0.46= 95.16)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    236:        355 (+  0.43= 95.59)   237:        352 (+  0.43= 96.01)   238:        348 (+  0.42= 96.44)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    239:        335 (+  0.41= 96.84)   240:        326 (+  0.39= 97.24)   241:        318 (+  0.39= 97.62)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    242:        311 (+  0.38= 98.00)   243:        308 (+  0.37= 98.37)   244:        290 (+  0.35= 98.72)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    245:        269 (+  0.33= 99.05)   246:        257 (+  0.31= 99.36)   247:        240 (+  0.29= 99.65)
+Fri Sep 20 13:12:55 2019 biograph[40629]:    248:        196 (+  0.24= 99.89)   249:         92 (+  0.11=100.00)
+Fri Sep 20 13:12:55 2019 biograph[40629]: Calculating seqset size
+Fri Sep 20 13:12:55 2019 biograph[40629]: 82548 total seqset entries; initializing seqset
+Fri Sep 20 13:12:56 2019 biograph[40629]: Filling in seqset
+Fri Sep 20 13:12:56 2019 biograph[40629]: Finalizing seqset
+Fri Sep 20 13:12:56 2019 biograph[40629]: offset = 82548, m_entries = 82548
+Fri Sep 20 13:12:56 2019 biograph[40629]: End Stage::make_seqset  Wall time: 2.96 sec Avg parallelism: 5.15  CPU time: 15.26 sec:  6.12s sec user (40.13%) + 9.14 sec system)
+Fri Sep 20 13:12:56 2019 biograph[40629]: Start Stage::make_readmap
+Fri Sep 20 13:12:57 2019 biograph[40629]: make_readmap::do_make> Creating readmap, is_paired = 1
+Fri Sep 20 13:12:57 2019 biograph[40629]: Constructing mate table builder.
+Fri Sep 20 13:12:57 2019 biograph[40629]: Allocated 626320 entries at 12 bytes each, total memory = 7515840
+Fri Sep 20 13:12:57 2019 biograph[40629]: Constructing parallel_mate_loop_table_builder, file_info_count = 11, manifest_record_count = 156580
+Fri Sep 20 13:12:57 2019 biograph[40629]: Starting mate loop table build.
+Fri Sep 20 13:12:58 2019 biograph[40629]: Mate loop table has 626320 entries, 505344 paired and 120976 unpaired
+Fri Sep 20 13:12:58 2019 biograph[40629]: Mate pair table is sorted.
+Fri Sep 20 13:12:58 2019 biograph[40629]: Mate loop table empty entries dropped. Length = 565832.
+Fri Sep 20 13:12:59 2019 biograph[40629]: End Stage::make_readmap  Wall time: 2.62 sec Avg parallelism: 2.65  CPU time: 6.96 sec:  6.58s sec user (94.58%) + 0.38 sec system)
+Fri Sep 20 13:12:59 2019 biograph[40629]: Start Stage::metadata
+Fri Sep 20 13:12:59 2019 biograph[40629]: End Stage::metadata  Wall time: 0.41 sec Avg parallelism: 0.01  CPU time: 0.00 sec:  0.00s sec user (3.04%) + 0.00 sec system)
+Fri Sep 20 13:12:59 2019 biograph[40629]: Shutting it down.

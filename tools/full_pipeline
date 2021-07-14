@@ -1,0 +1,202 @@
+#!/bin/bash
+
+# biograph create through classification example
+#
+# The major stages include:
+#
+# 1. Convert reads to the BioGraph format using `biograph create`
+# 2. Discover putative variants vs. a reference using `biograph variants`
+# 3. Filter very low quality calls using `bgtools rvg_cleaner`
+# 4. Genotype the remaining calls using `bgtools pcmp`
+# 5. Assign a quality and optionally filter the genotyped calls using `bgtools run_classifier`
+#
+# The final filtered.vcf will include high confidence genotyped variants as
+# well as variants that were called but did not pass the classifier, marked
+# with the FILTER tag 'lowq'.
+
+# directory to store the results (will be created if it does not exist)
+export RESULTS=${RESULTS:-"./results"}
+
+# Create the reference with 'biograph reference --in source.fasta --refdir /my/reference/'
+# For fastest results on a machine with > 100GB RAM, copy the reference directory to /dev/shm/
+export REFERENCE=${REFERENCE:-"./hs37d5"}
+export CLASSIFIER=${CLASSIFIER:-"./biograph_model-5.0.10.ml"}
+export TMPDIR=${TMPDIR:-"/tmp"}
+# compute an approximate MAXMEM unless otherwise specified
+export MAXMEM=${MAXMEM:-"$(( `grep MemTotal /proc/meminfo |awk '{print $2}'` / 1333333 ))"}
+
+export DEFAULTBED="${REFERENCE}/supercontigs.bed"
+
+if [ -z "${BED}" ]; then
+  if [ -f ${DEFAULTBED} ]; then
+    export BED=${DEFAULTBED}
+  fi
+fi
+
+if [ -z "$1" ]; then
+    ME=$(basename $0)
+    cat <<-EOM
+Usage: [env] ${ME} <path/to/reads.bam|cram|fastq.gz>
+
+Environment variables are used to provide additional paths:
+
+     RESULTS=${RESULTS}
+   REFERENCE=${REFERENCE}
+  CLASSIFIER=${CLASSIFIER}
+      TMPDIR=${TMPDIR}
+      MAXMEM=${MAXMEM}
+
+Additional options for each stage can be specified with:
+
+  CREATE_OPTS
+  VARIANTS_OPTS
+  PCMP_OPTS
+  CLASSIFIER_OPTS
+
+Example:
+
+  TMPDIR=/scratch/tmp REFERENCE=./GRCh38.p13 ${ME} my.bam
+
+For FASTQ with pairs in a separate file:
+
+  CREATE_OPTS="--pair reads_2.fq.gz" ${ME} reads_1.fq.gz
+
+EOM
+    exit 1
+fi
+
+if [ ! -r "$1" ]; then
+    echo "Can't open file $1, exiting."
+    exit 1
+fi
+
+if [ ! -r "${CLASSIFIER}" ]; then
+    echo "Can't open ${CLASSIFIER}, exiting."
+    exit 1
+fi
+
+if [ ! `which biograph` ]; then
+    echo "The biograph binary must be included in your PATH."
+    exit 1
+fi
+
+if [ ! `which bgtools` ]; then
+    cat <<-EOM
+This script should be run from a virtualenv with the biograph SDK installed.
+
+Run this and try again:
+
+  $ virtualenv biograph_sdk --python=python3.6
+  $ . biograph_sdk/bin/activate
+  $ tar vxf /path/to/biograph_sdk-5.0.10.tgz
+  $ pip install biograph_sdk-5.0.10/BioGraphSDK*
+
+EOM
+    exit 1
+fi
+
+for tool in vcf-sort bgzip tabix; do
+    if [ ! `which ${tool}` ]; then
+        cat <<-EOM
+The following tools are also required;
+
+  vcf-sort (from VCFtools, https://vcftools.github.io/)
+     bgzip (from samtools, http://www.htslib.org/doc/bgzip.html)
+     tabix (from samtools, http://www.htslib.org/doc/tabix.html)
+
+EOM
+        exit 1
+    fi
+done
+
+function log() { echo $'\n'$(date) $* $'\n'; }
+
+export READS=$1
+
+export SAMPLE=`echo $(basename ${READS}) | cut -f 1 -d .`
+export BG="${RESULTS}/${SAMPLE}.bg"
+export QC="${BG}/qc"
+export ANALYSIS="${BG}/analysis"
+export UNFILTERED_VCF="${ANALYSIS}/unfiltered.vcf"
+export VARIANTS_VCF="${ANALYSIS}/variants.vcf"
+export PCMP_VCF="${ANALYSIS}/pcmp.vcf"
+export FILTERED_VCF="${ANALYSIS}/results.vcf"
+export DF="${ANALYSIS}/df.jl"
+
+export TIME="/usr/bin/time --format elapsed\tuser\tsystem\n%e\t%U\t%S"
+
+if [ ! -f "${REFERENCE}/reference.ref" ]; then
+    echo "Can't open ${REFERENCE}: Did you run 'biograph reference' first?"
+    exit 1
+fi
+
+if [ "${BED}" ]; then
+  BEDCMD="--bed ${BED}"
+else
+  BEDCMD=""
+fi
+
+if [ ! "${CREATE_OPTS}" ]; then
+    CREATE_OPTS=""
+fi
+if [ ! "${VARIANTS_OPTS}" ]; then
+    VARIANTS_OPTS=""
+fi
+if [ ! "${PCMP_OPTS}" ]; then
+    PCMP_OPTS=""
+fi
+if [ ! "${CLASSIFIER_OPTS}" ]; then
+    CLASSIFIER_OPTS=""
+fi
+
+set -eu
+
+mkdir -p ${RESULTS}
+
+log "Creating biograph"
+${TIME} --output=${RESULTS}/create_time.tsv \
+  biograph create --in ${READS} --ref ${REFERENCE} --tmp ${TMPDIR} --out ${BG} \
+    --max-mem ${MAXMEM} ${CREATE_OPTS}
+mv -f ${RESULTS}/create_time.tsv ${QC}/
+
+mkdir -p ${ANALYSIS}
+
+log "Calling variants"
+${TIME} --output=${QC}/variants_time.tsv \
+  biograph variants --in ${BG} --out ${UNFILTERED_VCF} --ref ${REFERENCE} \
+    ${BEDCMD} ${VARIANTS_OPTS}
+
+log "Pre-filtering variants"
+${TIME} --output=${QC}/rvg_time.tsv \
+  vcf-sort ${UNFILTERED_VCF} | bgtools rvg_cleaner | vcf-sort | bgzip > ${VARIANTS_VCF}.gz
+tabix -p vcf ${VARIANTS_VCF}.gz
+
+log "Calculating coverage"
+${TIME} --output=${QC}/pcmp_time.tsv \
+  bgtools pcmp \
+    -v ${VARIANTS_VCF}.gz \
+    -r ${REFERENCE} -s ${SAMPLE} \
+    -b ${BG} -o ${PCMP_VCF} ${BEDCMD} \
+    ${PCMP_OPTS} \
+    2>&1 | tee ${QC}/pcmp_log.txt
+vcf-sort < ${PCMP_VCF} | bgzip > ${PCMP_VCF}.gz
+tabix -p vcf ${PCMP_VCF}.gz
+
+log "Classifying variants"
+${TIME} --output=${QC}/classifier_time.tsv \
+  bgtools run_classifier \
+    --vcf ${PCMP_VCF}.gz --model ${CLASSIFIER} --out ${FILTERED_VCF} --dfpath ${DF} \
+    ${CLASSIFIER_OPTS} \
+    2>&1 | tee ${QC}/classifier_log.txt
+bgzip ${FILTERED_VCF}
+tabix -p vcf ${FILTERED_VCF}.gz
+
+# Remove intermediary files
+set +u
+if [ -z "${DEBUG}" ]; then
+  rm -f ${UNFILTERED_VCF}* ${VARIANTS_VCF}* ${PCMP_VCF}* ${DF}
+fi
+
+log "Done."
+
+echo "Filtered, genotyped variants saved to ${FILTERED_VCF}.gz"

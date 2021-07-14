@@ -1,0 +1,43 @@
+    </script>
+
+    <div id="viscontainer">
+        <svg id="vis"></svg>
+    </div>
+
+  <div id="datapoints"></div>
+
+  <div id="controls" class="no-print">
+    <div class="tabbable tabs-top">
+      <ul id="chartcontroltabs" class="nav nav-tabs">
+        <li id="tab-scale" class="tab"><a href="#pane-scale" data-toggle="tab" class="tabselect">chart</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane" id="pane-scale">
+          <div class="pull-left chart-control">
+            <legend>X Scale</legend>
+              <div id="set_x" class="slider"></div>
+              <button class="btn btn-medium scale_control" id="set_min_x" onclick="set_x_scale(kqr.xMinScale); this.blur()">min</button>
+              <button class="btn btn-medium scale_control" id="set_max_x" onclick="set_x_scale(kqr.xMaxScale); this.blur()">max</button>
+              <button class="btn btn-medium scale_control" id="set_ideal_x" onclick="set_x_scale(kqr.xIdealScale); this.blur()">auto</i></button>
+          </div>
+          <div class="pull-left chart-control">
+            <legend>Y Scale</legend>
+              <div id="set_y" class="slider"></div>
+              <button class="btn btn-medium scale_control" id="set_min_y" onclick="set_y_scale(kqr.yMinScale); this.blur()">min</button>
+              <button class="btn btn-medium scale_control" id="set_max_y" onclick="set_y_scale(kqr.yMaxScale); this.blur()">max</button>
+              <button class="btn btn-medium scale_control" id="set_ideal_y" onclick="set_y_scale(kqr.yIdealScale); this.blur()">auto</i></button>
+          </div>
+          <div class="pull-left chart-control">
+            <legend>Detail</legend>
+              <div id="set_detail" class="slider"></div>
+              <button class="btn btn-medium scale_control" id="less_detail" onclick="set_bin_size(kqr.binSize * 2); this.blur()">less</button>
+              <button class="btn btn-medium scale_control fewer_bins" id="more_detail" onclick="parseInt(set_bin_size(kqr.binSize / 2)); this.blur()">more</button>
+              <button class="btn btn-medium scale_control fewer_bins" id="full_detail" onclick="set_bin_size(1); this.blur()">full</i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

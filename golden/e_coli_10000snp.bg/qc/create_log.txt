@@ -1,0 +1,143 @@
+Thu Sep  6 03:00:22 2018 biograph[39033]: Built at Thu Sep  6 03:00:22 2018 by jenkins-agent on trusty-builder (trusty-builder) from revision 653198cb748743f2ae3b1810ab63c177f1868237 (Clean build)
+Thu Sep  6 03:00:22 2018 biograph[39033]: create --in golden/e_coli_10000snp.fq --out golden/e_coli_10000snp.bg --ref /reference/e_coli_k12_ASM584v1 --id test_accession_id
+Thu Sep  6 03:00:22 2018 biograph[39033]:  bg version: 3.1.1
+Thu Sep  6 03:00:22 2018 biograph[39033]:  os release: Ubuntu 16.04.4 LTS
+Thu Sep  6 03:00:22 2018 biograph[39033]:      kernel: Linux 4.13.0-1014-azure #17-Ubuntu SMP Fri Apr 6 02:37:40 UTC 2018 x86_64
+Thu Sep  6 03:00:22 2018 biograph[39033]:        node: nils-dev-azure
+Thu Sep  6 03:00:22 2018 biograph[39033]:         cpu: 16
+Thu Sep  6 03:00:22 2018 biograph[39033]:     sys_mem: 110 GB
+Thu Sep  6 03:00:22 2018 biograph[39033]:   mem_limit: unlimited
+Thu Sep  6 03:00:22 2018 biograph[39033]:    tmp_free: 474 GB on /tmp/spiral_RsF6sm
+Thu Sep  6 03:00:22 2018 biograph[39033]:     threads: 16
+Thu Sep  6 03:00:22 2018 biograph[39033]: Listening on port 43925
+Thu Sep  6 03:00:22 2018 biograph[39033]: Start Stage::import
+Thu Sep  6 03:00:22 2018 biograph[39033]: Limiting probabilistic table entries from 205356257327 to 236941700
+Thu Sep  6 03:00:22 2018 biograph[39033]: Using 236941700 probabilistic table entries, 56.49 MB RAM
+Thu Sep  6 03:00:22 2018 biograph[39033]: Initializing kmer counter
+Thu Sep  6 03:00:22 2018 biograph[39033]: Creating probabilistic filters with 925553 entries per partition
+Thu Sep  6 03:00:22 2018 biograph[39033]: kmer_counter: starting probabilistic pass
+Thu Sep  6 03:00:22 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:22 2018 biograph[39033]: Importing reads
+Thu Sep  6 03:00:22 2018 biograph[39033]: 10000 reads imported
+Thu Sep  6 03:00:22 2018 biograph[39033]: End Stage::import  Wall time: 0.06s Avg parallelism: 3.74  CPU time: 0.23s sec:  46.28s sec user (0.11%) + 0.12s sec system)
+Thu Sep  6 03:00:22 2018 biograph[39033]: Start Stage::kmerization
+Thu Sep  6 03:00:22 2018 biograph[39033]: Small dataset. Limiting kmerization to 2 threads.
+Thu Sep  6 03:00:22 2018 biograph[39033]: Closing probalistic pass
+Thu Sep  6 03:00:37 2018 biograph[39033]: 236941568 probabilistic bitmap entries with the following counts:
+Thu Sep  6 03:00:37 2018 biograph[39033]:  0:    236931621 (100.00% avg per partition,  99.99% min, 100.00% max)
+Thu Sep  6 03:00:37 2018 biograph[39033]:  1:          135 (  0.00% avg per partition,   0.00% min,   0.00% max)
+Thu Sep  6 03:00:37 2018 biograph[39033]:  2:          430 (  0.00% avg per partition,   0.00% min,   0.00% max)
+Thu Sep  6 03:00:37 2018 biograph[39033]:  3:         9382 (  0.00% avg per partition,   0.00% min,   0.01% max)
+Thu Sep  6 03:00:37 2018 biograph[39033]: Estimating 9947 total kmers, 9382 (94.32%) of which need exact counts.
+Thu Sep  6 03:00:37 2018 biograph[39033]: Increasing overflow table size from 670 to absolute minimum 524288
+Thu Sep  6 03:00:37 2018 biograph[39033]: Overflow table has 524288 entries using 8.00 MB RAM
+Thu Sep  6 03:00:38 2018 biograph[39033]: Requiring 13403 exact table entries
+Thu Sep  6 03:00:38 2018 biograph[39033]: Exact entries need 28.45 MB of memory; using 1 passes.
+Thu Sep  6 03:00:38 2018 biograph[39033]: done close_prob_pass
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> using kmer_size: 30
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> using error_rate: 5.00%
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> using num_threads: 0
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> detected read_parts: 1
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> detected read_length: 35
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> user specified memory_bound: 48 GB
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> loading ref
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> ref loaded.
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmerizer::prepare> detected ref_size: 4738834 from reference: 
+Thu Sep  6 03:00:38 2018 biograph[39033]: Small dataset; decreasing exact entries per partition from 11976839 to 93820.
+Thu Sep  6 03:00:38 2018 biograph[39033]: Increasing exact table size from 93820 to absolute minimum 524288
+Thu Sep  6 03:00:38 2018 biograph[39033]: Creating exact counter with 524289 entries for 256 partitions.  RAM use: 28.25 MB for prob table, 2048.00 MB for exact table
+Thu Sep  6 03:00:38 2018 biograph[39033]: ALLOC: hiwater raised to 1096 M  from 0 b
+Thu Sep  6 03:00:38 2018 biograph[39033]: ALLOC:         1072 M  kmer_count_table: main
+Thu Sep  6 03:00:38 2018 biograph[39033]: ALLOC:           15 M  packed_vector: kmer_counter_prob
+Thu Sep  6 03:00:38 2018 biograph[39033]: ALLOC:          8192 K kmer_count_table: kmer_counter_overflow_table
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_counter: starting exact pass 1/1.
+Thu Sep  6 03:00:38 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:38 2018 biograph[39033]: Exact pass 1/1 complete; 995/60000 (1.66%) skipped due to probabilistic lookup
+Thu Sep  6 03:00:38 2018 biograph[39033]: Exact pass main counters used 9383 of 134217984 total entries (0.01%) 
+Thu Sep  6 03:00:38 2018 biograph[39033]: Total kmers with exact counts 1: 1 (0.00%): 2: 0 (0.00%)
+Thu Sep  6 03:00:38 2018 biograph[39033]: Per partition min=0.00% avg=0.01% max=0.01% target max=70.00%
+Thu Sep  6 03:00:38 2018 biograph[39033]: Saving exact counts
+Thu Sep  6 03:00:38 2018 biograph[39033]: Done saving exact counts
+Thu Sep  6 03:00:38 2018 biograph[39033]: Overflow used: 0/524288 (0.00%)
+Thu Sep  6 03:00:38 2018 biograph[39033]: Extracting exact counts
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_set> Allocating in RAM lookup of 66, table = 65681
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_set> m_lookup_bases = 3, m_tail_bases = 27
+Thu Sep  6 03:00:38 2018 biograph[39033]: Generating kmer set
+Thu Sep  6 03:00:38 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:38 2018 biograph[39033]: Extracting exact counts
+Thu Sep  6 03:00:38 2018 biograph[39033]: After filtering, keeping 7108/9383 kmers (75.75%)
+Thu Sep  6 03:00:38 2018 biograph[39033]: Extracting exact counts
+Thu Sep  6 03:00:38 2018 biograph[39033]: Sorting kmer set
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_set> Saving kmer set to resource manager
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_set> Allocating lookup of 66, table = 49756
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_set> m_lookup_bases = 3, m_tail_bases = 27
+Thu Sep  6 03:00:38 2018 biograph[39033]: Done with kmer set generation, lookup size 64, table size 7108, 7 tail bytes, 0.05 MB total
+Thu Sep  6 03:00:38 2018 biograph[39033]: kmer_counter: closing
+Thu Sep  6 03:00:38 2018 biograph[39033]: No overrepresented kmers found.
+Thu Sep  6 03:00:38 2018 biograph[39033]: Kmer counting generated 0 records
+Thu Sep  6 03:00:38 2018 biograph[39033]: Writing k-mers out
+Thu Sep  6 03:00:38 2018 biograph[39033]: Kmers written to {"kmer_size":30,"lookup":{"all_metadata":{"m_data":{}},"meta":"","num_records":0,"partitions":[{"files":[{"file":"file:///tmp/spiral_RsF6sm/f4f19c27-c6f4-2d09-1b9c-9db68aa0c610","first_key":"","last_key":"","num_records":0,"size":264}],"num_records":0,"size":264}],"size":264,"sort":"","tags":{}},"orig_size":9383,"size":7108,"table":{"all_metadata":{"m_data":{}},"meta":"","num_records":0,"partitions":[{"files":[{"file":"file:///tmp/spiral_RsF6sm/6ee87d30-5bcd-510c-02c1-c992a3a32e78","first_key":"","last_key":"","num_records":0,"size":49756}],"num_records":0,"size":49756}],"size":49756,"sort":"","tags":{}}}
+Thu Sep  6 03:00:38 2018 biograph[39033]: run_kmerize_subtask> Writing final data manifest
+Thu Sep  6 03:00:38 2018 biograph[39033]: End Stage::kmerization  Wall time: 16.31s Avg parallelism: 1.93  CPU time: 31.53s sec:  57.89s sec user (18.25%) + 13.28s sec system)
+Thu Sep  6 03:00:38 2018 biograph[39033]: Start Stage::read_correction
+Thu Sep  6 03:00:38 2018 biograph[39033]: Fast creation enabled
+Thu Sep  6 03:00:38 2018 biograph[39033]: Found 4738834 bases of reference
+Thu Sep  6 03:00:38 2018 biograph[39033]: Loaded 1184709 bytes of repo into RAM
+Thu Sep  6 03:00:38 2018 biograph[39033]: Loading kmer set into RAM
+Thu Sep  6 03:00:39 2018 biograph[39033]: 4738836 initial bases present for seqset build.  2015/7108 kmers (28.35%) matched.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Correcting reads...
+Thu Sep  6 03:00:39 2018 biograph[39033]: Generated 8444 corrected reads, 288464 bases (avg 34.16 bases/read)
+Thu Sep  6 03:00:39 2018 biograph[39033]: 8444 corrected reads processed; 3569 (42.27%) matched reference, 4875 (57.73%) did not, including 0 (0.00%) which included a kmer matching reference but did not entirely match.
+Thu Sep  6 03:00:39 2018 biograph[39033]: 0 bases were corrected in 0 (0.00%) reads, averaging -nan bases per corrected read.
+Thu Sep  6 03:00:39 2018 biograph[39033]: 7076 bases dropped from the end of 2219 (26.28%) reads, averaging 3.19 bases per truncated read.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Removing kmer db object /tmp/spiral_RsF6sm/6ee87d30-5bcd-510c-02c1-c992a3a32e78
+Thu Sep  6 03:00:39 2018 biograph[39033]: Removing kmer db object /tmp/spiral_RsF6sm/f4f19c27-c6f4-2d09-1b9c-9db68aa0c610
+Thu Sep  6 03:00:39 2018 biograph[39033]: 0.06x estimated corrected coverage
+Thu Sep  6 03:00:39 2018 biograph[39033]: 8444 / 10000 reads survived read correction.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Deleting kmers
+Thu Sep  6 03:00:39 2018 biograph[39033]: End Stage::read_correction  Wall time: 0.47s Avg parallelism: 6.08  CPU time: 2.86s sec:  42.21s sec user (1.21%) + 1.66s sec system)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Start Stage::make_seqset
+Thu Sep  6 03:00:39 2018 biograph[39033]: Fast creation enabled
+Thu Sep  6 03:00:39 2018 biograph[39033]: Loaded 1225962 bytes of repo into RAM
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expanding
+Thu Sep  6 03:00:39 2018 biograph[39033]: Sorting and deduping "" + "initial" -> "init_sorted" + "", reserving 1.17 MB RAM for sequence repo, limiting sort/dedup to 49150.83 MB RAM
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expand stats: Stats: dedup_msecs: 21, new_entries: 21775, output_entries: 11426, prefetch_msecs: 7
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expanding with stride=7, count=255
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expand pass completed with 9460 (82.79%) new entries
+Thu Sep  6 03:00:39 2018 biograph[39033]: Sorting and deduping "init_sorted" + "init_expanded" -> "pass2_sorted" + "pass2_expanded", reserving 1.17 MB RAM for sequence repo, limiting sort/dedup to 49150.83 MB RAM
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expand stats: Stats: dedup_msecs: 67, expanded_output: 22241, new_entries: 9460, output_entries: 15133, prefetch_msecs: 4, sorted_entries: 11426
+Thu Sep  6 03:00:39 2018 biograph[39033]: Sorting and deduping "pass2_sorted" + "pass2_expanded" -> "complete" + "", reserving 1.17 MB RAM for sequence repo, limiting sort/dedup to 49150.83 MB RAM
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Expand stats: Stats: dedup_msecs: 25, new_entries: 22241, output_entries: 19935, prefetch_msecs: 2, sorted_entries: 15133
+Thu Sep  6 03:00:39 2018 biograph[39033]: Building seqset
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Computing seqset parts
+Thu Sep  6 03:00:39 2018 biograph[39033]: Shared prefix compares: fast: 19679 (100.00%) slow: 0 (0.00%)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Shared prefix histogram:
+Thu Sep  6 03:00:39 2018 biograph[39033]:      4:        766 (+  3.89=  3.89)     5:       2816 (+ 14.31= 18.20)     6:       6219 (+ 31.60= 49.80)
+Thu Sep  6 03:00:39 2018 biograph[39033]:      7:       5766 (+ 29.30= 79.10)     8:       2689 (+ 13.66= 92.77)     9:        959 (+  4.87= 97.64)
+Thu Sep  6 03:00:39 2018 biograph[39033]:     10:        330 (+  1.68= 99.32)    11:         95 (+  0.48= 99.80)    12:         27 (+  0.14= 99.94)
+Thu Sep  6 03:00:39 2018 biograph[39033]:     13:          9 (+  0.05= 99.98)    14:          3 (+  0.02=100.00)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Resetting memory allocation high water marks
+Thu Sep  6 03:00:39 2018 biograph[39033]: Calculating seqset size
+Thu Sep  6 03:00:39 2018 biograph[39033]: 19935 total seqset entries; initializing seqset
+Thu Sep  6 03:00:39 2018 biograph[39033]: Filling in seqset
+Thu Sep  6 03:00:39 2018 biograph[39033]: Finalizing seqset
+Thu Sep  6 03:00:39 2018 biograph[39033]: offset = 19935, m_entries = 19935
+Thu Sep  6 03:00:39 2018 biograph[39033]: End Stage::make_seqset  Wall time: 0.45s Avg parallelism: 2.33  CPU time: 1.04s sec:  34.38s sec user (0.36%) + 0.68s sec system)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Start Stage::make_readmap
+Thu Sep  6 03:00:39 2018 biograph[39033]: make_readmap::do_make> Creating readmap, is_paired = 0
+Thu Sep  6 03:00:39 2018 biograph[39033]: Constructing mate table builder.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Allocated 16888 entries at 12 bytes each, total memory = 202656
+Thu Sep  6 03:00:39 2018 biograph[39033]: Constructing parallel_mate_loop_table_builder, file_info_count = 10, manifest_record_count = 8444
+Thu Sep  6 03:00:39 2018 biograph[39033]: Starting mate loop table build.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Mate loop table has 16888 entries, 0 paired and 16888 unpaired
+Thu Sep  6 03:00:39 2018 biograph[39033]: Mate pair table is sorted.
+Thu Sep  6 03:00:39 2018 biograph[39033]: Mate loop table empty entries dropped. Length = 16888.
+Thu Sep  6 03:00:39 2018 biograph[39033]: End Stage::make_readmap  Wall time: 0.13s Avg parallelism: 1.68  CPU time: 0.21s sec:  69.61s sec user (0.15%) + 0.06s sec system)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Start Stage::metadata
+Thu Sep  6 03:00:39 2018 biograph[39033]: End Stage::metadata  Wall time: 0.00s Avg parallelism: 1.01  CPU time: 0.00s sec:  55.97s sec user (0.00%) + 0.00s sec system)
+Thu Sep  6 03:00:39 2018 biograph[39033]: Shutting it down.

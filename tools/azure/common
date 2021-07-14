@@ -1,0 +1,91 @@
+#!/bin/bash
+#
+# Common functions for using azure
+#
+if ! which az > /dev/null; then
+	echo "Could not find the Azure CLI tool."
+	echo "https://docs.microsoft.com/en-us/cli/azure/install-azure-cli"
+	exit 1
+fi
+
+# Warning: cpu limits apply per region, and expanding them takes Microsoft a
+# couple of days.
+#
+# azure vm location list
+# https://azure.microsoft.com/en-us/regions/
+export LOCATION=${LOCATION:-'West US'}
+export DOMAIN="`echo ${LOCATION}|tr [A-Z] [a-z]|tr -d ' '`.cloudapp.azure.com"
+
+# New RG for every VMNAME
+export RG=${VMNAME}
+if az group list --output tsv | grep -q resourceGroups/${RG}; then
+	echo "Resource group ${RG} already exists."
+	echo
+	echo "If you are sure you want to remove it:"
+	echo
+	echo "  az group delete --name ${RG}"
+	exit 1
+fi
+
+az group create --name ${RG} --location "${LOCATION}" > /dev/null
+
+# No profile? Prompt for account import.
+if [ ! -r ~/.azure/accessTokens.json ]; then
+	az login || exit 1
+fi
+
+# Are we logged in?
+if ! az vm list --resource-group ${RG} > /dev/null 2>&1; then
+	az login || exit 1
+fi
+
+# STORAGE="${HOME}/.azure/storage"
+# if [ ! -d ${STORAGE} ]; then
+# 	mkdir -p ${STORAGE}
+# fi
+
+# # No storage settings? Make them.
+# if [ ! -r ${STORAGE}/${RG} ]; then
+# 	ACCOUNT=`az storage account list |grep ${RG}|awk '{print $2}'|head -1`
+# 	if [ -z "${ACCOUNT}" ]; then
+# 		az storage account create --resource-group ${RG} --name ${VMNAME}
+# 		ACCOUNT=${VMNAME}
+# 	fi
+# 	CONNECTSTRING=`az storage account connectionstring show ${ACCOUNT} --resource-group ${RG}|grep connectionstring:|awk '{print $3}'`
+# 	KEY=`az storage account keys list -g ${RG} ${ACCOUNT} |grep Primary|awk '{print $3}'`
+# 	echo "export AZURE_STORAGE_ACCOUNT='${ACCOUNT}'" > ${STORAGE}/${RG}
+# 	echo "export AZURE_STORAGE_ACCESS_KEY='${KEY}'" >> ${STORAGE}/${RG}
+# 	echo "export AZURE_STORAGE_CONNECTION_STRING='${CONNECTSTRING}'" >> ${STORAGE}/${RG}
+# fi
+# . ${STORAGE}/${RG}
+
+# echo the current state of $VMNAME in resource group $RG
+check_state()
+{
+	az vm list --resource-group ${RG} --output tsv |grep -w "$VMNAME"|awk '{print $10}'
+}
+
+# wait until the state of VMNAME equals STATE
+waitfor_state()
+{
+	if [ -z "$STATE" ]; then
+		>&2 echo "STATE undefined."
+		exit 1
+	fi
+
+	local laststate="none"
+	local curstate=$(check_state)
+
+	while [ "$curstate" != "$STATE" ]; do
+		if [ -z "$curstate" ]; then
+			>&2 echo "$VMNAME cannot be found in the vm list!"
+			exit 1
+		fi
+		if [ "$curstate" != "$laststate" ]; then
+			echo "Current state: $curstate"
+			laststate=$curstate
+		fi
+		curstate=$(check_state)
+		sleep 2
+	done
+}

@@ -1,0 +1,38 @@
+{
+    "install_root": "/opt/spiral",
+    "reference_path": "/resources/reference",
+
+    "S3_hostname": "s3.amazonaws.com",
+
+    "access_key": "",
+    "secret_key": "",
+
+    "server_bind_list": [{
+        "ip": "0.0.0.0",
+        "port": 4430,
+        "ssl": true
+    }],
+    "ottoman_bind_list": [{
+        "port": 5984
+    }],
+    "taskdb_bind_list": [{
+        "ip": "0.0.0.0",
+        "port": 5985
+    }],
+
+    "task_timeout": 1200,
+    "task_max_timeouts": 3,
+    "task_update_interval": 30,
+    "taskdb_backup_period_in_seconds": 120,
+
+    "temp_root": "/mnt/tmp",
+
+    "resources_root": "/mnt/tmp",
+
+    "fork_mode" : "thread",
+    "log_http_traffic" : false,
+
+    "server_key": "",
+
+    "skip_ssl_validation": "false"
+}

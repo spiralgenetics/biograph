@@ -1,0 +1,29 @@
+Warning: 156/170 (91.76%) reads used fallback encoding.
+9/170 (5.29%) reads are unmapped.
+To maximize compression, align your bam or use a better reference.
+
+Entropy statistics:
+   AM: 2.9744
+   MD: 18.8533
+   NM: 4.04184
+   RG: 4.91537
+   SM: 2.62595
+   X0: 2.54366
+   X1: 2.28159
+   XC: 1.37415
+   XG: 2.7301
+   XM: 4.04404
+   XO: 2.47389
+   XT: 2.47389
+   _C: 8.06256
+   _F: 9.02521
+   _M: 4.5868
+   _N: 30.2236
+   _P: 3.55427
+   _Q: 328.849
+   _R: 0.537987
+   _S: 211.141
+   _T: 4.31136
+   _p: 6.26329
+   _r: 0.347095
+Total: 658.235

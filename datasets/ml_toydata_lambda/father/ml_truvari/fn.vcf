@@ -1,0 +1,32 @@
+##fileformat=VCFv4.1
+##fileDate=20181009
+##source="Spiral Genetics BioGraph",version="4.0.1-dev",description="build-revision='ddb7d0f71ad32e553bf49e95a2fc37ccdd910461',build-time='Mon Oct  8 23:38:58 2018',command-line='variants --in father_lambda.bg/ --ref ref_lambda/ --out father.vcf',seqset-uuid='5362c89b-743d-b7bf-0ca2-a6109a96d0eb'"
+##reference=ref_lambda/
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=TruScore,Number=1,Type=Float,Description="Truvari score for similarity of match">
+##INFO=<ID=PctSeqSimilarity,Number=1,Type=Float,Description="Pct sequence similarity between this variant and its closest match">
+##INFO=<ID=PctSizeSimilarity,Number=1,Type=Float,Description="Pct size similarity between this variant and its closest match">
+##INFO=<ID=PctRecOverlap,Number=1,Type=Float,Description="Percent reciprocal overlap percent of the two calls' coordinates">
+##INFO=<ID=StartDistance,Number=1,Type=Integer,Description="Distance of this call's start from comparison call's start">
+##INFO=<ID=EndDistance,Number=1,Type=Integer,Description="Distance of this call's start from comparison call's start">
+##INFO=<ID=SizeDiff,Number=1,Type=Float,Description="Difference in size(basecall) and size(evalcall)">
+##INFO=<ID=NumNeighbors,Number=1,Type=Integer,Description="Number of calls in B that were in the neighborhood (REFDIST) of this call">
+##INFO=<ID=NumThresholdNeighbors,Number=1,Type=Integer,Description="Number of calls in B that are within threshold distances of this call">
+##INFO=<ID=MatchId,Number=1,Type=Integer,Description="Truvari uid to help tie tp-base.vcf and tp-call.vcf entries together">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=PDP,Number=1,Type=Integer,Description="Sample Pair Depth">
+##FORMAT=<ID=PAD,Number=.,Type=Integer,Description="Allelic pair depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=OV,Number=1,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="Phased genotype">
+##FORMAT=<ID=PI,Number=1,Type=Integer,Description="Phase group">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype quality">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##contig=<ID=lambda,length=48502>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	father
+lambda	40278	.	C	CGCCTAGGCGGGAACGTGGGCCATGGTGGCTGCCGCATGTACTGGCGATTGATCCTCCTGCAACCTGAAGGGACGGCCGCGGGAACGTCTCCGATAATGAAGGCTTGCACTCATATACTATCCAAGCCACGGGTGATACACCCGTGGCACTAAGAACGTTATAGAGAACCTATCTTTCGGGGATGGGCCTATTGCGTCTAACATAGACACTTTAAGGCTAATGAAGTTTGTAGCTAAGACCGCTGGGGAGTGAATAGCGGGACACGAATGGTCGGGAAGCAAAACGAAACGGAGGATTCTC	100	PASS	NS=1;SVTYPE=INS;SVLEN=300;END=30278;NumNeighbors=1;NumThresholdNeighbors=0;MatchId=9	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD	1/1:1|1:100:36517:143:124:0,124:42:0,42

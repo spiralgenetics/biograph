@@ -1,0 +1,47 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 [build directory]"
+    exit 1
+fi
+
+if [ ! -d "packages/dpkgbuild/" ]; then
+    echo "This script should be run from your spiral source folder."
+    exit 1
+fi
+
+BASE=${1}
+if [ ! -d ${BASE}/cloud/ ]; then
+    echo "${BASE}/cloud/ not found. Did you build?"
+    exit 1
+fi
+
+if [ ! -d ${BASE}/deb/ ]; then
+    mkdir -p ${BASE}/deb/
+fi
+
+function abort() {
+       rm -f ${BASE}/deb/${DEB}
+}
+
+trap abort INT
+
+REVISION=`git rev-parse --short HEAD`
+TMP=`mktemp -d`
+
+echo "Packaging server dpkg from ${BASE} in ${TMP}"
+
+mkdir -p ${TMP}/DEBIAN/
+cp -R ${BASE}/cloud/* ${TMP}
+cp -a packages/dpkgbuild/. ${TMP}/
+
+. versions.bzl
+echo "Version: ${SPIRAL_CLOUD_VERSION}" >> ${TMP}/DEBIAN/control
+echo "Description: Spiral cloud build" >> ${TMP}/DEBIAN/control
+
+DEB="spiral_cloud_${SPIRAL_CLOUD_VERSION}-${REVISION}.deb"
+fakeroot dpkg-deb --build ${TMP} ${BASE}/deb/${DEB}
+rm -rf ${TMP}
+
+echo "${DEB} is ready to deploy."

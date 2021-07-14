@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Fetch a blob via https using an SAS key
+#
+# Either set SAS to a valid key, or install azure cli (tools/azure/install-azure-cli)
+# and set up your storage account credentials (AZURE_STORAGE_ACCOUNT,
+# AZURE_STORAGE_ACCESS_KEY, and AZURE_STORAGE_CONNECTION_STRING).
+#
+
+if [ -z "${AZURE_STORAGE_ACCOUNT}" ]; then
+	export AZURE_STORAGE_ACCOUNT="sgbiodata"
+fi
+
+if [ -z "${SAS}" -a -z "${AZURE_STORAGE_ACCESS_KEY}" ]; then
+	echo "No SAS key or AZURE_STORAGE_ACCESS_KEY defined, exiting."
+	exit 1
+fi
+
+if [ -z "$2" ]; then
+	cat <<EOM
+Usage: `basename $0` container path/to/blob [destination]
+
+Choose storage account by setting AZURE_STORAGE_ACCOUNT (default: ${AZURE_STORAGE_ACCOUNT})
+
+Writes to a file of the same name by default. Set destination to - for STDOUT.
+
+EOM
+	exit 1
+fi
+
+export CONTAINER="$1"
+export URI="$2"
+
+if [ ! -z "$3" ]; then
+	export OUTPUT="$3"
+else
+	export OUTPUT=`basename "${URI}"`
+fi
+
+if [ -z "$SAS" ]; then
+	export SAS=`az storage blob generate-sas --container-name ${CONTAINER} --name ${URI} --permissions r --expiry $(date +%Y-%m-%d --date tomorrow) --output tsv`
+fi
+
+export URL="https://${AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/${AZURE_STORAGE_ACCOUNT}"
+curl -s "${URL}/${URI}?${SAS}" -o ${OUTPUT}

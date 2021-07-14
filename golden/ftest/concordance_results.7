@@ -1,0 +1,51 @@
+Total matches: 6 / 8 (Hit rate: 75.00%)
+  Concordance: 2 / 2 (Sensitivity: 100.00%  FDR: 50.00%)
+
+Stats:
+ 'Using loose_svtype: True': 1,
+ 'Using overlap: 0.8': 1,
+ 'Using plusplus: True': 1,
+ 'Using quiet: True': 1,
+ 'Using rejects: True': 1,
+ 'baylor calls (invalid: "")': 1,
+ 'baylor calls (invalid: "foo")': 1,
+ "baylor calls (not set(['ILL']))": 2,
+ 'baylor calls (valid <= 1)': 2,
+ 'baylor calls (valid)': 7,
+ 'processing INS': 6,
+ 'start not within allowed overlap INS': 6,
+ 'start not within allowed overlap: 12000 +- 199': 2,
+ 'start not within allowed overlap: 6000 +- 199': 2,
+ 'start not within allowed overlap: 7999 +- 199': 1,
+ 'start not within allowed overlap: 8000 +- 199': 1,
+ 'start overlaps': 6,
+ 'start overlaps: 10000 +- 179': 1,
+ 'start overlaps: 10000 +- 199': 1,
+ 'start overlaps: 10000 +- 222': 1,
+ 'start overlaps: 10100 +- 199': 1,
+ 'start overlaps: 7999 +- 199': 1,
+ 'start overlaps: 8000 +- 199': 1,
+ 'total compared': 8,
+ 'total compared: chr X': 8,
+ 'total matches': 6,
+ 'total matches: INS': 6,
+ 'total matches: chr X': 6,
+ 'vcf records': 22,
+ 'wrong chromosome': 14}
+
+Truth:
+Y: 1
+X: 2
+3: 4
+
+Rejects:
+X	12000	1000	INS	+	+
+X	6000	1000	INS	+	+
+
+anchored_chr	anchored_pos	anchored_size	anchored_type	5_orientation	3_orientation	baylor_start	baylor_size	baylor_type	baylor_svid	total_overlap	size_match
+X	10000	1000	INS	+	+	10000	1000	INS	1	1.0000	1.0000
+X	10100	1000	INS	+	+	10000	1000	INS	1	0.8995	1.0000
+X	10000	899	INS	+	+	10000	1000	INS	1	1.0000	0.8990
+X	10000	1112	INS	+	+	10000	1000	INS	1	1.0000	0.8993
+X	8000	1000	INS	+	+	8099	1000	INS	2	0.9005	1.0000
+X	7999	1000	INS	+	+	8099	1000	INS	2	0.8995	1.0000

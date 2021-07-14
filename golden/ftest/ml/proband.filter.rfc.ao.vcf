@@ -1,0 +1,58 @@
+##fileformat=VCFv4.1
+##fileDate=20190724
+##source="Spiral Genetics BioGraph",version="5.0.0-rc6",description="build-revision='07efc6d37608f8bc25b0573803aa564cf52fbd91',build-time='Tue Jul 23 17:39:31 2019',command-line='variants --in benchmark/proband_lambda.bg --ref toy_reference --out proband_variants.vcf --assemblies-out proband_assemblies.csv',seqset-uuid='52f41046-0e66-9b4a-b5a9-00a1a8029aa5'"
+##source="Spiral Genetics BioGraph Genotype",version="5.0.0-rc6",description="build-revision='07efc6d37608f8bc25b0573803aa564cf52fbd91',command-line='/scratch/biograph_sdk-5.0.0-rc6/env/bin/bgtools pcmp -b ../benchmark/proband_lambda.bg -v proband_variants.vcf.gz -r ../toy_reference/ -o proband.pcmp.vcf'"
+##reference=toy_reference/
+##INFO=<ID=AID,Number=.,Type=Integer,Description="Assembly IDs used in constructing this variant">
+##INFO=<ID=POP,Number=0,Type=Flag,Description="Found using pop tracer">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##FORMAT=<ID=PDP,Number=1,Type=Integer,Description="Sample Pair Depth">
+##FORMAT=<ID=PAD,Number=.,Type=Integer,Description="Allelic pair depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=OV,Number=1,Type=Integer,Description="Minimum read overlap in assembly">
+##FORMAT=<ID=PG,Number=1,Type=String,Description="Phased genotype">
+##FORMAT=<ID=PI,Number=1,Type=Integer,Description="Phase group">
+##FORMAT=<ID=US,Number=R,Type=Integer,Description="Length of best-spanning read upstream">
+##FORMAT=<ID=DS,Number=R,Type=Integer,Description="Length of best-spanning read dnstream">
+##FORMAT=<ID=UC,Number=R,Type=Integer,Description="Number of reads spanning upstream">
+##FORMAT=<ID=DC,Number=R,Type=Integer,Description="Number of reads spanning dnstream">
+##FORMAT=<ID=UDC,Number=R,Type=Integer,Description="Upstream Direct-strand Coverage">
+##FORMAT=<ID=UCC,Number=R,Type=Integer,Description="Upstream Compliment-strand Coverage">
+##FORMAT=<ID=DDC,Number=R,Type=Integer,Description="Dnstream Direct-strand Coverage">
+##FORMAT=<ID=DCC,Number=R,Type=Integer,Description="Dnstream Compliment-strand Coverage">
+##FORMAT=<ID=UMO,Number=R,Type=Integer,Description="Upstream Minimum read-Overlap">
+##FORMAT=<ID=DMO,Number=R,Type=Integer,Description="Dnstream Minimum read-Overlap">
+##FORMAT=<ID=UXO,Number=R,Type=Integer,Description="Upstream maximum read-Overlap">
+##FORMAT=<ID=DXO,Number=R,Type=Integer,Description="Dnstream maximum read-Overlap">
+##FORMAT=<ID=NR,Number=R,Type=Integer,Description="Number of Reads supporting assembly">
+##FORMAT=<ID=MO,Number=R,Type=Integer,Description="Minimum Overlap of reads supporting assembly">
+##FORMAT=<ID=XO,Number=R,Type=Integer,Description="Maximum Overlap of reads supporting assembly">
+##FORMAT=<ID=XC,Number=R,Type=Integer,Description="Maximum Coverage over assembly">
+##FORMAT=<ID=AC,Number=R,Type=Integer,Description="Average Coverage over assembly">
+##FORMAT=<ID=EC,Number=R,Type=Integer,Description="Median Coverage over assembly">
+##FORMAT=<ID=MC,Number=R,Type=Integer,Description="Minimum Coverage over assembly">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Phred-scaled likelihoods of the genotypes at a locus">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##FILTER=<ID=lowq,Description="Low confidence variants">
+##contig=<ID=lambda,length=48502>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	proband
+lambda	2667	.	C	CA	84	PASS	AID=52954,3385;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:6:52954:146:124:0,124:115:0,115:74,75:0,74:126,153:0,155:56,88:70,65:0,88:0,67:141,103:0,103:150,150:0,150:126,155:0,103:150,150:126,155:126,154:126,154:126,153:99,75,6
+lambda	5897	.	G	A	92	PASS	AID=49048,7724;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:49048:145:123:0,123:118:0,118:0,74:0,75:0,160:0,161:0,76:0,84:0,76:0,85:0,103:0,103:0,150:0,150:0,161:0,103:0,150:0,161:0,160:0,160:0,160:99,74,5
+lambda	7146	.	G	GTA	87	PASS	AID=47562,9261;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:47562:140:121:0,121:110:0,110:0,74:0,72:0,144:0,148:0,71:0,73:0,73:0,75:0,104:0,104:0,150:0,150:0,150:0,104:0,150:0,148:0,146:0,146:0,144:99,73,5
+lambda	8493	.	C	CT	90	PASS	AID=46076,11002;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:6:46076:145:145:0,145:135:0,135:0,74:0,73:0,171:0,171:0,88:0,83:0,89:0,82:0,125:0,125:0,150:0,150:0,172:0,125:0,150:0,171:0,171:0,171:0,171:99,87,6
+lambda	9495	.	C	G	92	PASS	AID=44970,12159;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:6:44970:144:136:0,136:132:0,132:0,75:0,75:0,162:0,163:0,80:0,82:0,80:0,83:0,117:0,117:0,150:0,150:0,164:0,117:0,150:0,163:0,162:0,162:0,162:99,82,6
+lambda	13383	.	T	A	91	PASS	AID=40166,17491;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:40166:145:109:0,109:101:0,101:0,75:0,74:0,138:0,136:0,68:0,70:0,67:0,69:0,103:0,103:0,150:0,150:0,138:0,103:0,150:0,138:0,137:0,137:0,136:99,66,5
+lambda	24304	.	TGA	T	87	PASS	AID=30544,27386;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:6:30544:143:125:0,125:116:0,116:0,75:0,75:0,156:0,156:0,88:0,68:0,88:0,68:0,143:0,143:0,150:0,150:0,156:0,143:0,150:0,156:0,156:0,156:0,156:99,75,6
+lambda	25054	.	G	T	91	PASS	AID=26580,31351;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:26580:144:118:0,118:107:0,107:0,75:0,74:0,147:0,148:0,71:0,76:0,71:0,77:0,137:0,137:0,150:0,150:0,149:0,137:0,150:0,148:0,148:0,148:0,147:99,71,5
+lambda	33538	.	A	AAG	87	PASS	AID=16375,41878;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:16375:143:116:0,116:100:0,100:0,74:0,74:0,137:0,142:0,67:0,70:0,69:0,73:0,113:0,113:0,150:0,150:0,142:0,113:0,150:0,142:0,140:0,140:0,137:99,70,5
+lambda	37744	.	AG	A	90	PASS	AID=11640,46995;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:11640:145:109:0,109:102:0,102:0,75:0,75:0,147:0,147:0,70:0,77:0,70:0,77:0,107:0,107:0,150:0,150:0,147:0,107:0,150:0,147:0,147:0,147:0,147:99,66,5
+lambda	41165	.	GAC	G	85	PASS	AID=7738,51213;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:6:7738:146:128:0,128:123:0,123:0,75:0,75:0,169:0,169:0,77:0,92:0,77:0,92:0,108:0,108:0,150:0,150:0,169:0,108:0,150:0,169:0,169:0,169:0,169:99,77,6
+lambda	43279	.	G	C	93	PASS	AID=53743,5469;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:4:53743:144:91:0,91:88:0,88:0,72:0,73:0,118:0,117:0,52:0,66:0,51:0,66:0,137:0,137:0,150:0,150:0,118:0,137:0,150:0,118:0,118:0,118:0,117:99,55,4
+lambda	45198	.	GA	G	90	PASS	AID=55857,3380;NS=1	GT:PG:GQ:PI:OV:DP:AD:PDP:PAD:US:DS:UC:DC:UDC:UCC:DDC:DCC:UMO:DMO:UXO:DXO:NR:MO:XO:XC:AC:EC:MC:PL	1/1:1|1:5:55857:143:108:0,108:101:0,101:4,74:3,74:7,131:5,131:3,70:4,61:2,70:3,61:149,129:149,129:150,150:150,150:7,131:149,129:150,150:7,131:6,131:6,131:6,131:99,65,5

@@ -1,0 +1,9 @@
+access-control-allow-origin: *
+access-control-expose-headers: X-DAS-Version, X-DAS-Status, X-DAS-Capabilities, X-DAS-Server
+content-length: 38
+content-type: application/xml
+x-das-server: SpiralGeneticsDAS
+x-das-status: 401
+x-das-version: DAS/1.6
+
+Bad data source (data source unknown).

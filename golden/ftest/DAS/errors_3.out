@@ -1,0 +1,6 @@
+connection: Close
+content-length: 73
+content-type: text/plain
+
+{"success":false, "error":"Lookup of invalid chromosome 513450,513580"}
+

@@ -1,0 +1,79 @@
+##fileformat=VCFv4.0
+##fileDate=20120810
+##source=Spiral Genetics v1.0
+##reference=e_coli_k12_ASM584v1_none
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="allele count in genotypes for each ALT allele in the same order as listed">
+##INFO=<ID=DP_A,Number=1,Type=Integer,Description="depth of A basecalls at position">
+##INFO=<ID=DP_C,Number=1,Type=Integer,Description="depth of C basecalls at position">
+##INFO=<ID=DP_G,Number=1,Type=Integer,Description="depth of G basecalls at position">
+##INFO=<ID=DP_T,Number=1,Type=Integer,Description="depth of T basecalls at position">
+##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership">
+##INFO=<ID=HM,Number=0,Type=Flag,Description="membership in Hapmap">
+##INFO=<ID=1000G,Number=0,Type=Flag,Description="membership in 1000 Genomes">
+##INFO=<ID=KNOWN,Number=1,Type=String,Description="whether the variation is known or allele unknown or variation unknown">
+##INFO=<ID=GENE,Number=1,Type=String,Description="Name of associated gene">
+##INFO=<ID=RISK_ALLELES,Number=1,Type=String,Description="Risk Alleles">
+##INFO=<ID=PHENOTYPE,Number=1,Type=String,Description="Phenotype">
+##INFO=<ID=STUDY,Number=1,Type=String,Description="Study">
+##INFO=<ID=SNPEFF,Number=1,Type=String,Description="SNP Effect">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+Chromosome	542	.	G	T	171	PASS	DP=48;AC=48;DP_A=0;DP_T=48;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:48
+Chromosome	559	.	T	C	141	PASS	DP=38;AC=38;DP_A=0;DP_T=0;DP_G=0;DP_C=38;KNOWN=unknown;GENE=thrA	GT:DP	1/1:38
+Chromosome	621	.	T	C	150	PASS	DP=41;AC=41;DP_A=0;DP_T=0;DP_G=0;DP_C=41;KNOWN=unknown;GENE=thrA	GT:DP	1/1:41
+Chromosome	660	.	T	C	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=0;DP_C=36;KNOWN=unknown;GENE=thrA	GT:DP	1/1:36
+Chromosome	810	.	G	T	138	PASS	DP=37;AC=37;DP_A=0;DP_T=37;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:37
+Chromosome	831	.	C	T	159	PASS	DP=44;AC=44;DP_A=0;DP_T=44;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:44
+Chromosome	843	.	G	A	141	PASS	DP=38;AC=38;DP_A=38;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:38
+Chromosome	966	.	T	C	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=0;DP_C=36;KNOWN=unknown;GENE=thrA	GT:DP	1/1:36
+Chromosome	981	.	T	G	159	PASS	DP=44;AC=44;DP_A=0;DP_T=0;DP_G=44;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:44
+Chromosome	1089	.	C	T	138	PASS	DP=37;AC=37;DP_A=0;DP_T=37;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:37
+Chromosome	1110	.	C	T	132	PASS	DP=35;AC=35;DP_A=0;DP_T=35;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:35
+Chromosome	1504	.	C	T	138	PASS	DP=37;AC=37;DP_A=0;DP_T=37;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:37
+Chromosome	1593	.	A	G	132	PASS	DP=35;AC=35;DP_A=0;DP_T=0;DP_G=35;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:35
+Chromosome	1807	.	C	T	150	PASS	DP=41;AC=41;DP_A=0;DP_T=41;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:41
+Chromosome	2061	.	C	T	162	PASS	DP=45;AC=45;DP_A=0;DP_T=45;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:45
+Chromosome	2211	.	A	T	141	PASS	DP=38;AC=38;DP_A=0;DP_T=38;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:38
+Chromosome	2310	.	G	A	132	PASS	DP=35;AC=35;DP_A=35;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:35
+Chromosome	2481	.	T	C	138	PASS	DP=37;AC=37;DP_A=0;DP_T=0;DP_G=0;DP_C=37;KNOWN=unknown;GENE=thrA	GT:DP	1/1:37
+Chromosome	2508	.	A	G	165	PASS	DP=46;AC=46;DP_A=0;DP_T=0;DP_G=46;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:46
+Chromosome	2532	.	C	T	135	PASS	DP=36;AC=36;DP_A=0;DP_T=36;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrA	GT:DP	1/1:36
+Chromosome	2779	.	T	C	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=0;DP_C=36;KNOWN=unknown;GENE=thrA	GT:DP	1/1:36
+Chromosome	3097	.	T	C	159	PASS	DP=44;AC=44;DP_A=0;DP_T=0;DP_G=0;DP_C=44;KNOWN=unknown;GENE=thrB	GT:DP	1/1:44
+Chromosome	3106	.	G	A	147	PASS	DP=40;AC=40;DP_A=40;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrB	GT:DP	1/1:40
+Chromosome	3188	.	C	T	150	PASS	DP=41;AC=41;DP_A=0;DP_T=41;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrB	GT:DP	1/1:41
+Chromosome	3196	.	C	G	168	PASS	DP=47;AC=47;DP_A=0;DP_T=0;DP_G=47;DP_C=0;KNOWN=unknown;GENE=thrB	GT:DP	1/1:47
+Chromosome	3456	.	C	T	147	PASS	DP=40;AC=40;DP_A=0;DP_T=40;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrB	GT:DP	1/1:40
+Chromosome	3802	.	G	A	132	PASS	DP=35;AC=35;DP_A=35;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrC	GT:DP	1/1:35
+Chromosome	4102	.	T	C	147	PASS	DP=40;AC=40;DP_A=0;DP_T=0;DP_G=0;DP_C=40;KNOWN=unknown;GENE=thrC	GT:DP	1/1:40
+Chromosome	4531	.	G	A	147	PASS	DP=40;AC=40;DP_A=40;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=thrC	GT:DP	1/1:40
+Chromosome	4780	.	T	C	141	PASS	DP=38;AC=38;DP_A=0;DP_T=0;DP_G=0;DP_C=38;KNOWN=unknown;GENE=thrC	GT:DP	1/1:38
+Chromosome	4822	.	T	C	171	PASS	DP=48;AC=48;DP_A=0;DP_T=0;DP_G=0;DP_C=48;KNOWN=unknown;GENE=thrC	GT:DP	1/1:48
+Chromosome	4963	.	A	G	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=36;DP_C=0;KNOWN=unknown;GENE=thrC	GT:DP	1/1:36
+Chromosome	4969	.	T	C	132	PASS	DP=35;AC=35;DP_A=0;DP_T=0;DP_G=0;DP_C=35;KNOWN=unknown;GENE=thrC	GT:DP	1/1:35
+Chromosome	5086	.	T	A	135	PASS	DP=38;AC=36;DP_A=36;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown	GT:DP	1/1:38
+Chromosome	5169	.	C	T	147	PASS	DP=40;AC=40;DP_A=0;DP_T=40;DP_G=0;DP_C=0;KNOWN=unknown	GT:DP	1/1:40
+Chromosome	5183	.	A	C	144	PASS	DP=39;AC=39;DP_A=0;DP_T=0;DP_G=0;DP_C=39;KNOWN=unknown	GT:DP	1/1:39
+Chromosome	5296	.	A	G	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=36;DP_C=0;KNOWN=unknown;GENE=yaaX	GT:DP	1/1:36
+Chromosome	5887	.	C	T	153	PASS	DP=42;AC=42;DP_A=0;DP_T=42;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaA	GT:DP	1/1:42
+Chromosome	5956	.	A	T	135	PASS	DP=36;AC=36;DP_A=0;DP_T=36;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaA	GT:DP	1/1:36
+Chromosome	6106	.	G	C	147	PASS	DP=40;AC=40;DP_A=0;DP_T=0;DP_G=0;DP_C=40;KNOWN=unknown;GENE=yaaA	GT:DP	1/1:40
+Chromosome	6559	.	C	T	178	PASS	DP=50;AC=50;DP_A=0;DP_T=50;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:50
+Chromosome	6580	.	A	C	162	PASS	DP=45;AC=45;DP_A=0;DP_T=0;DP_G=0;DP_C=45;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:45
+Chromosome	6715	.	T	A	144	PASS	DP=39;AC=39;DP_A=39;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:39
+Chromosome	6795	.	A	G	147	PASS	DP=40;AC=40;DP_A=0;DP_T=0;DP_G=40;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:40
+Chromosome	6898	.	A	G	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=36;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:36
+Chromosome	6913	.	A	C	135	PASS	DP=36;AC=36;DP_A=0;DP_T=0;DP_G=0;DP_C=36;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:36
+Chromosome	7105	.	C	A	147	PASS	DP=40;AC=40;DP_A=40;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:40
+Chromosome	7132	.	A	C	144	PASS	DP=39;AC=39;DP_A=0;DP_T=0;DP_G=0;DP_C=39;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:39
+Chromosome	7219	.	C	A	141	PASS	DP=38;AC=38;DP_A=38;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:38
+Chromosome	7663	.	C	T	132	PASS	DP=35;AC=35;DP_A=0;DP_T=35;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:35
+Chromosome	7681	.	A	G	138	PASS	DP=37;AC=37;DP_A=0;DP_T=0;DP_G=37;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:37
+Chromosome	7711	.	A	T	153	PASS	DP=42;AC=42;DP_A=0;DP_T=42;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:42
+Chromosome	7867	.	G	A	141	PASS	DP=38;AC=38;DP_A=38;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=yaaJ	GT:DP	1/1:38
+Chromosome	8603	.	T	A	156	PASS	DP=43;AC=43;DP_A=43;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=talB	GT:DP	1/1:43
+Chromosome	8885	.	C	T	135	PASS	DP=36;AC=36;DP_A=0;DP_T=36;DP_G=0;DP_C=0;KNOWN=unknown;GENE=talB	GT:DP	1/1:36
+Chromosome	9274	.	T	C	141	PASS	DP=38;AC=38;DP_A=0;DP_T=0;DP_G=0;DP_C=38;KNOWN=unknown	GT:DP	1/1:38
+Chromosome	9485	.	G	A	144	PASS	DP=39;AC=39;DP_A=39;DP_T=0;DP_G=0;DP_C=0;KNOWN=unknown;GENE=mog	GT:DP	1/1:39

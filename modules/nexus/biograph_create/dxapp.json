@@ -1,0 +1,167 @@
+{
+  "name": "biograph_create",
+  "title": "BioGraph: create",
+  "summary": "Create a new BioGraph file from reads and call variants against a reference",
+  "dxapi": "1.0.0",
+  "version": "4.0.0+build.20181004.1416",
+  "inputSpec": [
+    {
+      "name": "input_reads",
+      "label": "Input reads to process",
+      "class": "file",
+      "patterns": [
+        "*.bam",
+        "*.cram"
+      ],
+      "optional": false,
+      "help": "The input set of sequencing reads to be processed in BAM or CRAM format"
+    },
+    {
+      "name": "reference",
+      "label": "Reference tarball",
+      "class": "file",
+      "patterns": [
+        "*.tgz"
+      ],
+      "optional": false,
+      "help": "A reference genome archive created by the `BioGraph: reference` app"
+    },
+    {
+      "name": "sample_id",
+      "label": "Sample ID",
+      "class": "string",
+      "optional": false,
+      "help": "A unique name to identify this sample"
+    },
+    {
+      "name": "create_options",
+      "label": "Advanced 'biograph create' options",
+      "help": "Advanced command line options that will be supplied directly to 'biograph create'.",
+      "class": "string",
+      "optional": true
+    },
+    {
+      "name": "variants_options",
+      "label": "Advanced 'biograph variants' options",
+      "help": "Advanced command line options that will be supplied directly to 'biograph variants'.",
+      "class": "string",
+      "optional": true
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "seqset",
+      "label": "BioGraph seqset",
+      "class": "file",
+      "patterns": [
+        "seqset"
+      ],
+      "help": "The compressed/indexed minimal set of maximal kmers"
+    },
+    {
+      "name": "variants",
+      "label": "Variants VCF",
+      "class": "file",
+      "patterns": [
+        "*.vcf.gz"
+      ],
+      "help": "Sorted/compressed variant call format file of every allele discovered by `biograph variants`"
+    },
+    {
+      "name": "variants_index",
+      "label": "Variants VCF index",
+      "class": "file",
+      "patterns": [
+        "*.vcf.gz.tbi"
+      ],
+      "help": "Tabix index of the `*.vcf.gz`"
+    },
+    {
+      "name": "readmap",
+      "label": "BioGraph readmap",
+      "class": "file",
+      "patterns": [
+        "*.readmap"
+      ],
+      "help": "Read coverage data"
+    },
+    {
+      "name": "bg_info",
+      "label": "BioGraph metadata",
+      "class": "file",
+      "patterns": [
+        "bg_info.json"
+      ],
+      "help": "Json file containing metadata about this BioGraph"
+    },
+    {
+      "name": "create_log",
+      "label": "BioGraph create log",
+      "class": "file",
+      "patterns": [
+        "create_log.txt"
+      ],
+      "help": "Run details for the `create` command"
+    },
+    {
+      "name": "create_stats",
+      "label": "BioGraph create stats",
+      "class": "file",
+      "patterns": [
+        "create_stats.json"
+      ],
+      "help": "Key/Value pairs of QC stats collected during the BioGraph create stage"
+    },
+    {
+      "name": "kmer_quality_report",
+      "label": "BioGraph kmer quality report",
+      "class": "file",
+      "patterns": [
+        "kmer_quality_report.html"
+      ],
+      "help": "Interactive report of kmerization and error correction stats generated during `biograph create`"
+    },
+    {
+      "name": "variants_log",
+      "label": "BioGraph variants log",
+      "class": "file",
+      "patterns": [
+        "variants_log.txt"
+      ],
+      "help": "Run details for the `variants` command"
+    },
+    {
+      "name": "variants_stats",
+      "label": "BioGraph variants stats",
+      "class": "file",
+      "patterns": [
+        "variants_stats.json"
+      ],
+      "help": "Key/Value pairs of QC stats collected during the BioGraph variants stage"
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 12
+      }
+    },
+    "interpreter": "bash",
+    "release": "16.04",
+    "distribution": "Ubuntu",
+    "file": "src/biograph_create.sh"
+  },
+  "authorizedUsers": [
+    "user-carolspiralgenetics.com",
+    "user-rob"
+  ],
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_x32"
+        }
+      }
+    }
+  }
+}

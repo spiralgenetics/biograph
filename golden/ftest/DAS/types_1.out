@@ -1,0 +1,21 @@
+access-control-allow-origin: *
+access-control-expose-headers: X-DAS-Version, X-DAS-Status, X-DAS-Capabilities, X-DAS-Server
+content-length: 439
+content-type: application/xml
+x-das-capabilities: types/1.1; features/1.1; stylesheet/1.1
+x-das-server: SpiralGeneticsDAS
+x-das-status: 200
+x-das-version: DAS/1.6
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="/das/das.xsl"?>
+<!DOCTYPE DASTYPES SYSTEM "http://www.biodas.org/dtd/dastypes.dtd">
+<DASTYPES>
+	<GFF href="/5e8847fe8a6a72d13d3f13f485c00fa9043fe1c1/das/yeast.variants/types?segment=II:238346,238611">
+		<SEGMENT id="II" start="238346" stop="238611">
+			<TYPE id="SpiralSNPAnnotation" cvId="SO:0001483">5</TYPE>
+		</SEGMENT>
+	</GFF>
+</DASTYPES>
+
+

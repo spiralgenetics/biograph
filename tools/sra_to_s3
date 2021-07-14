@@ -1,0 +1,26 @@
+#!/bin/bash
+# Download an sra via ftp at ENA. Yes, it's faster to download from Europe
+# than it is to download from the federal government right now.
+
+if [ -z "$1" ]; then
+	echo "Usage: `basename $0` [SRR...]"
+	exit 1
+fi
+
+DEST="s3://sgbiodata/datasets/sra/"
+PREFIX="ftp://ftp.sra.ebi.ac.uk/vol1/srr"
+for ID in $*; do
+	URL="${PREFIX}/${ID:0:6}/00${ID: -1:1}/${ID}"
+	until wget -c ${URL} -O ${ID}.sra
+	do
+		echo "Download failed, retrying..."
+		sleep 1
+	done
+
+	until aws s3 cp ${ID}.sra ${DEST}
+	do
+		echo "Upload failed, retrying..."
+		sleep 1
+	done
+	rm -f ${ID}.sra
+done

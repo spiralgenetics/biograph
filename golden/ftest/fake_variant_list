@@ -1,0 +1,4 @@
+# True positive: in results
+0	22	26612208	-	22	26712207	-	TRUE_POSITIVE		1	0	0	0	0	0	1.995	50
+# True negative: not in results
+5	22	32985352	-	22	33085351	-	TRUE_NEGATIVE		1	0	0	0	0	0	2.005	50

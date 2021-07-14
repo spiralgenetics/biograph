@@ -1,0 +1,176 @@
+#!/bin/bash
+PROGRAM=$1
+LOG="memplot.log"
+PDF="memplot.pdf"
+DUFILE="memplot.du"
+ME=`basename $0`
+
+# Monitor this directory for scratch space usage
+TMPDIR=${TMPDIR:-"/mnt"}
+# Save output to this folder
+GRAPHDIR=${GRAPHDIR:-.}
+cd ${GRAPHDIR}
+
+if [ ! -d ${TMPDIR} ] ; then
+  echo "${TMPDIR} not found. Set TMPDIR and try again."
+  exit 1
+fi
+
+if [ -z "$PROGRAM" ]; then
+  cat <<-ERR
+Usage: $ME [program]
+
+Make a PDF gnuplot of a process over time. Give it the name of the program to
+watch, and it will continually update "${PDF}" with % mem, vsize, rss, and
+cache every second. Actual timings are written to "${LOG}".
+
+$ME will wait for the program to appear in the process table and exit
+automatically when the program expires.
+
+Requires gnuplot and iostat (sudo apt install gnuplot sysstat)
+
+Example:
+
+    $ memplot biograph
+
+ERR
+  exit 1
+fi
+
+touch ${LOG}
+if [ -d "/proc/${PROGRAM}" ]; then
+    PID=${PROGRAM}
+    echo "Watching PID ${PID}"
+else
+    COUNT=0
+    if ! pidof -x $PROGRAM; then
+        echo -n "Waiting for ${PROGRAM}"
+        while ! pidof -x ${PROGRAM}; do
+            echo -n .
+            sleep 1
+            COUNT=$((COUNT + 1))
+            if [ ${COUNT} -gt 60 ]; then
+                echo "Couldn't find ${PROGRAM} after 60 seconds. Bailing."
+                exit
+            fi
+        done
+    fi
+    PID=`pidof -xs ${PROGRAM}`
+fi
+
+while true
+do
+    die() { exit 0; }
+    trap die TERM
+    du -s ${TMPDIR} 2> /dev/null | awk '{print $1}' > ${DUFILE}.new &&
+    mv -f ${DUFILE}.new ${DUFILE}
+    sleep 1
+done &
+DUPID=$!
+
+if [ ! -f ${DUFILE} ]; then
+    echo -n "Waiting for ${DUFILE}"
+    while [ ! -f ${DUFILE} ]
+    do
+    sleep 1
+    echo -n "."
+    done
+    echo
+fi
+
+echo "Updating ${PWD}/${PDF}. Hit ^C to exit."
+> ${LOG}
+
+# Bash integers!
+declare -i MemFree Buffers Cached CacheFree
+declare -i DiskUsage
+declare -i ThreadCount
+declare -i cpu_last_sum
+
+cpu_last_sum=0
+
+while :; do
+    if ! ps ${PID} > /dev/null; then
+        break
+    fi
+
+    # Get CPU and I/O stats from /proc/stat, a la https://www.idnt.net/en-GB/kb/941772
+
+    # Get the first line with aggregate of all CPUs
+    cpu_now=($(head -n1 /proc/stat))
+    # Get all columns but skip the first (which is the "cpu" string)
+    cpu_sum="${cpu_now[@]:1}"
+    # Replace the column seperator (space) with +
+    cpu_sum=$((${cpu_sum// /+}))
+    # Get the delta between two reads
+    cpu_delta=$((cpu_sum - cpu_last_sum))
+    # Get the idle time Delta
+    cpu_idle=$((cpu_now[4] - cpu_last[4]))
+    # Calc time spent working
+    cpu_used=$((cpu_delta - cpu_idle))
+    # Calc percentage
+    CPUPercent=$((100 * cpu_used / cpu_delta))
+    # Get the IOwait delta
+    io_wait=$((cpu_now[5] - cpu_last[5]))
+    # Calc percentage
+    IOPercent=$((100 * io_wait / cpu_delta))
+
+    # Keep this as last for our next read
+    cpu_last=("${cpu_now[@]}")
+    cpu_last_sum=$cpu_sum
+
+    ProgMemUsed=`ps -o pid=,%mem=,vsz=,rss= ${PID}`
+    MemFree=`grep ^MemFree: /proc/meminfo|awk '{print $2}'`
+    Buffers=`grep ^Buffers: /proc/meminfo|awk '{print $2}'`
+    Cached=`grep ^Cached: /proc/meminfo|awk '{print $2}'`
+    DiskUsage=`cat ${DUFILE}`
+    ThreadCount=`ps -Lp ${PID} --no-headers|wc -l`
+
+    CurTime=`date +%s`
+
+    CacheFree=MemFree+Buffers+Cached
+
+    if [ "$ProgMemUsed" = "" ]; then
+        break
+    fi
+    # epoch pid %mem vsize rss cachefree %cpu %io disk threads
+    echo "${CurTime} ${ProgMemUsed} ${CacheFree} ${CPUPercent} ${IOPercent} ${DiskUsage} ${ThreadCount}" >> ${LOG}
+    # Sleep is important for your mental hygiene.
+    sleep 1
+done
+
+kill ${DUPID}
+
+wait
+
+# Save the plot
+gnuplot <<-EOM
+set term pdf enhanced size 10in,6in linewidth 1
+set output "${PDF}"
+
+set ylabel "VSZ, RSS, FREE, TMPDIR (GB), # THREADS"
+set y2label "%MEM, %CPU, %IOUTIL"
+
+set ytics nomirror
+set y2tics nomirror in
+
+set yrange [0:*]
+set y2range [0:100]
+
+set xlabel "seconds"
+
+set key outside
+
+plot "${LOG}" using (\$7) with lines axes x1y2 lw 2 linecolor rgb "#B05BDD" title "%CPU", \
+     "${LOG}" using (\$8) with lines axes x1y2 lw 2 linecolor rgb "#44B08F" title "%IO", \
+     "${LOG}" using (\$3) with lines axes x1y2 lw 2 linecolor rgb "#5BB5E7" title "%MEM", \
+     "${LOG}" using (\$10) with lines axes x1y1 lw 3 linecolor rgb "#202020" title "THREADS", \
+     "${LOG}" using (\$5/1024/1024) with lines axes x1y1 lw 3 linecolor rgb "#E49E25" title "RSS", \
+     "${LOG}" using (\$9/1024/1024) with lines axes x1y1 lw 3 linecolor rgb "#EFE252" title "TMPDIR", \
+     "${LOG}" using (\$4/1024/1024) with lines axes x1y1 lw 3 linecolor rgb "#1073B0" title "VSZ", \
+     "${LOG}" using (\$6/1024/1024) with lines axes x1y1 lw 3 linecolor rgb "#E22220" title "FREE"
+EOM
+
+exit 0
+
+# end

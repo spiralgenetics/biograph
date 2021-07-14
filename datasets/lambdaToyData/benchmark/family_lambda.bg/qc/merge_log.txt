@@ -1,0 +1,84 @@
+Tue Oct  9 23:37:53 2018 biograph[31562]: Built at Tue Oct  9 23:37:53 2018 by english on englishdev (englishdev) from revision ddb7d0f71ad32e553bf49e95a2fc37ccdd910461 (Clean build)
+Tue Oct  9 23:37:53 2018 biograph[31562]: merge --in proband_lambda.bg/ --in father_lambda.bg/ --in mother_lambda.bg/ --out family_lambda.bg --id family
+Tue Oct  9 23:37:53 2018 biograph[31562]:  bg version: 4.0.1-dev
+Tue Oct  9 23:37:53 2018 biograph[31562]:  os release: Ubuntu 16.04.4 LTS
+Tue Oct  9 23:37:53 2018 biograph[31562]:      kernel: Linux 4.15.0-1022-azure #22~16.04.1-Ubuntu SMP Thu Aug 16 10:31:05 UTC 2018 x86_64
+Tue Oct  9 23:37:53 2018 biograph[31562]:        node: englishdev
+Tue Oct  9 23:37:53 2018 biograph[31562]:         cpu: 16
+Tue Oct  9 23:37:53 2018 biograph[31562]:     sys_mem: 110 GB
+Tue Oct  9 23:37:53 2018 biograph[31562]:   mem_limit: unlimited
+Tue Oct  9 23:37:53 2018 biograph[31562]:    tmp_free: 12 GB on /tmp/spiral_qLMmdz
+Tue Oct  9 23:37:53 2018 biograph[31562]:     threads: 16
+Tue Oct  9 23:37:53 2018 biograph[31562]: Listening on port 36941
+Tue Oct  9 23:37:53 2018 biograph[31562]: Start Stage::make_flats
+Tue Oct  9 23:37:53 2018 biograph[31562]: Building flat seqset for proband_lambda.bg/
+Tue Oct  9 23:37:53 2018 biograph[31562]: Caching proband_lambda.bg/ into RAM
+Tue Oct  9 23:37:53 2018 biograph[31562]: Creating spiral file
+Tue Oct  9 23:37:53 2018 biograph[31562]: Creating flat output
+Tue Oct  9 23:37:53 2018 biograph[31562]: Building flat
+Tue Oct  9 23:37:53 2018 biograph[31562]: 36 flattened sequence buffers written.  Total bases: 56948. Total size: 0 MB
+Tue Oct  9 23:37:53 2018 biograph[31562]: Flat build complete
+Tue Oct  9 23:37:53 2018 biograph[31562]: Building flat seqset for father_lambda.bg/
+Tue Oct  9 23:37:53 2018 biograph[31562]: Caching father_lambda.bg/ into RAM
+Tue Oct  9 23:37:54 2018 biograph[31562]: Creating spiral file
+Tue Oct  9 23:37:54 2018 biograph[31562]: Creating flat output
+Tue Oct  9 23:37:54 2018 biograph[31562]: Building flat
+Tue Oct  9 23:37:54 2018 biograph[31562]: 36 flattened sequence buffers written.  Total bases: 56680. Total size: 0 MB
+Tue Oct  9 23:37:54 2018 biograph[31562]: Flat build complete
+Tue Oct  9 23:37:54 2018 biograph[31562]: Building flat seqset for mother_lambda.bg/
+Tue Oct  9 23:37:54 2018 biograph[31562]: Caching mother_lambda.bg/ into RAM
+Tue Oct  9 23:37:54 2018 biograph[31562]: Creating spiral file
+Tue Oct  9 23:37:54 2018 biograph[31562]: Creating flat output
+Tue Oct  9 23:37:54 2018 biograph[31562]: Building flat
+Tue Oct  9 23:37:54 2018 biograph[31562]: 29 flattened sequence buffers written.  Total bases: 55028. Total size: 0 MB
+Tue Oct  9 23:37:54 2018 biograph[31562]: Flat build complete
+Tue Oct  9 23:37:54 2018 biograph[31562]: Opening flats
+Tue Oct  9 23:37:54 2018 biograph[31562]: End Stage::make_flats  Wall time: 1.48 sec Avg parallelism: 10.16  CPU time: 15.05 sec:  1.72s sec user (11.44%) + 13.33 sec system)
+Tue Oct  9 23:37:54 2018 biograph[31562]: Start Stage::make_mergemaps
+Tue Oct  9 23:37:54 2018 biograph[31562]: Building mergemaps
+Tue Oct  9 23:37:54 2018 biograph[31562]: Creating new seqset flat merge counter for 3 parts
+Tue Oct  9 23:37:55 2018 biograph[31562]: Done counting parts
+Tue Oct  9 23:37:55 2018 biograph[31562]: 103996 entries in resultant merge; writing mergemaps
+Tue Oct  9 23:37:55 2018 biograph[31562]: Building mergemap /tmp/spiral_qLMmdz/52f41046-0e66-9b4a-b5a9-00a1a8029aa5.mergemap
+Tue Oct  9 23:37:55 2018 biograph[31562]: Filling mergemap for part index 0
+Tue Oct  9 23:37:56 2018 biograph[31562]: Done bitcount for part index 0
+Tue Oct  9 23:37:56 2018 biograph[31562]: Building mergemap /tmp/spiral_qLMmdz/5362c89b-743d-b7bf-0ca2-a6109a96d0eb.mergemap
+Tue Oct  9 23:37:56 2018 biograph[31562]: Filling mergemap for part index 1
+Tue Oct  9 23:37:56 2018 biograph[31562]: Done bitcount for part index 1
+Tue Oct  9 23:37:56 2018 biograph[31562]: Building mergemap /tmp/spiral_qLMmdz/01d59544-ff89-818b-ca67-4cf459476143.mergemap
+Tue Oct  9 23:37:56 2018 biograph[31562]: Filling mergemap for part index 2
+Tue Oct  9 23:37:56 2018 biograph[31562]: Done bitcount for part index 2
+Tue Oct  9 23:37:56 2018 biograph[31562]: Opening mergemaps
+Tue Oct  9 23:37:56 2018 biograph[31562]: adding /tmp/spiral_qLMmdz/52f41046-0e66-9b4a-b5a9-00a1a8029aa5.mergemap
+Tue Oct  9 23:37:56 2018 biograph[31562]: adding /tmp/spiral_qLMmdz/5362c89b-743d-b7bf-0ca2-a6109a96d0eb.mergemap
+Tue Oct  9 23:37:56 2018 biograph[31562]: adding /tmp/spiral_qLMmdz/01d59544-ff89-818b-ca67-4cf459476143.mergemap
+Tue Oct  9 23:37:56 2018 biograph[31562]: End Stage::make_mergemaps  Wall time: 2.12 sec Avg parallelism: 11.94  CPU time: 25.31 sec:  22.82s sec user (90.15%) + 2.49 sec system)
+Tue Oct  9 23:37:56 2018 biograph[31562]: Start Stage::final_merge
+Tue Oct  9 23:37:56 2018 biograph[31562]: Creating merged seqset with 103996 entries, 150 maximum entry length
+Tue Oct  9 23:37:57 2018 biograph[31562]: Finalizing merged seqset
+Tue Oct  9 23:37:57 2018 biograph[31562]: offset = 103996, m_entries = 103996
+Tue Oct  9 23:37:57 2018 biograph[31562]: Done creating merged seqest
+Tue Oct  9 23:37:57 2018 biograph[31562]: End Stage::final_merge  Wall time: 0.81 sec Avg parallelism: 14.58  CPU time: 11.77 sec:  11.77s sec user (100.00%) + 0.00 sec system)
+Tue Oct  9 23:37:57 2018 biograph[31562]: Start Stage::create_readmaps
+Tue Oct  9 23:37:57 2018 biograph[31562]: Migrating 52f41046-0e66-9b4a-b5a9-00a1a8029aa5:47b43dbb0306fb5da00bca9c33b2fb3de9db7bf4
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening original readmap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening mergemap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening new readmap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Everything opened, starting migration
+Tue Oct  9 23:37:57 2018 biograph[31562]: Rename tmp readmap to family_lambda.bg/coverage/ec86f985446e2c28e9a58d36573dec46fe2f6402.readmap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Migrating 5362c89b-743d-b7bf-0ca2-a6109a96d0eb:eaadda41cd028724a5e63c35ef62b77044b8cb04
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening original readmap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening mergemap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Opening new readmap
+Tue Oct  9 23:37:57 2018 biograph[31562]: Everything opened, starting migration
+Tue Oct  9 23:37:58 2018 biograph[31562]: Rename tmp readmap to family_lambda.bg/coverage/7cb90add2a864f9fa337ee759941743f48433727.readmap
+Tue Oct  9 23:37:58 2018 biograph[31562]: Migrating 01d59544-ff89-818b-ca67-4cf459476143:c1cca60ce81580a4219f961a3f8ff720caf9fbee
+Tue Oct  9 23:37:58 2018 biograph[31562]: Opening original readmap
+Tue Oct  9 23:37:58 2018 biograph[31562]: Opening mergemap
+Tue Oct  9 23:37:58 2018 biograph[31562]: Opening new readmap
+Tue Oct  9 23:37:58 2018 biograph[31562]: Everything opened, starting migration
+Tue Oct  9 23:37:58 2018 biograph[31562]: Rename tmp readmap to family_lambda.bg/coverage/c6a04bde3351da4a69967082c4a74c2ff0f018ee.readmap
+Tue Oct  9 23:37:58 2018 biograph[31562]: End Stage::create_readmaps  Wall time: 0.40 sec Avg parallelism: 10.34  CPU time: 4.18 sec:  0.73s sec user (17.38%) + 3.45 sec system)
+Tue Oct  9 23:37:58 2018 biograph[31562]: Start Stage::metadata
+Tue Oct  9 23:37:58 2018 biograph[31562]: End Stage::metadata  Wall time: 0.00 sec Avg parallelism: 1.00  CPU time: 0.00 sec:  0.00s sec user (0.00%) + 0.00 sec system)
+Tue Oct  9 23:37:59 2018 biograph[31562]: Shutting it down.

@@ -1,0 +1,185 @@
+@media print
+{
+  .no-print, .no-print *
+  {
+      display: none !important;
+  }
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+#login-buttons {
+  float: right;
+  margin-top: 5px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.nobar {
+  fill: steelblue;
+}
+
+.bar {
+  shape-rendering: crispEdges;
+}
+
+.rect {
+  shape-rendering: crispEdges;
+}
+
+.chartTitle {
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #404040;
+  font-size: 28pt;
+  line-height: 28pt;
+}
+
+.chartSubTitle {
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: #a0a0a0;
+  font-size: 14pt;
+  line-height: 14pt;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#viscontainer {
+  width: 100%;
+  height: 60%;
+  display: block;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+#vis {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nv-axislabel {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 12pt;
+  color: #404040;
+}
+/*.nv-bar {
+  shape-rendering: crispEdges;
+}
+*/
+#controls {
+  padding: 20px;
+}
+
+.axis-controls {
+  padding-left: 20px;
+}
+
+.axis-input {
+  margin-top: 11px;
+}
+
+.slider {
+  margin-bottom: 5px;
+}
+
+#chartselect {
+  margin-top: 15px;
+}
+
+#statistics {
+  display: block;
+  padding: 10px;
+}
+
+.chart-control {
+  padding-left: 20px;
+}
+
+.scale-control {
+  width: 40%;
+}
+
+.tab-content {
+  overflow: visible;
+}
+
+/* Chart list */
+.timestamp {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.subtitle {
+  color: #a0a0a0;
+}
+
+
+/* Uploads */
+
+#drop-zone {
+  height: 120px;
+  line-height: 120px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+
+  border: 2px dashed #cccccc;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+
+  clear: both;
+
+  /* No text selection allowed */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.drop-zone-hover {
+  border: 2px dashed #666666;
+}
+
+.fileitem {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+
+  margin-bottom: 15px;
+
+  border-right: 1px dotted #dddddd;
+}
+
+#fileinfo {
+  padding: 20px;
+  height: 400px;
+  overflow: auto;
+}
+
+.file-info {
+  white-space: pre-line;
+}
+
+#upload-arrow {
+  margin-right: 5px;
+  opacity: 0.5;
+}
+
+#datapoints {
+  margin-left: 20px;
+  font-size: 12pt;
+}

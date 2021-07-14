@@ -1,0 +1,20 @@
+#!/bin/bash
+
+OUTPUT="libncbi-all.a"
+
+if [ ! -f "libxncbi.a" ]; then
+	echo "This script must be run from the NCBI toolkit build directory/lib/"
+	exit 1
+fi
+
+echo "Creating $OUTPUT..."
+
+# Grab all plain .a files and stuff them into $OUTPUT
+ar -M <<EOM
+CREATE $OUTPUT
+`find . -type f -name '*.a' -exec echo "ADDLIB {}" \;`
+SAVE
+END
+EOM
+
+ranlib $OUTPUT

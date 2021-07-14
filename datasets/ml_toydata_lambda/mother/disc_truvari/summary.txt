@@ -1,0 +1,22 @@
+{
+    "TP-base": 0,
+    "TP-call": 0,
+    "FP": 2,
+    "FN": 3,
+    "precision": 0,
+    "recall": 0,
+    "f1": "NaN",
+    "base cnt": 3,
+    "call cnt": 2,
+    "base size filtered": 7,
+    "call size filtered": 6,
+    "base gt filtered": 0,
+    "call gt filtered": 0,
+    "TP-call_TP-gt": 0,
+    "TP-call_FP-gt": 0,
+    "TP-base_TP-gt": 0,
+    "TP-base_FP-gt": 0,
+    "gt_precision": 0,
+    "gt_recall": 0,
+    "gt_f1": "NaN"
+}

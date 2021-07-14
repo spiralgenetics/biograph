@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	echo "Usage: `basename $0` [SRR...]"
+	exit 1
+fi
+
+ASCP="$HOME/.aspera/connect/bin/ascp -i $HOME/.aspera/connect/etc/asperaweb_id_dsa.openssh -k 1 -T -l2g anonftp@ftp.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByRun/sra/SRR"
+BLOB="blobxfer --storageaccountkey ${AZURE_STORAGE_ACCESS_KEY} ${AZURE_STORAGE_ACCOUNT} sras --timeout 6000 --numworkers 32"
+for ID in $*; do
+	RESULT=1
+	${ASCP}/${ID:0:6}/${ID}/${ID}.sra .
+	while [ "$RESULT" != "0" ]; do
+		$BLOB ${ID}.sra --upload --remoteresource ${ID}.sra
+		RESULT="$?"
+		sleep 1
+	done
+	rm -f ${ID}.sra
+done

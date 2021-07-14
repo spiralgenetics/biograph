@@ -1,0 +1,25 @@
+{
+	"install_root": "/src",
+	"storage_root" : "file:///home/spiral/storage",
+	"path_allow_children" : ["s3://spiraleast/test"],
+
+	"S3_hostname" : "s3.amazonaws.com",
+	"access_key" : "",
+	"secret_key" : "",
+	"from_email" : "SpiralGeneticsJobBot@SpiralGenetics.com",
+	"email_id" : "",
+	"email_pass" : "",
+
+	"ottoman_bind_list" : [ { "port" : 15984 } ],
+	"taskdb_bind_list" : [ { "port" : 15985 } ],
+
+	"task_timeout" : 600,
+	"task_max_timeouts" : 3,
+	"taskdb_backup_period_in_seconds" : 3,
+
+	"temp_root" : "/home/spiral/storage/tmp",
+	"resources_root" : "/home/spiral/storage/resources",
+
+	"test_root" : "/home/spiral/unittest_out",
+	"reference_path" : "/home/spiral/unittest_out/build_ref"
+}

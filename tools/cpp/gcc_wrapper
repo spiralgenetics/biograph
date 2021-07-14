@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Makes debugging path be relative.
+
+exec /usr/bin/gcc -fdebug-prefix-map=`pwd`=. "$@" 

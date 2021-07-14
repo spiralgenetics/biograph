@@ -1,0 +1,271 @@
+##gff-version 3
+##sequence-region   1 1 248956422
+##sequence-region   10 1 133797422
+##sequence-region   11 1 135086622
+##sequence-region   12 1 133275309
+##sequence-region   13 1 114364328
+##sequence-region   14 1 107043718
+##sequence-region   15 1 101991189
+##sequence-region   16 1 90338345
+##sequence-region   17 1 83257441
+##sequence-region   18 1 80373285
+##sequence-region   19 1 58617616
+##sequence-region   2 1 242193529
+##sequence-region   20 1 64444167
+##sequence-region   21 1 46709983
+##sequence-region   22 1 50818468
+##sequence-region   3 1 198295559
+##sequence-region   4 1 190214555
+##sequence-region   5 1 181538259
+##sequence-region   6 1 170805979
+##sequence-region   7 1 159345973
+##sequence-region   8 1 145138636
+##sequence-region   9 1 138394717
+##sequence-region   GL000008.2 1 209709
+##sequence-region   GL000009.2 1 201709
+##sequence-region   GL000194.1 1 191469
+##sequence-region   GL000195.1 1 182896
+##sequence-region   GL000205.2 1 185591
+##sequence-region   GL000208.1 1 92689
+##sequence-region   GL000213.1 1 164239
+##sequence-region   GL000214.1 1 137718
+##sequence-region   GL000216.2 1 176608
+##sequence-region   GL000218.1 1 161147
+##sequence-region   GL000219.1 1 179198
+##sequence-region   GL000220.1 1 161802
+##sequence-region   GL000221.1 1 155397
+##sequence-region   GL000224.1 1 179693
+##sequence-region   GL000225.1 1 211173
+##sequence-region   GL000226.1 1 15008
+##sequence-region   KI270302.1 1 2274
+##sequence-region   KI270303.1 1 1942
+##sequence-region   KI270304.1 1 2165
+##sequence-region   KI270305.1 1 1472
+##sequence-region   KI270310.1 1 1201
+##sequence-region   KI270311.1 1 12399
+##sequence-region   KI270312.1 1 998
+##sequence-region   KI270315.1 1 2276
+##sequence-region   KI270316.1 1 1444
+##sequence-region   KI270317.1 1 37690
+##sequence-region   KI270320.1 1 4416
+##sequence-region   KI270322.1 1 21476
+##sequence-region   KI270329.1 1 1040
+##sequence-region   KI270330.1 1 1652
+##sequence-region   KI270333.1 1 2699
+##sequence-region   KI270334.1 1 1368
+##sequence-region   KI270335.1 1 1048
+##sequence-region   KI270336.1 1 1026
+##sequence-region   KI270337.1 1 1121
+##sequence-region   KI270338.1 1 1428
+##sequence-region   KI270340.1 1 1428
+##sequence-region   KI270362.1 1 3530
+##sequence-region   KI270363.1 1 1803
+##sequence-region   KI270364.1 1 2855
+##sequence-region   KI270366.1 1 8320
+##sequence-region   KI270371.1 1 2805
+##sequence-region   KI270372.1 1 1650
+##sequence-region   KI270373.1 1 1451
+##sequence-region   KI270374.1 1 2656
+##sequence-region   KI270375.1 1 2378
+##sequence-region   KI270376.1 1 1136
+##sequence-region   KI270378.1 1 1048
+##sequence-region   KI270379.1 1 1045
+##sequence-region   KI270381.1 1 1930
+##sequence-region   KI270382.1 1 4215
+##sequence-region   KI270383.1 1 1750
+##sequence-region   KI270384.1 1 1658
+##sequence-region   KI270385.1 1 990
+##sequence-region   KI270386.1 1 1788
+##sequence-region   KI270387.1 1 1537
+##sequence-region   KI270388.1 1 1216
+##sequence-region   KI270389.1 1 1298
+##sequence-region   KI270390.1 1 2387
+##sequence-region   KI270391.1 1 1484
+##sequence-region   KI270392.1 1 971
+##sequence-region   KI270393.1 1 1308
+##sequence-region   KI270394.1 1 970
+##sequence-region   KI270395.1 1 1143
+##sequence-region   KI270396.1 1 1880
+##sequence-region   KI270411.1 1 2646
+##sequence-region   KI270412.1 1 1179
+##sequence-region   KI270414.1 1 2489
+##sequence-region   KI270417.1 1 2043
+##sequence-region   KI270418.1 1 2145
+##sequence-region   KI270419.1 1 1029
+##sequence-region   KI270420.1 1 2321
+##sequence-region   KI270422.1 1 1445
+##sequence-region   KI270423.1 1 981
+##sequence-region   KI270424.1 1 2140
+##sequence-region   KI270425.1 1 1884
+##sequence-region   KI270429.1 1 1361
+##sequence-region   KI270435.1 1 92983
+##sequence-region   KI270438.1 1 112505
+##sequence-region   KI270442.1 1 392061
+##sequence-region   KI270448.1 1 7992
+##sequence-region   KI270465.1 1 1774
+##sequence-region   KI270466.1 1 1233
+##sequence-region   KI270467.1 1 3920
+##sequence-region   KI270468.1 1 4055
+##sequence-region   KI270507.1 1 5353
+##sequence-region   KI270508.1 1 1951
+##sequence-region   KI270509.1 1 2318
+##sequence-region   KI270510.1 1 2415
+##sequence-region   KI270511.1 1 8127
+##sequence-region   KI270512.1 1 22689
+##sequence-region   KI270515.1 1 6361
+##sequence-region   KI270516.1 1 1300
+##sequence-region   KI270517.1 1 3253
+##sequence-region   KI270518.1 1 2186
+##sequence-region   KI270519.1 1 138126
+##sequence-region   KI270521.1 1 7642
+##sequence-region   KI270522.1 1 5674
+##sequence-region   KI270528.1 1 2983
+##sequence-region   KI270529.1 1 1899
+##sequence-region   KI270530.1 1 2168
+##sequence-region   KI270538.1 1 91309
+##sequence-region   KI270539.1 1 993
+##sequence-region   KI270544.1 1 1202
+##sequence-region   KI270548.1 1 1599
+##sequence-region   KI270579.1 1 31033
+##sequence-region   KI270580.1 1 1553
+##sequence-region   KI270581.1 1 7046
+##sequence-region   KI270582.1 1 6504
+##sequence-region   KI270583.1 1 1400
+##sequence-region   KI270584.1 1 4513
+##sequence-region   KI270587.1 1 2969
+##sequence-region   KI270588.1 1 6158
+##sequence-region   KI270589.1 1 44474
+##sequence-region   KI270590.1 1 4685
+##sequence-region   KI270591.1 1 5796
+##sequence-region   KI270593.1 1 3041
+##sequence-region   KI270706.1 1 175055
+##sequence-region   KI270707.1 1 32032
+##sequence-region   KI270708.1 1 127682
+##sequence-region   KI270709.1 1 66860
+##sequence-region   KI270710.1 1 40176
+##sequence-region   KI270711.1 1 42210
+##sequence-region   KI270712.1 1 176043
+##sequence-region   KI270713.1 1 40745
+##sequence-region   KI270714.1 1 41717
+##sequence-region   KI270715.1 1 161471
+##sequence-region   KI270716.1 1 153799
+##sequence-region   KI270717.1 1 40062
+##sequence-region   KI270718.1 1 38054
+##sequence-region   KI270719.1 1 176845
+##sequence-region   KI270720.1 1 39050
+##sequence-region   KI270721.1 1 100316
+##sequence-region   KI270722.1 1 194050
+##sequence-region   KI270723.1 1 38115
+##sequence-region   KI270724.1 1 39555
+##sequence-region   KI270725.1 1 172810
+##sequence-region   KI270726.1 1 43739
+##sequence-region   KI270727.1 1 448248
+##sequence-region   KI270728.1 1 1872759
+##sequence-region   KI270729.1 1 280839
+##sequence-region   KI270730.1 1 112551
+##sequence-region   KI270731.1 1 150754
+##sequence-region   KI270732.1 1 41543
+##sequence-region   KI270733.1 1 179772
+##sequence-region   KI270734.1 1 165050
+##sequence-region   KI270735.1 1 42811
+##sequence-region   KI270736.1 1 181920
+##sequence-region   KI270737.1 1 103838
+##sequence-region   KI270738.1 1 99375
+##sequence-region   KI270739.1 1 73985
+##sequence-region   KI270740.1 1 37240
+##sequence-region   KI270741.1 1 157432
+##sequence-region   KI270742.1 1 186739
+##sequence-region   KI270743.1 1 210658
+##sequence-region   KI270744.1 1 168472
+##sequence-region   KI270745.1 1 41891
+##sequence-region   KI270746.1 1 66486
+##sequence-region   KI270747.1 1 198735
+##sequence-region   KI270748.1 1 93321
+##sequence-region   KI270749.1 1 158759
+##sequence-region   KI270750.1 1 148850
+##sequence-region   KI270751.1 1 150742
+##sequence-region   KI270752.1 1 27745
+##sequence-region   KI270753.1 1 62944
+##sequence-region   KI270754.1 1 40191
+##sequence-region   KI270755.1 1 36723
+##sequence-region   KI270756.1 1 79590
+##sequence-region   KI270757.1 1 71251
+##sequence-region   MT 1 16569
+##sequence-region   X 1 156040895
+##sequence-region   Y 2752083 56887902
+#!genome-build  GRCh38.p13
+#!genome-version GRCh38
+#!genome-date 2013-12
+#!genome-build-accession NCBI:GCA_000001405.28
+#!genebuild-last-updated 2020-03
+1	GRCh38	chromosome	1	2486422	.	.	.	ID=chromosome:1;Alias=CM000663.2,chr1,NC_000001.11
+###
+1	.	biological_region	10469	11240	1.3e+03	.	.	external_name=oe %3D 0.79;logic_name=cpg
+1	.	biological_region	10650	10657	0.999	+	.	logic_name=eponine
+1	.	biological_region	10655	10657	0.999	-	.	logic_name=eponine
+1	.	biological_region	10678	10687	0.999	+	.	logic_name=eponine
+1	.	biological_region	10681	10688	0.999	-	.	logic_name=eponine
+1	.	biological_region	10707	10716	0.999	+	.	logic_name=eponine
+1	.	biological_region	10708	10718	0.999	-	.	logic_name=eponine
+1	.	biological_region	10735	10747	0.999	-	.	logic_name=eponine
+1	.	biological_region	10737	10744	0.999	+	.	logic_name=eponine
+1	.	biological_region	10766	10773	0.999	+	.	logic_name=eponine
+1	.	biological_region	10770	10779	0.999	-	.	logic_name=eponine
+1	.	biological_region	10796	10801	0.999	+	.	logic_name=eponine
+1	.	biological_region	10810	10819	0.999	-	.	logic_name=eponine
+1	.	biological_region	10870	10872	0.999	+	.	logic_name=eponine
+1	.	biological_region	10889	10893	0.999	-	.	logic_name=eponine
+1	havana	pseudogene	11869	14409	.	+	.	ID=gene:ENSG00000223972;Name=DDX11L1;biotype=transcribed_unprocessed_pseudogene;description=DEAD/H-box helicase 11 like 1 (pseudogene) [Source:HGNC Symbol%3BAcc:HGNC:37102];gene_id=ENSG00000223972;logic_name=havana_homo_sapiens;version=5
+1	havana	lnc_RNA	11869	14409	.	+	.	ID=transcript:ENST00000456328;Parent=gene:ENSG00000223972;Name=DDX11L1-202;biotype=processed_transcript;tag=basic;transcript_id=ENST00000456328;transcript_support_level=1;version=2
+1	havana	exon	11869	12227	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00002234944;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002234944;rank=1;version=1
+1	havana	exon	12613	12721	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00003582793;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003582793;rank=2;version=1
+1	havana	exon	13221	14409	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00002312635;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002312635;rank=3;version=1
+1	havana	pseudogenic_transcript	12010	13670	.	+	.	ID=transcript:ENST00000450305;Parent=gene:ENSG00000223972;Name=DDX11L1-201;biotype=transcribed_unprocessed_pseudogene;tag=basic;transcript_id=ENST00000450305;transcript_support_level=NA;version=2
+1	havana	exon	12010	12057	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001948541;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001948541;rank=1;version=1
+1	havana	exon	12179	12227	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001671638;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001671638;rank=2;version=2
+1	havana	exon	12613	12697	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001758273;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001758273;rank=3;version=2
+1	havana	exon	12975	13052	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001799933;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001799933;rank=4;version=2
+1	havana	exon	13221	13374	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001746346;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001746346;rank=5;version=2
+1	havana	exon	13453	13670	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001863096;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001863096;rank=6;version=1
+###
+1	havana	pseudogene	14404	29570	.	-	.	ID=gene:ENSG00000227232;Name=WASH7P;biotype=unprocessed_pseudogene;description=WASP family homolog 7%2C pseudogene [Source:HGNC Symbol%3BAcc:HGNC:38034];gene_id=ENSG00000227232;logic_name=havana_homo_sapiens;version=5
+1	havana	pseudogenic_transcript	14404	29570	.	-	.	ID=transcript:ENST00000488147;Parent=gene:ENSG00000227232;Name=WASH7P-201;biotype=unprocessed_pseudogene;tag=basic;transcript_id=ENST00000488147;transcript_support_level=NA;version=1
+1	havana	exon	14404	14501	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001843071;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001843071;rank=11;version=1
+1	havana	exon	15005	15038	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001935574;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001935574;rank=10;version=1
+1	havana	exon	15796	15947	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00002030414;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002030414;rank=9;version=1
+1	havana	exon	16607	16765	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003621279;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003621279;rank=8;version=1
+1	havana	exon	16858	17055	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003553898;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003553898;rank=7;version=1
+1	havana	exon	17233	17368	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003502542;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003502542;rank=6;version=1
+1	havana	exon	17606	17742	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003475637;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003475637;rank=5;version=1
+1	havana	exon	17915	18061	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003565697;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003565697;rank=4;version=1
+1	havana	exon	18268	18366	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003477500;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003477500;rank=3;version=1
+1	havana	exon	24738	24891	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003507205;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003507205;rank=2;version=1
+1	havana	exon	29534	29570	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001890219;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001890219;rank=1;version=1
+###
+1	.	biological_region	15796	16060	0.999	-	.	external_name=rank %3D 1;logic_name=firstef
+1	mirbase	ncRNA_gene	17369	17436	.	-	.	ID=gene:ENSG00000278267;Name=MIR6859-1;biotype=miRNA;description=microRNA 6859-1 [Source:HGNC Symbol%3BAcc:HGNC:50039];gene_id=ENSG00000278267;logic_name=ncrna_homo_sapiens;version=1
+1	mirbase	miRNA	17369	17436	.	-	.	ID=transcript:ENST00000619216;Parent=gene:ENSG00000278267;Name=MIR6859-1-201;biotype=miRNA;tag=basic;transcript_id=ENST00000619216;transcript_support_level=NA;version=1
+1	mirbase	exon	17369	17436	.	-	.	Parent=transcript:ENST00000619216;Name=ENSE00003746039;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003746039;rank=1;version=1
+###
+1	.	biological_region	28736	29810	1.01e+03	.	.	external_name=oe %3D 0.88;logic_name=cpg
+1	.	biological_region	29116	29118	0.999	+	.	logic_name=eponine
+1	.	biological_region	29127	29206	1	+	.	external_name=rank %3D 1;logic_name=firstef
+1	.	biological_region	29321	29395	1	-	.	external_name=rank %3D 1;logic_name=firstef
+1	.	biological_region	29394	29396	0.999	-	.	logic_name=eponine
+1	.	biological_region	29448	29451	0.999	+	.	logic_name=eponine
+1	havana	ncRNA_gene	29554	31109	.	+	.	ID=gene:ENSG00000243485;Name=MIR1302-2HG;biotype=lncRNA;description=MIR1302-2 host gene [Source:HGNC Symbol%3BAcc:HGNC:52482];gene_id=ENSG00000243485;logic_name=havana_homo_sapiens;version=5
+1	havana	lnc_RNA	29554	31097	.	+	.	ID=transcript:ENST00000473358;Parent=gene:ENSG00000243485;Name=MIR1302-2HG-202;biotype=lncRNA;tag=basic;transcript_id=ENST00000473358;transcript_support_level=5;version=1
+1	havana	exon	29554	30039	.	+	.	Parent=transcript:ENST00000473358;Name=ENSE00001947070;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001947070;rank=1;version=1
+1	havana	exon	30564	30667	.	+	.	Parent=transcript:ENST00000473358;Name=ENSE00001922571;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001922571;rank=2;version=1
+1	havana	exon	30976	31097	.	+	.	Parent=transcript:ENST00000473358;Name=ENSE00001827679;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001827679;rank=3;version=1
+1	havana	lnc_RNA	30267	31109	.	+	.	ID=transcript:ENST00000469289;Parent=gene:ENSG00000243485;Name=MIR1302-2HG-201;biotype=lncRNA;tag=basic;transcript_id=ENST00000469289;transcript_support_level=5;version=1
+1	havana	exon	30267	30667	.	+	.	Parent=transcript:ENST00000469289;Name=ENSE00001841699;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001841699;rank=1;version=1
+1	havana	exon	30976	31109	.	+	.	Parent=transcript:ENST00000469289;Name=ENSE00001890064;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001890064;rank=2;version=1
+###
+1	.	biological_region	29583	29584	0.999	-	.	logic_name=eponine
+1	mirbase	ncRNA_gene	30366	30503	.	+	.	ID=gene:ENSG00000284332;Name=MIR1302-2;biotype=miRNA;description=microRNA 1302-2 [Source:HGNC Symbol%3BAcc:HGNC:35294];gene_id=ENSG00000284332;logic_name=ncrna_homo_sapiens;version=1
+1	mirbase	miRNA	30366	30503	.	+	.	ID=transcript:ENST00000607096;Parent=gene:ENSG00000284332;Name=MIR1302-2-201;biotype=miRNA;tag=basic;transcript_id=ENST00000607096;transcript_support_level=NA;version=1
+1	mirbase	exon	30366	30503	.	+	.	Parent=transcript:ENST00000607096;Name=ENSE00003695741;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003695741;rank=1;version=1
+###
+# include one non-integer chrom
+X	havana	ncRNA_gene	34554	36081	.	-	.	ID=gene:ENSG00000237613;Name=FAM138A;biotype=lncRNA;description=family with sequence similarity 138 member A [Source:HGNC Symbol%3BAcc:HGNC:32334];gene_id=ENSG00000237613;logic_name=havana_homo_sapiens;version=2

@@ -1,0 +1,6 @@
+connection: Close
+content-length: 57
+content-type: text/plain
+
+{"success":false, "error":"Invalid hash: invalid_hash"}
+

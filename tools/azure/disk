@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -z "$2" ]; then
+	echo "Usage: `basename $0` vm size-in-GB"
+	exit 1
+fi
+
+VM=$1
+SIZE=$2
+
+az vm disk attach --resource-group ${VM} --vm-name ${VM} --new --size-gb ${SIZE} --disk ${VM}-${RANDOM}

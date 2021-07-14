@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+# This wrapper is called by bazel when run from the command line.  The
+# real bazel to execute is in the BAZEL_REAL environment variable.
+DIR=$(dirname $0)
+
+case "$*" in
+    *manylinux* | *docker* | *release*)
+	# Make sure we're logged into docker if we're going to use it to build stuff.
+	DOCKER_REPO_BASE=$(fgrep DOCKER_REPO_BASE= ${DIR}/../.bazelrc | sed 's/^.*DOCKER_REPO_BASE=//')
+#	aws ecr get-login-password --region us-west-2 |
+#	    docker login --username AWS --password-stdin ${DOCKER_REPO_BASE} 2>&1 |
+#	    egrep -v 'Your password will be stored unencrypted|Configure a credential helper|credentials-store|Login Succeeded|^$' ||
+#	    true
+	;;
+esac
+
+exec -a "$0" "${BAZEL_REAL}" "$@"

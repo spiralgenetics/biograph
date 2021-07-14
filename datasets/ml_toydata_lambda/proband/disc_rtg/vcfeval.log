@@ -1,0 +1,86 @@
+2019-07-26 11:45:02 serial = 27182818284
+2019-07-26 11:45:02 email = anon
+2019-07-26 11:45:02 RTG version = RTG Tools 3.10.1 / Core f9bc0ddb3e (2019-01-21)
+2019-07-26 11:45:02 awt.toolkit = sun.awt.X11.XToolkit
+2019-07-26 11:45:02 file.encoding = UTF-8
+2019-07-26 11:45:02 file.encoding.pkg = sun.io
+2019-07-26 11:45:02 file.separator = /
+2019-07-26 11:45:02 host.name = dev-surabhi
+2019-07-26 11:45:02 java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+2019-07-26 11:45:02 java.awt.printerjob = sun.print.PSPrinterJob
+2019-07-26 11:45:02 java.class.path = /Project/rtg-tools-3.10.1/RTG.jar
+2019-07-26 11:45:02 java.class.version = 52.0
+2019-07-26 11:45:02 java.endorsed.dirs = /Project/rtg-tools-3.10.1/jre/lib/endorsed
+2019-07-26 11:45:02 java.ext.dirs = /Project/rtg-tools-3.10.1/jre/lib/ext:/usr/java/packages/lib/ext
+2019-07-26 11:45:02 java.home = /Project/rtg-tools-3.10.1/jre
+2019-07-26 11:45:02 java.io.tmpdir = /tmp
+2019-07-26 11:45:02 java.library.path = /Project/rtg-tools-3.10.1
+2019-07-26 11:45:02 java.runtime.name = Java(TM) SE Runtime Environment
+2019-07-26 11:45:02 java.runtime.version = 1.8.0_181-b13
+2019-07-26 11:45:02 java.specification.name = Java Platform API Specification
+2019-07-26 11:45:02 java.specification.vendor = Oracle Corporation
+2019-07-26 11:45:02 java.specification.version = 1.8
+2019-07-26 11:45:02 java.vendor = Oracle Corporation
+2019-07-26 11:45:02 java.vendor.url = http://java.oracle.com/
+2019-07-26 11:45:02 java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2019-07-26 11:45:02 java.version = 1.8.0_181
+2019-07-26 11:45:02 java.vm.info = mixed mode
+2019-07-26 11:45:02 java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2019-07-26 11:45:02 java.vm.specification.name = Java Virtual Machine Specification
+2019-07-26 11:45:02 java.vm.specification.vendor = Oracle Corporation
+2019-07-26 11:45:02 java.vm.specification.version = 1.8
+2019-07-26 11:45:02 java.vm.vendor = Oracle Corporation
+2019-07-26 11:45:02 java.vm.version = 25.181-b13
+2019-07-26 11:45:02 lang.version = 1.8.0_181
+2019-07-26 11:45:02 line.separator = 
+
+2019-07-26 11:45:02 models.dir = /Project/rtg-tools-3.10.1/models
+2019-07-26 11:45:02 nashorn.option.no.deprecation.warning = true
+2019-07-26 11:45:02 os.arch = amd64
+2019-07-26 11:45:02 os.freememory = 8087957504
+2019-07-26 11:45:02 os.name = Linux
+2019-07-26 11:45:02 os.totalmemory = 134008836096
+2019-07-26 11:45:02 os.version = 4.15.0-1043-aws
+2019-07-26 11:45:02 path.separator = :
+2019-07-26 11:45:02 processor.arch = amd64
+2019-07-26 11:45:02 processor.count = 16
+2019-07-26 11:45:02 references.dir = /Project/rtg-tools-3.10.1/references
+2019-07-26 11:45:02 runtime.freememory = 1913650744
+2019-07-26 11:45:02 runtime.maxmemory = 107206410240
+2019-07-26 11:45:02 runtime.totalMemory = 2008023040
+2019-07-26 11:45:02 sun.arch.data.model = 64
+2019-07-26 11:45:02 sun.boot.class.path = /Project/rtg-tools-3.10.1/jre/lib/resources.jar:/Project/rtg-tools-3.10.1/jre/lib/rt.jar:/Project/rtg-tools-3.10.1/jre/lib/sunrsasign.jar:/Project/rtg-tools-3.10.1/jre/lib/jsse.jar:/Project/rtg-tools-3.10.1/jre/lib/jce.jar:/Project/rtg-tools-3.10.1/jre/lib/charsets.jar:/Project/rtg-tools-3.10.1/jre/lib/jfr.jar:/Project/rtg-tools-3.10.1/jre/classes
+2019-07-26 11:45:02 sun.boot.library.path = /Project/rtg-tools-3.10.1/jre/lib/amd64
+2019-07-26 11:45:02 sun.cpu.endian = little
+2019-07-26 11:45:02 sun.cpu.isalist = 
+2019-07-26 11:45:02 sun.io.unicode.encoding = UnicodeLittle
+2019-07-26 11:45:02 sun.java.command = /Project/rtg-tools-3.10.1/RTG.jar vcfeval -b /scratch/lambda/lambdaToyData/ml_lambda/lambda_base.vcf.gz -c proband.pcmp.vcf.gz -t ../ml_lambda/lambda.sdf -o disc_rtg
+2019-07-26 11:45:02 sun.java.launcher = SUN_STANDARD
+2019-07-26 11:45:02 sun.jnu.encoding = UTF-8
+2019-07-26 11:45:02 sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2019-07-26 11:45:02 sun.os.patch.level = unknown
+2019-07-26 11:45:02 talkback = true
+2019-07-26 11:45:02 usage = true
+2019-07-26 11:45:02 usage.log.hostname = true
+2019-07-26 11:45:02 usage.log.username = true
+2019-07-26 11:45:02 user.dir = /scratch/lambda/lambdaToyData/proband
+2019-07-26 11:45:02 user.home = /home/ubuntu
+2019-07-26 11:45:02 user.language = en
+2019-07-26 11:45:02 user.name = ubuntu
+2019-07-26 11:45:02 user.timezone = SystemV/PST8PDT
+2019-07-26 11:45:02 vendor = Oracle Corporation
+2019-07-26 11:45:02 gzipfix.enabled = true
+2019-07-26 11:45:02 Command line arguments: rtg vcfeval -b /scratch/lambda/lambdaToyData/ml_lambda/lambda_base.vcf.gz -c proband.pcmp.vcf.gz -t ../ml_lambda/lambda.sdf -o disc_rtg
+2019-07-26 11:45:02 Run Id: 4f2b3030-03ac-4001-8768-0508751d86e6
+2019-07-26 11:45:02 Referenced SDF-ID: 48927e02-8b83-4061-9e1a-25687264c2ca Type: DNA Sequences: 1 Max-Length: 48502 Min-Length: 48502 Arm: UNKNOWN
+2019-07-26 11:45:02 Reference lambda baseline contains 10 variants.
+2019-07-26 11:45:02 Reference lambda calls contains 17 variants.
+2019-07-26 11:45:02 Reference lambda had maximum path complexity of 4 at lambda:2191-2667
+2019-07-26 11:45:02 Representation bias correction factor for SNP 2/2.0 = 1.0
+2019-07-26 11:45:02 Representation bias correction factor for NON_SNP 6/6.0 = 1.0
+2019-07-26 11:45:02 Threshold  True-pos-baseline  True-pos-call  False-pos  False-neg  Precision  Sensitivity  F-measure
+----------------------------------------------------------------------------------------------------
+    4.000                  8              8          9          2     0.4706       0.8000     0.5926
+     None                  8              8          9          2     0.4706       0.8000     0.5926
+
+2019-07-26 11:45:02 Finished successfully in 0 s.

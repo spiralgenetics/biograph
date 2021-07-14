@@ -1,0 +1,37 @@
+##fileformat=VCFv4.1
+##source=Spiral Genetics v2.1
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Structural Variant Type">
+##INFO=<ID=MATEID,Number=1,Type=String,Description="ID of mate breakends">
+##INFO=<ID=AID,Number=.,Type=Integer,Description="Assembly IDs used in constructing this variant">
+##INFO=<ID=AMBCOUNT,Number=1,Type=Integer,Description="Count of alternate locations for this end of an ambiguous breakend">
+##INFO=<ID=AMBMATES,Number=1,Type=Integer,Description="Count of possible mate locations of an ambiguous breakend">
+##INFO=<ID=ENTROPYALT,Number=A,Type=Float,Description="Shannon entropy of alt allele if longer than 100 bp">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=IMPRECISE,Number=0,Type=Flag,Description="Imprecise structural variation">
+##INFO=<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants">
+##INFO=<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants">
+##INFO=<ID=TRANSPOSE,Number=1,Type=String,Description="Transposon FASTA sequence ID that this breakpoint anchor matches">
+##INFO=<ID=SAS,Number=1,Type=Float,Description="Simple alignment score. Likelihood a breakend is not structural but rather aligns to reference simply">
+##INFO=<ID=FW,Number=A,Type=Float,Description="Percent of forward reads">
+##INFO=<ID=BQ,Number=A,Type=Integer,Description="Average base quality at this position">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Sample Depth">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=ED,Number=1,Type=Integer,Description="Edit distance">
+##FORMAT=<ID=OV,Number=A,Type=Integer,Description="Minimum read overlap in assembly">
+##FILTER=<ID=homologous_breakends,Description="The edit_distance between sides of breakpoints was below the minimum allowed threshold">
+##FILTER=<ID=too_many_alleles,Description="The set of possible alleles was too large/supported to be called">
+##FILTER=<ID=dust_mask,Description="At least 45 bp were considered masked out by DUST">
+##FILTER=<ID=missing_assembly,Description="No hits were reported by BLAST for this assembly">
+##FILTER=<ID=non_structural_alignment,Description="BLAST alignment indicates probable SNP">
+##FILTER=<ID=missing_anchor,Description="One or more anchors were not found by BLAST">
+##FILTER=<ID=no_unique_anchor,Description="BLAST could not uniquely identify at least one of the anchors for this assembly">
+##FILTER=<ID=ambiguous_anchor,Description="A BLAST query for this anchor reported multiple ambiguous hits">
+##ALT=<ID=INS,Description="Insertion">
+##ALT=<ID=DEL,Description="Deletion">
+##contig=<ID=F,length=100239>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE
+F	94861	.	T	A	100	PASS	NS=1;DP=54;AID=0;FW=0.44;BQ=68	GT:DP:AD:OV	0/1:54:12,42:87

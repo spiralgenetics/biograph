@@ -1,0 +1,13 @@
+Run BioGraph in a Docker container.
+
+The following commands are supported:
+
+  biograph : run individual BioGraph commands
+
+The following utilities are also provided:
+
+  bcftools
+  bgzip
+  samtools
+  tabix
+  vcf-sort

@@ -1,0 +1,7 @@
+# Remap fasta contigs
+# from	to
+1	chr1
+2	chr2
+M	chrM
+this isn't a valid remapping line.
+Y	chrY

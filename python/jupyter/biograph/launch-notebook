@@ -1,0 +1,1 @@
+PYTHONPATH=$PYTHONPATH:"`readlink -f ../`" jupyter notebook --no-browser

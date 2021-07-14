@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Like aws s3 ls, but for azure blobs
+#
+# Requires jq (apt install jq)
+#
+if [ -z "$1" ]; then
+	az storage container list --output tsv|cut -f 2
+	exit
+fi
+
+FIRST=$1
+PREFIX=""
+
+# did we use : or space to denote the container?
+if $(echo ${FIRST} | grep -q :); then
+	CONTAINER=${FIRST/:*}
+	if [ -z "$2" ]; then
+		PREFIX="--prefix ${FIRST/*:}"
+	fi
+else
+	CONTAINER=${FIRST}
+	if [ ! -z "$2" ]; then
+		PREFIX="--prefix $2"
+	fi
+fi
+
+az storage blob list -c ${CONTAINER} ${PREFIX} --output json --delimiter / |jq -r '.[].name'

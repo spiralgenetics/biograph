@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# set up mail name
+sudo chfn --full-name `hostname` spiral >/dev/null 2>&1
+MAILTO='dev@spiralgenetics.com'
+
+export TEMPDIR=${TEMPDIR:-'/scratch'}
+
+if [ -z "$1" ]; then
+	echo "Usage: `basename $0` [accession_id1 accession_id2 ...]"
+	exit 1
+fi
+
+cd `dirname $0`
+
+for ID in $*; do
+	echo "Started running ${ID}" | mail -s "Run ${ID} started" ${MAILTO}
+
+	if ./run_gbwt $ID; then
+		RESULT=`ls -l $TEMPDIR`
+		echo -e "Finished running ${ID}\n\n$RESULT" | mail -s "Run ${ID} finished" ${MAILTO}
+	else
+		RESULT=`ls -l $TEMPDIR`
+		echo -e "Problem running ${ID}, moving on.\n\n$RESULT" | mail -s "Run ${ID} failed" ${MAILTO}
+	fi
+
+	mv ${TEMPDIR}/spiral_*/log.txt ${TEMPDIR}/${ID}.log.txt && gzip -9 ${TEMPDIR}/${ID}.log.txt &
+	mv ${TEMPDIR}/spiral_* ${TEMPDIR}/oldtmp && rm -rf ${TEMPDIR}/oldtmp/ &
+
+	echo
+	echo "Done with $ID, moving on."
+	sleep 1
+done

@@ -1,0 +1,77 @@
+
+SDK TODOs:
+
+
+1) BioGraph - standardize how biograph and the parts are going to work
+	Have the biograph methods for each of the parts that are self-contained accessible through the object.
+		e.g search = my_bg.seqset.find("ATCGA")
+	
+	This seqset object can then be used to find reads
+		e.g. allReads =  my_bg.find_reads(search)
+			which under-the hood will be putting together the seqset_wrapper and readmap
+	However, we can shortcut this by overloading the method and having
+		e.g. allReads = my_bg.find_reads("ATCGA")
+			which under-the hood will be doing the `search` from above before calling the find_reads we just did.
+	
+	Put this kind of structure together for everything! This can be done without a full understanding of the weird file
+	stuff happening
+
+	But there's two kinds of seqsets that I'll have to worry about.
+
+1.5) libspiralapi and biograph.py - destroy them somehow.
+	I'm fine with making utility classes/methods, but I'm going to need to refactor the code base so they're operating
+	with the biograph.h instead of seqset/readmap things it's doing now.
+	This actually would be a decent place to get an idea of how these things are used so that I can make sure whatever I
+	create in step (1) isn't way off base.
+
+2) BioGraph - work on loading in directories
+	How hard do we want to deal with 'pre-versioned' files?
+	BiogGaph can be built off of a single path 
+		This will open spiral_file_state?? thingy.
+		Then have calls for 'loading' the pieces we need
+			e.g. my_bg.load_all() //Puts them all into memory
+				 my_bg.load_seqset()  // checks if the part exists and pulls in (don't do it twice)
+				 my_bg.load_readmap() // checks if the part exists and pulls in (don't do it twice)
+				 my_bg.load_seqpath() // checks if the part exists and pulls in (don't do it twice)
+
+2) Seqpath - work on the object
+
+3) Pull in VG - just the basics.. 
+	This needs to be carefully tracked. What are you taking and why and are you sure it's independent.
+	
+4) Python-ize VG - These are the objects exposed in the SDK
+
+5) BioGraph to VG - These are the basic queries starting for an Individual
+	Build a VG from an entire biograph:
+		This is going to be us wrapping Anchored Assembly results for quick building...
+    -- Force Calling and Variant Evaluation --
+	Build a biograph queryRange:
+		Given a reference range, create the VG backbone (possibly load later)
+		For each 'path' or variant Anchored created in the region, split up
+
+	Build a biograph querySequence:
+		Given a kmer, find all the places it exists in seqpath and then build VG
+
+6) Alleles, Pedigrees, Populations - 
+	Work on 'coloring' the paths for IAPP
+	Would hopefully have a strong start of 'haplotypes'
+	How would we manipulate multiple BGs or VGs? Like, we want to combine them or leverage information in each of
+	them, etc, etc.
+	
+7) Advanced VG - What advanced tools in VG are we interested in? Keeping in mind that we're going to have gcc problems
+   until spiral is pulled forward (xenial or something).
+
+8) PacBio Reads.. God if I get to this point, we're absolutely killing it
+	For every 8mer, get seqset entries (seeding)
+	Find those entries over the seqpath that are 'in-order' (extending)
+	
+	Add nodes where there's significant distance of non-reference non-individual (i.e. novel PacBio sequence)
+	Trim edges that are significantally distance from supported PacPath
+	Do some 'phasing'.
+
+
+
+	
+
+
+vv) BioGraph - work on individual files (for backwards compatibility?)

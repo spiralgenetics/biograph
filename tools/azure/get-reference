@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Download a reference from blob storage. Requires azure-cli (tools/azure/install-azure-cli).
+#
+if [ -z "$1" ]; then
+	echo "Usage: `basename $0` reference [destination]"
+	exit 1
+fi
+export REF="$1"
+
+if [ ! -z "$2" ]; then
+	export DEST="$2"
+else
+	export DEST="."
+fi
+
+az storage blob download-batch --no-progress --destination ${DEST} --source sgbiodata --pattern reference/${REF}/*

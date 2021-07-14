@@ -1,0 +1,56 @@
+2019-07-26 11:44:43,703 [INFO] Running /home/ubuntu/.local/bin/truvari --reference /scratch/reference/source.fasta --base /scratch/lambda/lambdaToyData/ml_lambda/lambda_base.vcf.gz --comp proband.pcmp.vcf.gz --out disc_truvari --multimatch --passonly
+2019-07-26 11:44:43,703 [INFO] Params:
+{
+    "base": "/scratch/lambda/lambdaToyData/ml_lambda/lambda_base.vcf.gz",
+    "comp": "proband.pcmp.vcf.gz",
+    "output": "disc_truvari",
+    "reference": "/scratch/reference/source.fasta",
+    "giabreport": false,
+    "debug": false,
+    "noprog": false,
+    "refdist": 500,
+    "pctsim": 0.7,
+    "pctsize": 0.7,
+    "pctovl": 0.0,
+    "typeignore": false,
+    "gtcomp": false,
+    "bSample": null,
+    "cSample": null,
+    "sizemin": 50,
+    "sizefilt": 30,
+    "sizemax": 50000,
+    "passonly": true,
+    "no_ref": false,
+    "includebed": null,
+    "multimatch": true
+}
+2019-07-26 11:44:43,708 [INFO] Creating call interval tree for overlap search
+2019-07-26 11:44:43,711 [INFO] 17 call variants in total
+2019-07-26 11:44:43,712 [INFO] 4 call variants within size range (30, 50000)
+2019-07-26 11:44:43,713 [INFO] 10 base variants
+2019-07-26 11:44:44,869 [INFO] Matching base to calls
+2019-07-26 11:44:44,874 [INFO] Results peek: 2 TP-base 1 FN 66.67% Recall
+2019-07-26 11:44:44,874 [INFO] Parsing FPs from calls
+2019-07-26 11:44:44,881 [INFO] Stats: {
+    "TP-base": 2,
+    "TP-call": 2,
+    "FP": 2,
+    "FN": 1,
+    "precision": 0.5,
+    "recall": 0.6666666666666666,
+    "f1": 0.5714285714285715,
+    "base cnt": 3,
+    "call cnt": 4,
+    "base size filtered": 7,
+    "call size filtered": 13,
+    "base gt filtered": 0,
+    "call gt filtered": 0,
+    "TP-call_TP-gt": 2,
+    "TP-call_FP-gt": 0,
+    "TP-base_TP-gt": 2,
+    "TP-base_FP-gt": 0,
+    "gt_precision": 0.5,
+    "gt_recall": 0.6666666666666666,
+    "gt_f1": 0.5714285714285715
+}
+2019-07-26 11:44:44,882 [INFO] Finished

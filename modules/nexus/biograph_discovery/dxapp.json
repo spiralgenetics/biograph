@@ -1,0 +1,123 @@
+{
+  "name": "biograph_full_pipeline",
+  "title": "BioGraph full_pipeline",
+  "summary": "Spiral's BioGraph full_pipeline for single-sample secondary analysis",
+  "dxapi": "1.0.0",
+  "version": "6.0.3",
+  "inputSpec": [
+    {
+      "name": "tarball",
+      "label": "tarball",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*.tgz"
+      ],
+      "help": "BioGraph python package tarball"
+    },
+    {
+      "name": "biograph_file",
+      "label": "biograph_file",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*"
+      ],
+      "help": "BioGraph Format File"
+    },
+    {
+      "name": "reference",
+      "label": "reference",
+      "class": "file",
+      "optional": true,
+      "patterns": [
+        "*"
+      ],
+      "help": "Reference genome folder, in BioGraph reference format"
+    },
+    {
+      "name": "model",
+      "label": "model",
+      "class": "file",
+      "optional": true,
+      "patterns": [
+        "*.ml"
+      ],
+      "help": "BioGraph classifier models"
+    },
+    {
+      "name": "discovery",
+      "label": "discovery",
+      "class": "string",
+      "optional": true,
+      "help": "Additional parameters to be passed to discovery step"
+    },
+    {
+      "name": "coverage",
+      "label": "coverage",
+      "class": "string",
+      "optional": true,
+      "help": "Additional parameters to be passed to coverage step"
+    },
+    {
+      "name": "grm",
+      "label": "grm",
+      "class": "string",
+      "optional": true,
+      "help": "Additional parameters to be passed to grm step"
+    },
+    {
+      "name": "qual_classifier",
+      "label": "qual_classifier",
+      "class": "string",
+      "optional": true,
+      "help": "Additional parameters to be passed to qual_classifier step"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "output_vcf",
+      "label": "output_vcf",
+      "class": "file",
+      "patterns": [
+        "*.vcf.gz"
+      ],
+      "help": "VCF result"
+    },
+    {
+      "name": "output_vcfidx",
+      "label": "output_vcfidx",
+      "class": "file",
+      "patterns": [
+        "*.vcf.gz.tbi"
+      ],
+      "help": "VCF result index"
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 24
+      }
+    },
+    "interpreter": "bash",
+    "release": "20.04",
+    "version": "0",
+    "distribution": "Ubuntu",
+    "file": "src/BioGraph.sh"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem2_ssd1_v2_x48"
+        }
+      }
+    }
+  }
+}

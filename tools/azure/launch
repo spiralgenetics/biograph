@@ -1,0 +1,99 @@
+#!/bin/bash
+#
+# Launch a standard azure VM for anchored
+#
+# set -x
+
+# TODO: every azure command needs a hard timeout/retry.
+
+VMNAME="$1"
+
+if [ ! -f "tools/images/common-image-setup.sh" ]; then
+	echo "This tool must be run from the Spiral code root directory."
+	exit 1
+fi
+
+if [ -z "$VMNAME" ]; then
+	echo "Usage: `basename $0` [vm name]"
+	exit 1
+fi
+
+. `dirname $0`/common
+
+export NIC=${NIC:-$VMNAME}
+export VNET=${VNET:-$RG}
+export NETWORK=${NETWORK:-'10.0.0.0/16'}
+export SUBNET=${SUBNET:-'10.0.1.0/24'}
+# For public demos:
+# VNET=public-demo NETWORK=10.99.0.0/16 SUBNET=10.99.99.0/24
+
+# See 'az vm image list --publisher Canonical --all' for the full Ubuntu list
+# See 'az vm image list --publisher OpenLogic --all' for the full CentOS list
+
+# export IMAGE=${IMAGE:-'Canonical:UbuntuServer:14.04.5-LTS:latest'}
+export IMAGE=${IMAGE:-'Canonical:UbuntuServer:16.04-LTS:latest'}
+
+# Standard_DS14:    16 core,  112GB RAM, 224GB local SSD, $1.197/hr
+export VMSIZE=${VMSIZE:-'Standard_DS14'}
+
+# To list vm sizes available in a region:
+#   az vm list-sizes --location westus2 --output table
+
+# For speed benchmarking:
+# Standard_D32_v3:  32 core,  128GB RAM,  800GB local SSD,  $1.536/hr
+#   Standard_H16r:  16 core,  112GB RAM, 2000GB local SSD,  $1.750/hr "high performance"
+#  Standard_M128s: 128 core, 2000GB RAM, 4000GB local SSD, $13.340/hr
+
+# Compare to AWS:
+#      r3.8xlarge:  32 core,  244GB RAM,  640GB local SSD,  $2.964/hr
+
+# domain is the lower case location with no spaces
+export VMHOST="${VMNAME}.${DOMAIN}"
+
+if [ -z "$SKIP_CREATE" ]; then
+
+	set -e
+
+	cat <<EOM
+ launching: $VMHOST
+        os: $IMAGE
+    vmsize: $VMSIZE
+     group: $RG
+    region: $LOCATION
+
+EOM
+
+	read -p "Hit enter to continue, ^C to abort."
+
+	az vm create \
+		--resource-group "$RG" \
+		--name "$VMNAME" \
+		--location "$LOCATION" \
+		--image "$IMAGE" \
+		--size "$VMSIZE" \
+		--public-ip-address-dns-name "$VMNAME" \
+		--generate-ssh-keys
+
+	echo "Waiting for $VMNAME to start."
+	STATE="Succeeded" waitfor_state
+fi
+
+set -e
+
+# We just launched. Remove any out of date ssh host entries.
+ssh-keygen -f "${HOME}/.ssh/known_hosts" -R ${VMHOST} >/dev/null 2>&1
+
+# Save the new host key
+ssh -o StrictHostKeyChecking=no ${VMHOST} /bin/true
+
+# Run the dev setup scripts
+scp tools/images/{common,dev}-image-setup.sh ${VMHOST}:.
+ssh ${VMHOST} "chmod a+x *-image-setup.sh && sudo ./common-image-setup.sh"
+ssh ${VMHOST} "sudo ./dev-image-setup.sh"
+
+cat <<DONE
+
+${VMHOST} is ready.
+DONE
+
+exit 0

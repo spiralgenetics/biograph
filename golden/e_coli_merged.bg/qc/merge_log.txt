@@ -1,0 +1,67 @@
+Thu Sep  6 03:32:57 2018 biograph[50870]: Built at Thu Sep  6 03:32:57 2018 by jenkins-agent on trusty-builder (trusty-builder) from revision 653198cb748743f2ae3b1810ab63c177f1868237 (Clean build)
+Thu Sep  6 03:32:57 2018 biograph[50870]: merge --id merged_id --in golden/e_coli_10000snp.bg --in /share/bams/e_coli/e_coli_test.bg --out golden/e_coli_merged.bg
+Thu Sep  6 03:32:57 2018 biograph[50870]:  bg version: 3.1.1
+Thu Sep  6 03:32:57 2018 biograph[50870]:  os release: Ubuntu 16.04.4 LTS
+Thu Sep  6 03:32:57 2018 biograph[50870]:      kernel: Linux 4.13.0-1014-azure #17-Ubuntu SMP Fri Apr 6 02:37:40 UTC 2018 x86_64
+Thu Sep  6 03:32:57 2018 biograph[50870]:        node: nils-dev-azure
+Thu Sep  6 03:32:57 2018 biograph[50870]:         cpu: 16
+Thu Sep  6 03:32:57 2018 biograph[50870]:     sys_mem: 110 GB
+Thu Sep  6 03:32:57 2018 biograph[50870]:   mem_limit: unlimited
+Thu Sep  6 03:32:57 2018 biograph[50870]:    tmp_free: 474 GB on /tmp/spiral_tqqdyK
+Thu Sep  6 03:32:57 2018 biograph[50870]:     threads: 16
+Thu Sep  6 03:32:57 2018 biograph[50870]: Listening on port 45759
+Thu Sep  6 03:32:57 2018 biograph[50870]: Start Stage::make_flats
+Thu Sep  6 03:32:57 2018 biograph[50870]: Building flat seqset for golden/e_coli_10000snp.bg
+Thu Sep  6 03:32:57 2018 biograph[50870]: Caching golden/e_coli_10000snp.bg into RAM
+Thu Sep  6 03:32:57 2018 biograph[50870]: Creating spiral file
+Thu Sep  6 03:32:57 2018 biograph[50870]: Creating flat output
+Thu Sep  6 03:32:57 2018 biograph[50870]: Building flat
+Thu Sep  6 03:32:57 2018 biograph[50870]: 22 flattened sequence buffers written.  Total bases: 11028. Total size: 0 MB
+Thu Sep  6 03:32:57 2018 biograph[50870]: Flat build complete
+Thu Sep  6 03:32:57 2018 biograph[50870]: Building flat seqset for /share/bams/e_coli/e_coli_test.bg
+Thu Sep  6 03:32:57 2018 biograph[50870]: Caching /share/bams/e_coli/e_coli_test.bg into RAM
+Thu Sep  6 03:32:57 2018 biograph[50870]: Creating spiral file
+Thu Sep  6 03:32:57 2018 biograph[50870]: Creating flat output
+Thu Sep  6 03:32:57 2018 biograph[50870]: Building flat
+Thu Sep  6 03:32:58 2018 biograph[50870]: 48 flattened sequence buffers written.  Total bases: 113612. Total size: 0 MB
+Thu Sep  6 03:32:58 2018 biograph[50870]: Flat build complete
+Thu Sep  6 03:32:58 2018 biograph[50870]: Opening flats
+Thu Sep  6 03:32:58 2018 biograph[50870]: End Stage::make_flats  Wall time: 1.02s Avg parallelism: 7.26  CPU time: 7.44s sec:  16.32s sec user (1.21%) + 6.22s sec system)
+Thu Sep  6 03:32:58 2018 biograph[50870]: Start Stage::make_mergemaps
+Thu Sep  6 03:32:58 2018 biograph[50870]: Building mergemaps
+Thu Sep  6 03:32:58 2018 biograph[50870]: Creating new seqset flat merge counter for 2 parts
+Thu Sep  6 03:32:59 2018 biograph[50870]: Done counting parts
+Thu Sep  6 03:32:59 2018 biograph[50870]: 232745 entries in resultant merge; writing mergemaps
+Thu Sep  6 03:32:59 2018 biograph[50870]: Building mergemap /tmp/spiral_tqqdyK/133cb8e6-f355-9440-38d0-8f9aed4a9ca7.mergemap
+Thu Sep  6 03:32:59 2018 biograph[50870]: Filling mergemap for part index 0
+Thu Sep  6 03:33:00 2018 biograph[50870]: Done bitcount for part index 0
+Thu Sep  6 03:33:00 2018 biograph[50870]: Building mergemap /tmp/spiral_tqqdyK/e6027425-e329-7105-2c23-941baaea4b4c.mergemap
+Thu Sep  6 03:33:00 2018 biograph[50870]: Filling mergemap for part index 1
+Thu Sep  6 03:33:00 2018 biograph[50870]: Done bitcount for part index 1
+Thu Sep  6 03:33:00 2018 biograph[50870]: Opening mergemaps
+Thu Sep  6 03:33:00 2018 biograph[50870]: adding /tmp/spiral_tqqdyK/133cb8e6-f355-9440-38d0-8f9aed4a9ca7.mergemap
+Thu Sep  6 03:33:00 2018 biograph[50870]: adding /tmp/spiral_tqqdyK/e6027425-e329-7105-2c23-941baaea4b4c.mergemap
+Thu Sep  6 03:33:00 2018 biograph[50870]: End Stage::make_mergemaps  Wall time: 2.71s Avg parallelism: 6.61  CPU time: 17.88s sec:  87.96s sec user (15.73%) + 2.15s sec system)
+Thu Sep  6 03:33:00 2018 biograph[50870]: Start Stage::final_merge
+Thu Sep  6 03:33:00 2018 biograph[50870]: Creating merged seqset with 232745 entries
+Thu Sep  6 03:33:02 2018 biograph[50870]: Finalizing merged seqset
+Thu Sep  6 03:33:02 2018 biograph[50870]: offset = 232745, m_entries = 232745
+Thu Sep  6 03:33:02 2018 biograph[50870]: Done creating merged seqest
+Thu Sep  6 03:33:02 2018 biograph[50870]: End Stage::final_merge  Wall time: 1.86s Avg parallelism: 3.88  CPU time: 7.21s sec:  78.74s sec user (5.68%) + 1.53s sec system)
+Thu Sep  6 03:33:02 2018 biograph[50870]: Start Stage::create_readmaps
+Thu Sep  6 03:33:02 2018 biograph[50870]: Migrating 133cb8e6-f355-9440-38d0-8f9aed4a9ca7:87f0fd61143e2441d95c8b8b3ad279473f84be4b
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening original readmap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening mergemap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening new readmap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Everything opened, starting migration
+Thu Sep  6 03:33:02 2018 biograph[50870]: Rename tmp readmap to golden/e_coli_merged.bg/coverage/807ee81ae2650609949f68f4786c9a7dc480f406.readmap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Migrating e6027425-e329-7105-2c23-941baaea4b4c:fac40361a8240e3a69c5330d56a7279881e60142
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening original readmap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening mergemap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Opening new readmap
+Thu Sep  6 03:33:02 2018 biograph[50870]: Everything opened, starting migration
+Thu Sep  6 03:33:03 2018 biograph[50870]: Rename tmp readmap to golden/e_coli_merged.bg/coverage/f21180d242113e56c5bfd645d2614cf16fdde4ed.readmap
+Thu Sep  6 03:33:03 2018 biograph[50870]: End Stage::create_readmaps  Wall time: 0.40s Avg parallelism: 0.07  CPU time: 0.03s sec:  71.45s sec user (0.02%) + 0.01s sec system)
+Thu Sep  6 03:33:03 2018 biograph[50870]: Start Stage::metadata
+Thu Sep  6 03:33:03 2018 biograph[50870]: End Stage::metadata  Wall time: 0.25s Avg parallelism: 0.02  CPU time: 0.01s sec:  0.00s sec user (0.00%) + 0.01s sec system)
+Thu Sep  6 03:33:04 2018 biograph[50870]: Shutting it down.

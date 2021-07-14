@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# This script will be run bazel when building process starts to
+# generate key-value information that represents the status of the
+# workspace. The output should be like
+#
+# KEY1 VALUE1
+# KEY2 VALUE2
+#
+# If the script exits with non-zero code, it's considered as a failure
+# and the output will be discarded.
+
+# The code below presents an implementation that works for git repository
+git_rev=$(git rev-parse HEAD)
+if [[ $? != 0 ]];
+then
+    exit 1
+fi
+
+# We overload BUILD_SCM_REVISION to include both the git revision
+# and the AWS instance ID.  The AWS instance ID is useful because
+# hostnames are unreliable under AWS.
+aws_instance_id=$(curl -f -m 10 http://169.254.169.254/latest/meta-data/instance-id)
+if [[ $? != 0 ]];
+then
+    aws_instance_id=$(hostname)
+fi
+echo "BUILD_SCM_REVISION ${git_rev} ${aws_instance_id}"
+
+# Check whether there are any uncommited changes
+git diff --quiet
+if [[ $? == 0 ]];
+then
+    tree_status="Clean"
+else
+    tree_status="Modified"
+fi
+echo "BUILD_SCM_STATUS ${tree_status}"

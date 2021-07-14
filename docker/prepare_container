@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Copy in all necessary binaries to build a biograph Docker container.
+
+# Tools needed from /share/software/bin/
+export BINARIES="bgzip vcf-sort"
+# Full path to any library files required
+export LIBRARIES=""
+
+set -e
+if [ -z "$1" ]; then
+	cat <<EOM
+Usage: `basename $0` [biograph release version]
+
+Temporary files will be written to TMPDIR (${TMPDIR})
+
+Example:
+  $ $0 6.0.1
+
+EOM
+	exit 1
+fi
+
+if [ ! -f Dockerfile -o ! -d app ] ; then
+	echo "This script should be run from spiral/docker/"
+	exit 1
+fi
+
+VERSION="$1"
+DEST=$(mktemp -d)
+
+mkdir -p ${DEST}
+
+if [ $(ls ${DEST}|wc -l) != 0 ] ; then
+	echo "Destination ${DEST} is not empty!"
+	exit 1
+fi
+
+mkdir ${DEST}/app ${DEST}/lib
+
+echo "Copying Docker requirements..."
+cp Dockerfile ${DEST}
+cp app/* ${DEST}/app/
+
+echo "Copying biograph..."
+cp /share/releases/BioGraph-${VERSION}.tgz ${DEST}/app/
+
+echo "Copying the model..."
+cp /share/releases/biograph_model-${VERSION}.ml ${DEST}/app/biograph_model.ml
+
+echo "Collecting required binaries..."
+for f in ${BINARIES}; do
+  cp /share/software/bin/$f ${DEST}/app/
+done
+
+echo "Collecting required libraries..."
+# for bcftools
+mkdir -p lib
+for f in ${LIBRARIES}; do
+  cp $f ${DEST}/lib/
+done
+
+cd ${DEST}
+docker build -t biograph-${VERSION} .
+rm -rf ${DEST}
+
+echo "To push this release to AWS ECR, run 'push_to_ecr ${VERSION}'"

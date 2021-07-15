@@ -1,1 +1,5 @@
 *.html linguist-detectable=false
+etc/** linguist-documentation
+golden/** linguist-documentation
+datasets/** linguist-documentation
+vendor/** linguist-vendored

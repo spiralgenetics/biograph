@@ -25,6 +25,8 @@ BioGraph can also be run as a [Docker container](https://hub.docker.com/reposito
 
 # Documentation
 
+[Full documentation available here](https://www.notion.so/BioGraph-v7-User-s-Guide-d10aa3ab4db9482f954a935ea080c552)
+
 For other dependencies and full installation instructions, see the [online installation docs](https://www.notion.so/spiralgenetics/Installation-8105bf74808a4b9e822a77fd4ad6cbf2).
 
 # Building the code

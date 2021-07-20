@@ -6,6 +6,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: Install dead snake python
+        run: |
+          add-apt-repository ppa:deadsnakes/ppa &&
+          apt update &&
+          apt install python3.6-minimal python3.6-dev libpython3.6-minimal
       - name: Build
         run: cd ${{ github.workspace }} && bazelisk build --config=manylinux2014 //...
       - name: Test

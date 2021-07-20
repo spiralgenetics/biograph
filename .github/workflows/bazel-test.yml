@@ -1,0 +1,12 @@
+name: Bazel Test
+on: [push]
+jobs:
+  Bazel-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build
+        run: cd ${{ github.workspace }} && bazelisk build --config=manylinux2014 //...
+      - name: Test
+        run: cd ${{ github.workspace }} && bazelisk test -j 1 --config=manylinux2014 //...

@@ -12,6 +12,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Build
-        run: cd ${{ github.workspace }} && bazelisk build --config=github-ci //...
+        run: cd ${{ github.workspace }} && bazelisk build --config=github-ci //... --keep_going
       - name: Test
-        run: cd ${{ github.workspace }} && bazelisk test -j 1 --config=github-ci //...
+        run: cd ${{ github.workspace }} && bazelisk test --config=github-ci //... --keep_going

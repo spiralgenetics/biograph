@@ -4,6 +4,11 @@ jobs:
   Bazel-Test:
     runs-on: ubuntu-latest
     steps:
+      - name: Cache APT packages
+        uses: actions/cache@v2
+        with:
+          key: apt
+          path: /var/cache/apt
       - name: Install dead snake python
         run: |
           sudo add-apt-repository ppa:deadsnakes/ppa &&

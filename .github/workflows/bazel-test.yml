@@ -14,8 +14,9 @@ jobs:
       - name: Cache Bazel build state
         uses: actions/cache@v2
         with:
-          path: ~/.cache/bazel
-          path: ~/.cache/bazelisk
+          path: |
+            ~/.cache/bazel
+            ~/.cache/bazelisk
           key: bazel
       - name: Test
         run: cd ${{ github.workspace }} && bazelisk test --config=github-ci //... --keep_going

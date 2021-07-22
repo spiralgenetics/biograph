@@ -158,6 +158,6 @@ spiral_py_test(
     name = "doctest_test",
     srcs = ["doctest_test.py"],
     data = ["//datasets"],
-    tags = ["no-small-docker"],
+    tags = ["no-github-ci"],
     deps = [":all_modules"],
 )

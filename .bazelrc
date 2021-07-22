@@ -33,15 +33,15 @@ build:manylinux2014 --config=docker-sandbox
 build:manylinux2014 --experimental_docker_image=spiralgenetics/manylinux2014:latest
 
 # Continuous integration on small containers; don't run big tests
-build:small-tests --experimental_docker_image=spiralgenetics/manylinux2014:noref
-build:small-tests --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-build:small-tests --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
-build:small-tests --platform_suffix=manylinux2014
-build:small-tests --config=docker-sandbox
-build:small-tests --//tools:python_versions=3.6
-# Exclude tests marked with "no-small-docker" from running.
-build:small-tests --build_tag_filters=-no-small-docker
-test:small-tests --test_tag_filters=-no-small-docker
+build:github-ci --experimental_docker_image=spiralgenetics/manylinux2014:noref
+build:github-ci --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+build:github-ci --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
+build:github-ci --platform_suffix=manylinux2014
+build:github-ci --config=docker-sandbox
+build:github-ci --//tools:python_versions=3.6
+# Exclude tests marked with "no-github-ci" from running.
+build:github-ci --build_tag_filters=-no-github-ci
+test:github-ci --test_tag_filters=-no-github-ci
 
 # TODO(nils): Make us compatible with these bazel changes.
 common --incompatible_disable_deprecated_attr_params=false

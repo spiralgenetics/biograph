@@ -34,6 +34,16 @@ build:manylinux2014 --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
 build:manylinux2014 --platform_suffix=manylinux2014
 build:manylinux2014 --config=docker-sandbox
 
+# Continuous integration on small containers; don't run big tests
+build:small-tests --experimental_docker_image=spiralgenetics/manylinux2014:noref
+build:small-tests --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+build:small-tests --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
+build:small-tests --platform_suffix=manylinux2014
+build:small-tests --config=docker-sandbox
+# Exclude tests marked with "no-small-docker" from running.
+build:small-tests --build_tag_filters=-no-small-docker
+test:small-tests --test_tag_filters=-no-small-docker
+
 # TODO(nils): Make us compatible with these bazel changes.
 common --incompatible_disable_deprecated_attr_params=false
 build --incompatible_use_python_toolchains=true

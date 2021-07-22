@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # To push build and test images to spiral docker, run this script with:
-#   bazel run //tools/gendocker:build
+#   bazel run //tools/gendocker:build_testbase
 
 set -e
 
 usage() {
     cat 1>&2 <<'USAGE'
 Normal Usage:
-   bazel run //tools/gendocker:build -- [<options>] [<image> ...]
+   bazel run //tools/gendocker:build_testbase -- [<options>] [<image> ...]
 
 <options> can be:
    --push:  Push all images to repository after building.

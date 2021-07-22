@@ -48,6 +48,7 @@ spiral_py_test(
         "//modules/biograph:bgbinary",
     ],
     tags = [
+        "no-small-docker",
         "noasan",
     ],
     deps = [
@@ -73,6 +74,7 @@ spiral_py_test(
         "//modules/biograph:bgbinary",
     ],
     tags = [
+        "no-small-docker",
         "noasan",
     ],
     deps = [
@@ -179,6 +181,7 @@ spiral_py_test(
         "//golden:uncategorized_test_data",
         "//golden/ftest/vdb",
     ],
+    tags = ["no-small-docker"],
     deps = [
         "//python/biograph:all_modules",
         "//python/functest/utils",
@@ -238,4 +241,5 @@ genrule(
     cmd = """
 curl -f -o $@ http://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-""" + BIOGRAPH_VERSION + """.ml
 """,
+    tags = ["no-small-docker"],
 )

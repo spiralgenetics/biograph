@@ -16,10 +16,7 @@ build --copt=-mpopcnt
 common --show_timestamps
 common --show_task_finish
 
-# Unfortunately it doesn't seem like bazelrc can do variable expansion, so we're stuck
-# with specifying the base mulitple times:
 build --define=DOCKER_REPO_BASE=docker.io
-build:manylinux2014 --experimental_docker_image=spiralgenetics/manylinux2014:latest
 
 build:docker-sandbox --spawn_strategy=docker
 build:docker-sandbox --define=EXECUTOR=remote
@@ -33,6 +30,18 @@ build:manylinux2014 --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/loc
 build:manylinux2014 --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
 build:manylinux2014 --platform_suffix=manylinux2014
 build:manylinux2014 --config=docker-sandbox
+build:manylinux2014 --experimental_docker_image=spiralgenetics/manylinux2014:latest
+
+# Continuous integration on small containers; don't run big tests
+build:github-ci --experimental_docker_image=spiralgenetics/manylinux2014:noref
+build:github-ci --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+build:github-ci --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
+build:github-ci --platform_suffix=manylinux2014
+build:github-ci --config=docker-sandbox
+build:github-ci --//tools:python_versions=3.6
+# Exclude tests marked with "no-github-ci" from running.
+build:github-ci --build_tag_filters=-no-github-ci
+test:github-ci --test_tag_filters=-no-github-ci
 
 # TODO(nils): Make us compatible with these bazel changes.
 common --incompatible_disable_deprecated_attr_params=false

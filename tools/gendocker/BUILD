@@ -18,7 +18,7 @@ MODEL = "biograph_model-" + BIOGRAPH_VERSION_BASE + ".ml"
 
 # Repos available to build biograph
 BUILD_IMAGES = [
-    "manylinux2014-v2",
+    "manylinux2014",
     # "manylinux2010",
 ]
 
@@ -110,8 +110,8 @@ filegroup(
 )
 
 docker_image_builder(
-    name = "build",
-    srcs = ["build.sh"],
+    name = "build_testbase",
+    srcs = ["build_testbase.sh"],
     build_images = BUILD_IMAGES,
     data = [
         ":dockerfiles",

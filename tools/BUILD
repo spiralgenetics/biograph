@@ -124,7 +124,6 @@ sh_binary(
     data = [":tcmalloc_so"],
 )
 
-load("//tools:python_repository.bzl", "PYTHON_VERSIONS")
 load(
     "//tools:spiral_python.bzl",
     "spiral_par_binary",
@@ -145,6 +144,11 @@ spiral_python_version_spec(
     build_setting_default = "host",
     visibility = ["//visibility:public"],
 )
+
+load("@bazel_skylib//rules:common_settings.bzl", "string_list_flag")
+load("//tools:python_repository.bzl", "ALL_PYTHON_VERSIONS")
+string_list_flag(name="python_versions",
+                 build_setting_default=ALL_PYTHON_VERSIONS)
 
 alias(
     name = "host-libpython",

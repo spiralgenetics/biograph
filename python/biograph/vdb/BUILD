@@ -1,4 +1,4 @@
-load("//tools:spiral_python.bzl", "spiral_par_binary", "spiral_py_library", "spiral_py_lint", "spiral_py_multiversion_module", "spiral_py_sdist", "spiral_py_test")
+load("//tools:spiral_python.bzl", "spiral_py_library", "spiral_py_test")
 
 spiral_py_library(
     name = "vdb",

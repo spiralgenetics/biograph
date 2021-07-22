@@ -6,7 +6,8 @@ load(
 
 load("@tool_requirements//:requirements.bzl",
      _tool_requirement="requirement")
-load("python_repository.bzl", "PYTHON_VERSIONS")
+
+load("//tools:python_repository.bzl", "ALL_PYTHON_VERSIONS")
 
 def spiral_py_library(name, srcs=[], data=[], deps=[], lint_deps=[], **kwargs):
     py_library(name=name, data=data, srcs=srcs,
@@ -186,11 +187,11 @@ spiral_python_version_spec = rule(
 )
 
 def _multiversion_transition_impl(settings, attr):
-    return {version: {"//tools:python_version": version} for version in PYTHON_VERSIONS}
+    return {version: {"//tools:python_version": version} for version in settings["//tools:python_versions"]}
 
 _multiversion_transition = transition(
     implementation = _multiversion_transition_impl,
-    inputs = [],
+    inputs = ["//tools:python_versions"],
     outputs = ["//tools:python_version"])
 
 def _multiversion_module_impl(ctx):
@@ -241,7 +242,7 @@ _spiral_python_version_alias = rule(
 def spiral_python_version_alias(name, actual, host_actual, visibility = []):
     _spiral_python_version_alias(name=name,
                                  actuals={"@spiral_python" + version + actual: version
-                                          for version in PYTHON_VERSIONS},
+                                          for version in ALL_PYTHON_VERSIONS},
                                  host_actual=host_actual,
                                  python_version="//tools:python_version",
                                  visibility=visibility)

@@ -86,6 +86,10 @@ Each filespec may either be a filename or a pair of (read data, pair data)
         # Disable read correction so we get exactly the same file contents.
         cmd += " --min-kmer-count 1"
 
+        # These are all small datasets; don't use much RAM
+        cmd += " --max-mem 4"
+
+        # biograph is unhappy if it doesn't get enough RAM
         cmd += f" --tmp {self.data_dir}/tmp"
 
         if data_format:

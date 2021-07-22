@@ -11,7 +11,16 @@ jobs:
           sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Build
-        run: cd ${{ github.workspace }} && bazelisk build --config=github-ci //... --keep_going
+      - name: Cache Bazel build state
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/bazel
+          path: ~/.cache/bazelisk
+          key: bazel
       - name: Test
         run: cd ${{ github.workspace }} && bazelisk test --config=github-ci //... --keep_going
+      - name: Archive test outputs
+        uses: actions/upload-artifact@v2
+        with:
+          name: testlogs
+          path: ${{ github.workspace }}/bazel-out/k8-fastbuildmanylinux2014/testlogs

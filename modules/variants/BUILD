@@ -545,10 +545,12 @@ cc_test(
 cc_library(
     name = "filter_dup_align",
     srcs = [
+        "align_count.cpp",
         "filter_dup_align.cpp",
         "place_pair_cov.cpp",
     ],
     hdrs = [
+        "align_count.h",
         "filter_dup_align.h",
         "place_pair_cov.h",
     ],
@@ -586,6 +588,18 @@ cc_test(
 cc_test(
     name = "place_pair_cov_test",
     srcs = ["place_pair_cov_test.cpp"],
+    deps = [
+        ":assemble_testutil",
+        ":filter_dup_align",
+        ":pair_edge_cov",
+        ":pipeline_parts",
+        "//modules/test:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "align_count_test",
+    srcs = ["align_count_test.cpp"],
     deps = [
         ":assemble_testutil",
         ":filter_dup_align",

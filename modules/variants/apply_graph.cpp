@@ -298,4 +298,46 @@ void apply_graph::release(aptr a) {
   }
 }
 
+scaffold graph_context::ref_scaffold() const {
+  std::vector<scaffold::extent> exts;
+
+  for (const auto* ref : refs) {
+    scaffold::extent new_ext;
+    new_ext.offset = ref->left_offset - a->left_offset;
+    new_ext.sequence = ref->seq;
+    exts.push_back(new_ext);
+  }
+
+  return scaffold(exts, a->right_offset - a->left_offset);
+}
+
+edge_coverage_t graph_context::differential_edge_coverage(const scaffold& s,
+                                                          const read_coverage_t& var_cov,
+                                                          const read_coverage_t& ref_cov) const {
+  edge_coverage_t result;
+  aoffset_t reflen = s.end_pos();
+  aoffset_t seqlen = a->seq.size();
+
+  // Find how many bases are common with reference at each end.
+  result.start_common = s.shared_prefix_length(a->seq);
+  result.end_common = s.rev_comp().shared_prefix_length(dna_slice(a->seq).rev_comp());
+
+  // Get variant read counts.
+  result.variant_start = var_cov.get_reads_spanning_offset(result.start_common).all_read_ids();
+  result.variant_end = var_cov.get_reads_spanning_offset(seqlen - result.end_common).all_read_ids();
+
+  result.reference_start = ref_cov.get_reads_spanning_offset(result.start_common).all_read_ids();
+  result.reference_end =
+      ref_cov.get_reads_spanning_offset(reflen - result.end_common).all_read_ids();
+
+  // Tally up everything else in the variant into the interior.
+  for (const auto& cov_entry : var_cov.reads()) {
+    if (cov_entry.offset >= 0 && cov_entry.offset + cov_entry.read_len <= seqlen) {
+      result.interior |= cov_entry.read_ids;
+    }
+  }
+
+  return result;
+}
+
 }  // namespace variants

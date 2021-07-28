@@ -22,6 +22,9 @@ struct test_ctx {
   optional_aoffset ref_left_offset;
   optional_aoffset ref_right_offset;
 
+  scaffold ref_scaffold;
+  edge_coverage_t edge_coverage;
+
   bool operator<(const test_ctx& rhs) const { return a.assembly_id < rhs.a.assembly_id; }
 };
 
@@ -47,7 +50,7 @@ std::set<std::pair<aoffset_t, aoffset_t>> deref_ref_bounds(const std::vector<ass
 
 aoffset_t deref_read_cov_len(const read_coverage_t& read_cov) { return read_cov.assembly_len(); }
 
-const std::vector<read_coverage_read_t>& deref_reads(const read_coverage_t& read_cov) {
+const std::vector<read_coverage_read_t>& deref_read_cov(const read_coverage_t& read_cov) {
   return read_cov.reads();
 }
 
@@ -81,8 +84,18 @@ class apply_graph_test : public assemble_test {
                  Field(&test_ctx::ref_right_offset, Eq(ref_right_offset)),
                  Field(&test_ctx::ref_coverage,
                        AllOf(ResultOf(deref_read_cov_len, Eq(right_offset - left_offset)),
-                             ResultOf(deref_reads, ContainerEq(expected_cov.reads())))),
+                             ResultOf(deref_read_cov, ContainerEq(expected_cov.reads())))),
                  Field(&test_ctx::refs, ResultOf(deref_ref_bounds, ContainerEq(expected_bounds))));
+  }
+
+  std::multiset<dna_sequence> deref_reads(const read_id_set& ids) {
+    std::multiset<dna_sequence> result;
+
+    for (uint32_t read_id : ids) {
+      result.insert(m_options.readmap->get_read_by_id(read_id).get_seqset_entry().sequence());
+    }
+
+    return result;
   }
 
   std::unordered_set<uint32_t> get_read_ids(const dna_sequence& seq) {
@@ -119,6 +132,11 @@ class apply_graph_test : public assemble_test {
           for (const auto& ref : ctx.refs) {
             tctx.refs.push_back(*ref);
           }
+          tctx.ref_scaffold = ctx.ref_scaffold();
+          tctx.ref_scaffold.save_all_storage();
+
+          tctx.edge_coverage = ctx.differential_edge_coverage(
+              tctx.ref_scaffold, *ctx.a->read_coverage, tctx.ref_coverage);
 
           m_actual.emplace_back(std::move(tctx));
         },
@@ -157,9 +175,18 @@ class apply_graph_test : public assemble_test {
   std::vector<test_ctx> m_actual;
 };
 
+// Copy extents into an array of pairs for easier matching
+std::vector<std::pair<aoffset_t, dna_sequence>> get_extents(const scaffold& s) {
+  std::vector<std::pair<aoffset_t, dna_sequence>> out;
+  for (const auto& e : s.extents()) {
+    out.push_back(std::make_pair(e.offset, dna_sequence(e.sequence.begin(), e.sequence.end())));
+  }
+  return out;
+}
+
 TEST_F(apply_graph_test, simple) {
   use_ref_parts({{0, tseq("abcdefghijklmnop")}});
-  use_reads({tseq("abcdef"), tseq("efghi")});
+  use_reads({tseq("abcdef"), tseq("efghi"), tseq("bc") + dna_T, dna_T + tseq("hi")});
 
   start();
   add(1, tseq("abc").size(), dna_T, tseq("abcdefg").size());
@@ -174,6 +201,22 @@ TEST_F(apply_graph_test, simple) {
                   {{tseq("abcdef"), -tseq("abc").size()}, {tseq("efghi"), tseq("d").size()}},
                   // Ref bounds:
                   {{tseq("abc").size(), tseq("abcdefg").size()}})));
+
+  auto& ctx = m_actual[0];
+  scaffold s = ctx.ref_scaffold;
+  EXPECT_EQ(s.end_pos(), tseq("defg").size());
+  EXPECT_THAT(get_extents(s), ElementsAre(Pair(0, tseq("defg"))));
+
+  edge_coverage_t ec = ctx.edge_coverage;
+  EXPECT_EQ(0, ec.start_common);
+  EXPECT_EQ(0, ec.end_common);
+
+  EXPECT_THAT(deref_reads(ec.variant_start), ElementsAre(tseq("bc") + dna_T));
+  EXPECT_THAT(deref_reads(ec.variant_end), ElementsAre(dna_T + tseq("hi")));
+
+  EXPECT_THAT(deref_reads(ec.interior), IsEmpty());
+  EXPECT_THAT(deref_reads(ec.reference_start), ElementsAre(tseq("abcdef")));
+  EXPECT_THAT(deref_reads(ec.reference_end), ElementsAre(tseq("efghi")));
 }
 
 TEST_F(apply_graph_test, multi_with_decoy) {
@@ -273,5 +316,56 @@ TEST_F(apply_graph_test, deletion) {
                             // Ref bounds:
                             {{tseq("abcd").size(), tseq("abcdef").size()}})));
 }
+
+TEST_F(apply_graph_test, big_insert) {
+  use_ref_parts({{0, tseq("abcdefgh")}});
+
+  use_reads({
+      // Var:
+      tseq("bcd"),
+      tseq("cd") + dna_T,
+      dna_T + tseq("AB"),
+      tseq("ABC"),
+      tseq("CDE"),
+      tseq("DE") + dna_T,
+      dna_T + tseq("ef"),
+      tseq("efg"),
+      // Ref:
+      tseq("bcdef"),
+  });
+
+  start();
+  add(1, tseq("abcd").size(), dna_T + tseq("ABCDE") + dna_T, tseq("abcd").size());
+  flush();
+
+  EXPECT_THAT(m_actual, ElementsAre(ContextIs(
+                            // Aid, offsets:
+                            1, tseq("abcd").size(), tseq("abcd").size(),
+                            // Surrounding ref offsets:
+                            0, tseq("abcdefgh").size(),
+                            // Ref coverage:
+                            {{tseq("bcdef"), -tseq("bcd").size()}},
+                            // Ref bounds:
+                            {})));
+
+  auto& ctx = m_actual[0];
+  scaffold s = ctx.ref_scaffold;
+  EXPECT_EQ(s.end_pos(), 0);
+
+  edge_coverage_t ec = ctx.edge_coverage;
+  EXPECT_EQ(0, ec.start_common);
+  EXPECT_EQ(0, ec.end_common);
+
+  EXPECT_THAT(deref_reads(ec.variant_start), ElementsAre(tseq("cd") + dna_T));
+  EXPECT_THAT(deref_reads(ec.variant_end), ElementsAre(dna_T + tseq("ef")));
+
+  EXPECT_THAT(deref_reads(ec.interior), UnorderedElementsAre(dna_T + tseq("AB"), tseq("ABC"),
+                                                             tseq("CDE"), tseq("DE") + dna_T));
+
+  EXPECT_THAT(deref_reads(ec.reference_start), ElementsAre(tseq("bcdef")));
+  EXPECT_THAT(deref_reads(ec.reference_end), ElementsAre(tseq("bcdef")));
+}
+
+// TODO(nils): Test when ec.start_common and ec.end_common are nonzero
 
 }  // namespace variants

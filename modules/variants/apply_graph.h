@@ -1,6 +1,7 @@
 #pragma once
 
 #include "modules/variants/assemble.h"
+#include "modules/variants/scaffold.h"
 
 namespace variants {
 
@@ -18,6 +19,17 @@ struct graph_context {
   read_coverage_t ref_coverage() const { return merge_coverage(&assembly::read_coverage); }
   read_coverage_t ref_pair_coverage() const {
     return merge_coverage(&assembly::pair_read_coverage);
+  }
+
+  // Returns the section of the reference backing this assembly.
+  scaffold ref_scaffold() const;
+
+  // Return differential edge coverage based on where the variant diverges with reference.
+  edge_coverage_t differential_edge_coverage(const scaffold& s, const read_coverage_t& var_cov,
+                                             const read_coverage_t& ref_cov) const;
+  edge_coverage_t differential_edge_coverage(const read_coverage_t& var_cov,
+                                             const read_coverage_t& ref_cov) {
+    return differential_edge_coverage(ref_scaffold(), var_cov, ref_cov);
   }
 
  private:

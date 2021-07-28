@@ -178,6 +178,11 @@ struct edge_coverage_t {
   // Read ids that have pair support that counterindicate this variant rejoining reference
   read_id_set reference_end;
 
+  // If sequences are compared between variant and reference, these
+  // are the number of shared bases at each end.
+  aoffset_t start_common = 0;
+  aoffset_t end_common = 0;
+
   friend std::ostream& operator<<(std::ostream& os, const edge_coverage_t& cov);
 };
 

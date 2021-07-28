@@ -49,6 +49,7 @@ cc_library(
     name = "assemble",
     srcs = [
         "apply_block.cpp",
+        "apply_graph.cpp",
         "apply_edges.cpp",
         "assemble.cpp",
         "dist_set.cpp",
@@ -57,6 +58,7 @@ cc_library(
     ],
     hdrs = [
         "apply_block.h",
+        "apply_graph.h",
         "apply_edges.h",
         "assemble.h",
         "dist_set.h",
@@ -270,6 +272,18 @@ cc_test(
     srcs = ["add_ref_test.cpp"],
     deps = [
         ":assemble_testutil",
+        ":pipeline_parts",
+        "//modules/bio_base:dna_testutil",
+        "//modules/test:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "apply_graph_test",
+    srcs = ["apply_graph_test.cpp"],
+    deps = [
+        ":assemble_testutil",
+        ":pair_edge_cov",
         ":pipeline_parts",
         "//modules/bio_base:dna_testutil",
         "//modules/test:gtest_main",

@@ -135,8 +135,8 @@ class apply_graph_test : public assemble_test {
           tctx.ref_scaffold = ctx.ref_scaffold();
           tctx.ref_scaffold.save_all_storage();
 
-          tctx.edge_coverage = ctx.differential_edge_coverage(
-              tctx.ref_scaffold, *ctx.a->read_coverage, tctx.ref_coverage);
+          tctx.edge_coverage =
+              ctx.edge_coverage(tctx.ref_scaffold, *ctx.a->read_coverage, tctx.ref_coverage);
 
           m_actual.emplace_back(std::move(tctx));
         },

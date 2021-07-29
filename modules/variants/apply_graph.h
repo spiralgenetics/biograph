@@ -25,11 +25,11 @@ struct graph_context {
   scaffold ref_scaffold() const;
 
   // Return differential edge coverage based on where the variant diverges with reference.
-  edge_coverage_t differential_edge_coverage(const scaffold& s, const read_coverage_t& var_cov,
-                                             const read_coverage_t& ref_cov) const;
-  edge_coverage_t differential_edge_coverage(const read_coverage_t& var_cov,
-                                             const read_coverage_t& ref_cov) {
-    return differential_edge_coverage(ref_scaffold(), var_cov, ref_cov);
+  edge_coverage_t edge_coverage(const scaffold& s, const read_coverage_t& var_cov,
+                                const read_coverage_t& ref_cov) const;
+  edge_coverage_t edge_coverage(const read_coverage_t& var_cov,
+                                const read_coverage_t& ref_cov) const {
+    return edge_coverage(ref_scaffold(), var_cov, ref_cov);
   }
 
  private:
@@ -75,6 +75,7 @@ class apply_graph : public sorted_output_pipeline_step {
   void advance_to(aoffset_t target);
   void advance_towards(aoffset_t target);
   void output_result(result r);
+  void clear_result(result r);
   void release(aptr a);
 
   on_context_func_t m_on_context;
@@ -84,6 +85,8 @@ class apply_graph : public sorted_output_pipeline_step {
   aptr m_right_ref;
 
   absl::btree_multimap<aoffset_t /* right offset */, result> m_active;
+
+  result m_output_result;
 };
 
 }  // namespace variants

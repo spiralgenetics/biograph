@@ -40,6 +40,7 @@ from biograph._capi import (
     graph_trim_ref,
     place_pair_cov,
     PlacePairCovGenerator,
+    apply_graph,
 )
 
 # Remove unsightly _capi from published class names.

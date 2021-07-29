@@ -132,6 +132,7 @@ void bind_assembly(module& m) {
                           "Contains information on edge coverage for an assembly.")
       .def(init<>())
       .def("__str__", str_from_ostream<edge_coverage_t>)
+      .def("__repr__", str_from_ostream<edge_coverage_t>)
       .def_readonly("variant_start", &edge_coverage_t::variant_start,
                     "Coverage for the assembly's left anchor")
       .def_readonly("variant_end", &edge_coverage_t::variant_end,

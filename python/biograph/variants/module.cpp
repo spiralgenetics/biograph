@@ -5,6 +5,7 @@
 #include "python/biograph/variants/add_ref.h"
 #include "python/biograph/variants/align_reads.h"
 #include "python/biograph/variants/apply_edges.h"
+#include "python/biograph/variants/apply_graph.h"
 #include "python/biograph/variants/assembly.h"
 #include "python/biograph/variants/dedup_cov_reads.h"
 #include "python/biograph/variants/discover.h"
@@ -39,4 +40,5 @@ void bind_variants_module(module& m) {
   bind_align_reads(m);
   bind_graph_discover(m);
   bind_place_pair_cov(m);
+  bind_apply_graph(m);
 }

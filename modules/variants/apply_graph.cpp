@@ -111,13 +111,19 @@ void apply_graph::advance_towards(aoffset_t target) {
   }
   if (m_right_ref) {
     CHECK_EQ((*m_right_ref)->left_offset, m_cur_offset);
-    std::cerr << "cur=" << m_cur_offset << " target=" << target << " moving ref over? "
-              << **m_right_ref << "\n";
+    if (k_dbg) {
+      std::cerr << "cur=" << m_cur_offset << " target=" << target << " moving ref over? "
+                << **m_right_ref << "\n";
+    }
     if (target == (*m_right_ref)->right_offset) {
-      std::cerr << "Yep\n";
+      if (k_dbg) {
+        std::cerr << "Yep\n";
+      }
       m_left_ref = std::move(m_right_ref);
     } else {
-      std::cerr << "Nope\n";
+      if (k_dbg) {
+        std::cerr << "Nope\n";
+      }
       release(std::move(m_right_ref));
     }
   }
@@ -128,7 +134,9 @@ read_coverage_t graph_context::merge_coverage(
     boost::optional<read_coverage_t> assembly::*field) const {
   CHECK(a);
 
-  std::cerr << "Merging for " << *a << "\n";
+  if (k_dbg) {
+    std::cerr << "Merging for " << *a << "\n";
+  }
 
   CHECK_LE(a->left_offset, a->right_offset);
   aoffset_t reflen = a->right_offset - a->left_offset;
@@ -146,12 +154,16 @@ read_coverage_t graph_context::merge_coverage(
 
   std::vector<assembly*> outer_refs;
   if (left_ref) {
-    std::cerr << "Left ref: " << *left_ref << "\n";
+    if (k_dbg) {
+      std::cerr << "Left ref: " << *left_ref << "\n";
+    }
     outer_refs.push_back(left_ref);
   }
   outer_refs.insert(outer_refs.end(), refs.begin(), refs.end());
   if (right_ref) {
-    std::cerr << "Right ref: " << *right_ref << "\n";
+    if (k_dbg) {
+      std::cerr << "Right ref: " << *right_ref << "\n";
+    }
     outer_refs.push_back(right_ref);
   }
 
@@ -192,7 +204,8 @@ read_coverage_t graph_context::merge_coverage(
 
       read_id_set new_ids;
       if (cov_left_offset < cur_offset && ref_offset >= 0) {
-        std::cerr << "Checking present in " << pending_reads.size() << " prevs\n";
+        if (k_dbg){
+          std::cerr << "Checking present in " << pending_reads.size() << " prevs\n";}
         // Make sure it's present in the previous reference section.
         auto pending_it = pending_reads.find(cov_pair);
         if (pending_it == pending_reads.end()) {
@@ -247,6 +260,7 @@ read_coverage_t graph_context::merge_coverage(
 void apply_graph::output_result(result r) {
   // Expose context to user
   graph_context ctx;
+
   ctx.a = r.a->get();
 
   if (r.left_ref) {
@@ -273,9 +287,16 @@ void apply_graph::output_result(result r) {
   }
 
   // Show the user the context we constructed.
-  m_on_context(ctx);
+  try {
+    m_on_context(ctx);
+  } catch (...) {
+    clear_result(std::move(r));
+    throw;
+  }
+  clear_result(std::move(r));
+}
 
-  // Relase this result now we don't need it anymore.
+void apply_graph::clear_result(result r) {
   release(std::move(r.a));
   for (auto& ref : r.refs) {
     release(std::move(ref));
@@ -311,9 +332,8 @@ scaffold graph_context::ref_scaffold() const {
   return scaffold(exts, a->right_offset - a->left_offset);
 }
 
-edge_coverage_t graph_context::differential_edge_coverage(const scaffold& s,
-                                                          const read_coverage_t& var_cov,
-                                                          const read_coverage_t& ref_cov) const {
+edge_coverage_t graph_context::edge_coverage(const scaffold& s, const read_coverage_t& var_cov,
+                                             const read_coverage_t& ref_cov) const {
   edge_coverage_t result;
   aoffset_t reflen = s.end_pos();
   aoffset_t seqlen = a->seq.size();

@@ -42,7 +42,7 @@ def parse_args(clargs):
     parser.add_argument("-o", "--out", default="/dev/stdout",
                         help="VCF to output")
     parser.add_argument("-x", "--grm", default=None,
-                        help="DataFrame conaining grm features from truvari")
+                        help="DataFrame containing grm features from truvari")
     parser.add_argument("-f", "--filter", default=0.10, type=float,
                         help="Maximum threshold of calls to filter (%(default)s)")
     parser.add_argument("-s", "--lowqual_sv", default=0.235, type=float,

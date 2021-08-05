@@ -37,6 +37,11 @@ AlleleCoverageBase = make_annotation_base("AlleleCoverageBase", [
     ("median_coverage", "EC", "Median coverage over assembly", 0),
     ("minimum_coverage", "MC", "Minimum coverage over assembly", 0),
     ("read_cov_max_paths", "MP", "coverage_max_paths needed to get all the coverage on this assembly", 0),
+
+    # Total from align counts
+    ("local_read_lens", "AC_LR", "Align count sum of distinct reads of local read lengths", 0),
+    ("local_aligned_bases", "AC_LA", "Align count sum of local read lengths", 0),
+    ("tot_aligned_bases", "AC_TA", "Align count sum of operlapping aligned lengths", 0)
 ])
 
 # Disable some warnings that aren't compatible with make_annotation_base.

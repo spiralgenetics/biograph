@@ -4,6 +4,7 @@ cc_library(
     name = "wrappers",
     srcs = [
         "add_ref.cpp",
+        "align_count.cpp",
         "align_reads.cpp",
         "apply_edges.cpp",
         "apply_graph.cpp",
@@ -25,6 +26,7 @@ cc_library(
     ],
     hdrs = [
         "add_ref.h",
+        "align_count.h",
         "align_reads.h",
         "apply_edges.h",
         "apply_graph.h",

@@ -41,6 +41,9 @@ from biograph._capi import (
     place_pair_cov,
     PlacePairCovGenerator,
     apply_graph,
+    align_count,
+    AlignCountGenerator,
+    AlignCount,
 )
 
 # Remove unsightly _capi from published class names.

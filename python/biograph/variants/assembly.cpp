@@ -226,6 +226,7 @@ void bind_assembly(module& m) {
                      "assembly is anchored to")
       .def_readwrite("seq", &assembly::seq, "Sequence of bases")
       .def_readwrite("edge_coverage", &assembly::edge_coverage)
+      .def_readwrite("align_count", &assembly::align_count)
       .def_readwrite("read_coverage", &assembly::read_coverage)
       .def_readwrite("pair_read_coverage", &assembly::pair_read_coverage)
       .def_readwrite("align_count", &assembly::align_count)

@@ -20,6 +20,7 @@ class align_count : public apply_edges_step {
                          const std::vector<assembly_ptr>& inserts,
                          const std::vector<assembly_ptr>& right_edges) override;
 
+
  private:
   using read_infos_t = absl::btree_map<uint32_t /* read id */, size_t /* count of aligned bases */>;
   struct active_assembly {

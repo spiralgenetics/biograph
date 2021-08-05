@@ -4,7 +4,10 @@ namespace variants {
 align_count::align_count(const assemble_options& opts, pipeline_step_t output)
     : apply_edges_step(std::move(output)), m_opts(opts) {}
 
-align_count::~align_count() { CHECK(m_active_counts.empty()); }
+align_count::~align_count() {
+  flush();
+  CHECK(m_active_counts.empty());
+}
 
 void align_count::on_assembly_edges(optional_aoffset reference_pos,
                                     const std::vector<assembly_ptr>& left_edges,

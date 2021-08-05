@@ -3,6 +3,7 @@
 #include <pybind11/pybind11.h>
 
 #include "python/biograph/variants/add_ref.h"
+#include "python/biograph/variants/align_count.h"
 #include "python/biograph/variants/align_reads.h"
 #include "python/biograph/variants/apply_edges.h"
 #include "python/biograph/variants/apply_graph.h"
@@ -41,4 +42,5 @@ void bind_variants_module(module& m) {
   bind_graph_discover(m);
   bind_place_pair_cov(m);
   bind_apply_graph(m);
+  bind_align_count(m);
 }

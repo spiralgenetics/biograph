@@ -129,6 +129,9 @@ def build_table_header(): # pylint: disable=too-many-statements
     fmt_header["PL_het"] = np.uint8
     fmt_header["PL_hom"] = np.uint8
     fmt_header["RC"] = np.uint16
+    fmt_header["AC_LR"] = np.uint32
+    fmt_header["AC_AB"] = np.uint32
+    fmt_header["AC_TA"] = np.uint32
 
     ret_header = OrderedDict()
     ret_header.update(meta_header)
@@ -311,7 +314,7 @@ class PCMPWriter(THREAD_TYPE):  # pylint: disable=too-many-instance-attributes
     Thread dedicated to writing the output
     """
     # Format fields BioGraph Coverage populates
-    __cov_formats = ["GT", "GQ", "PL", "DP", "AD"]
+    __cov_formats = ["GT", "GQ", "PL", "DP", "AD", "AC_LR", "AC_AB", "AC_TA"]
 
     def __init__(self, vcf_output_name, df_output_name, template_vcf, sample, annotations, strip_fmt=False):
         """
@@ -784,6 +787,7 @@ def main(clargs): # pylint: disable=too-many-locals, too-many-statements
         placer_max_ambig=args.placer_max_ambig
     ))
     annotations.append(bganno.GTAnno())
+    annotations.append(bganno.ACAnno())
     out_writer = PCMPWriter(args.output, args.dataframe, args.variants, args.sample, annotations, args.strip_fmt)
     out_writer.start()
 

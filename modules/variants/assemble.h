@@ -151,6 +151,20 @@ struct aligned_var {
   friend std::ostream& operator<<(std::ostream& os, const aligned_var& v);
 };
 
+struct align_count_t {
+  // Sum of lengths of distinct reads.
+  size_t local_read_lens = 0;
+
+  // Sum of lengths of first alignment of reads in this assembly.
+  size_t local_aligned_bases = 0;
+
+  // Total aligned bases across all alignments for all reads aligned
+  // in this assembly.
+  size_t tot_aligned_bases = 0;
+
+  friend std::ostream& operator<<(std::ostream& os, const align_count_t& c);
+};
+
 struct edge_coverage_t {
   // Read ids that have pair support for this variant branching off from reference
   read_id_set variant_start;
@@ -163,6 +177,11 @@ struct edge_coverage_t {
   read_id_set reference_start;
   // Read ids that have pair support that counterindicate this variant rejoining reference
   read_id_set reference_end;
+
+  // If sequences are compared between variant and reference, these
+  // are the number of shared bases at each end.
+  aoffset_t start_common = 0;
+  aoffset_t end_common = 0;
 
   friend std::ostream& operator<<(std::ostream& os, const edge_coverage_t& cov);
 };
@@ -345,6 +364,7 @@ struct assembly {
   boost::optional<edge_coverage_t> edge_coverage;
   boost::optional<read_coverage_t> read_coverage;
   boost::optional<read_coverage_t> pair_read_coverage;
+  boost::optional<align_count_t> align_count;
 
   // Minimum value of assemble_options::max_coverage_paths needed
   // to get all read coverages detected for this assembly.

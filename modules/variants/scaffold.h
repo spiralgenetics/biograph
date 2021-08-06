@@ -101,9 +101,11 @@ class scaffold {
   iterator begin() const;
   iterator end() const;
 
+  void save_all_storage();
+
  private:
   aoffset_t calc_end_pos() const;
-  dna_slice save_storage(const dna_sequence& seq);
+  dna_slice save_storage(dna_slice seq);
   void reverse_in_place();
 
   std::vector<extent> m_extents;

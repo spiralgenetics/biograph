@@ -4,6 +4,7 @@ spiral_py_library(
     name = "coverage",
     srcs = [
         "__init__.py",
+        "aligncount_annotation.py",
         "anno_obj.py",
         "coverage_annotation.py",
         "genotype_annotation.py",

@@ -7,13 +7,15 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "bazel_skylib",
+    sha256 = "1c531376ac7e5a180e0237938a2536de0c54d93f5c278634818e0efc952dd56c",
     urls = [
         "https://github.com/bazelbuild/bazel-skylib/releases/download/1.0.3/bazel-skylib-1.0.3.tar.gz",
         "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.0.3/bazel-skylib-1.0.3.tar.gz",
     ],
-    sha256 = "1c531376ac7e5a180e0237938a2536de0c54d93f5c278634818e0efc952dd56c",
 )
+
 load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+
 bazel_skylib_workspace()
 
 # libpoco 1.9.0 (modified to build with bazel)
@@ -150,14 +152,14 @@ load("@rules_python//python:pip.bzl", "pip_install", "pip_repositories")
 # matches the one in the docker image.
 pip_install(
     name = "tool_requirements",
-    requirements = "//tools:tool_requirements.txt",
     python_interpreter = "python3.6",
+    requirements = "//tools:tool_requirements.txt",
 )
 
 pip_install(
     name = "biograph_requirements",
-    requirements = "//python/biograph:requirements.txt",
     python_interpreter = "python3.6",
+    requirements = "//python/biograph:requirements.txt",
 )
 
 load("//tools:python_repository.bzl", "spiral_python_repositories")
@@ -180,9 +182,9 @@ bind(
 # abseil-cpp
 git_repository(
     name = "com_google_absl",
-    commit = "c45d1c09d517e145d722e00deea9be6c8be8dd57",
+    commit = "0ce3ca95fd56d1ff32ec6cec69a28f589064f8e6",
     remote = "https://github.com/abseil/abseil-cpp.git",
-    shallow_since = "1588965758 -0400",
+    shallow_since = "1627056710 -0400",
 )
 
 http_archive(

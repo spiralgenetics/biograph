@@ -7,6 +7,9 @@ ADD lib /mylib
 # Install any necessary dependencies
 RUN apt-get update
 RUN apt-get install -y bcftools tabix samtools
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
 
 RUN pip install /app/BioGraph*.tgz
 

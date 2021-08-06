@@ -67,6 +67,10 @@ void align_count::add_coverage(assembly* a, active_assembly* act, bool add) {
           act->counts.local_aligned_bases += aligned_bases;
         }
 
+        if (!aligned_bases) {
+          continue;
+        }
+
         count_it = m_active_counts.try_emplace(count_it, read_id);
         // Store the aligned count so far
         act->counts.tot_aligned_bases += count_it->second;
@@ -85,6 +89,10 @@ void align_count::add_coverage(assembly* a, active_assembly* act, bool add) {
 
         act->counts.tot_aligned_bases += aligned_bases;
       } else {
+        if (!aligned_bases) {
+          continue;
+        }
+
         auto count_it = m_active_counts.find(read_id);
         CHECK(count_it != m_active_counts.end());
         CHECK_GE(count_it->second, aligned_bases);

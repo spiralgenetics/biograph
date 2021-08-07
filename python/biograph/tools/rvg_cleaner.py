@@ -27,7 +27,7 @@ def main(args):
     """
     args = parse_args(args)
     # We can split this by chromosome UNTIL we get inter-chromosomal translocations going
-    m_vcf = pysam.VariantFile(args.variants) # pylint: disable=no-member
+    m_vcf = pysam.VariantFile(args.variants)
     output = pysam.VariantFile(args.output, 'w', header=m_vcf.header.copy()) # pylint: disable=no-member
     backlog = defaultdict(list) # PI: [list of variants we're waiting on]
     known_inphase_lookup = {} # PIs of things to keep

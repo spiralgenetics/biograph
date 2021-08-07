@@ -1,7 +1,7 @@
 """
 Generates SAM/BAM output from biograph ReadCoverages
 """
-# pylint: disable=no-member
+
 import logging
 import pysam
 import biograph.variants as bgexvar

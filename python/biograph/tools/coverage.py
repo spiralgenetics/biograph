@@ -22,8 +22,8 @@ from collections import OrderedDict, defaultdict
 from time import time
 from setproctitle import setproctitle  # pylint: disable=no-name-in-module
 
-import vcf
 import tabix
+import vcf
 import joblib
 import pandas as pd
 

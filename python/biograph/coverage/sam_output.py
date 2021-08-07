@@ -1,10 +1,10 @@
 """
 Generates SAM/BAM output from biograph ReadCoverages
 """
-
+# pylint: disable=no-member
 import logging
-import biograph.variants as bgexvar
 import pysam
+import biograph.variants as bgexvar
 
 class SamMapper:
     """SamMapper provides a facility for aligned reads to be written to a sam output file.

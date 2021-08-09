@@ -2,10 +2,10 @@ name: Release
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-inputs:
-  tag:
-    description: 'Tag or branch to build'
-    required: true
+    inputs:
+      branch:
+        description: 'Tag or branch to build'
+        required: true
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
         with:
-          ref: ${{ inputs.tag }}
+          ref: ${{ github.event.inputs.branch }}
       - name: Cache Bazel build state
         uses: actions/cache@v2
         with:

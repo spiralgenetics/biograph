@@ -17,8 +17,8 @@ jobs:
           sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal
       - name: Check out repository code
         uses: actions/checkout@v2
-          with:
-            ref: ${{ inputs.tag }}
+        with:
+          ref: ${{ inputs.tag }}
       - name: Cache Bazel build state
         uses: actions/cache@v2
         with:
@@ -36,4 +36,3 @@ jobs:
           name: release-tarball
           path: ${{ github.workspace }}/bazel-bin/python/biograph/BioGraph*gz
           # if-no-files-found: ignore
-          

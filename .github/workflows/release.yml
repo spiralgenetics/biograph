@@ -1,0 +1,31 @@
+name: Bazel Test
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dead snake python
+        run: |
+          sudo add-apt-repository ppa:deadsnakes/ppa &&
+          sudo apt-get -yq update &&
+          sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Cache Bazel build state
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/bazel
+            ~/.cache/bazelisk
+          key: bazel
+      - name: Test
+        run: cd ${{ github.workspace }} && bazelisk build -c opt --config=release //python/biograph:package
+      - name: Archive release tarball
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-tarball
+          path: ${{ github.workspace }}/bazel-bin/python/biograph/BioGraph*gz
+          # if-no-files-found: ignore
+          

@@ -26,10 +26,8 @@ jobs:
             ~/.cache/bazel
             ~/.cache/bazelisk
           key: bazel
-      - name: Test
-        run: cd ${{ github.workspace }} && bazelisk test -c opt --config=github-ci //...
       - name: Create tarball
-        run: cd ${{ github.workspace }} && bazelisk build -c opt --config=release //python/biograph:package
+        run: cd ${{ github.workspace }} && bazelisk build -c opt --config=release-github //python/biograph:package
       - name: Archive release tarball
         uses: actions/upload-artifact@v2
         with:

@@ -48,6 +48,7 @@ spiral_py_test(
         "//modules/biograph:bgbinary",
     ],
     tags = [
+        "no-github-ci",
         "noasan",
     ],
     deps = [
@@ -61,6 +62,7 @@ spiral_py_test(
     name = "sdk_test",
     # If they aren't cached in RAM, this can take a long time to read
     # the tens of gigabytes of input files.
+    size = "enormous",
     timeout = "eternal",
     srcs = [
         "sdk_test.py",
@@ -73,6 +75,7 @@ spiral_py_test(
         "//modules/biograph:bgbinary",
     ],
     tags = [
+        "no-github-ci",
         "noasan",
     ],
     deps = [
@@ -102,7 +105,7 @@ spiral_py_test(
 
 spiral_py_test(
     name = "import_formats_test",
-    timeout = "long",
+    size = "enormous",
     srcs = [
         "import_formats_test.py",
     ],
@@ -179,6 +182,7 @@ spiral_py_test(
         "//golden:uncategorized_test_data",
         "//golden/ftest/vdb",
     ],
+    tags = ["no-github-ci"],
     deps = [
         "//python/biograph:all_modules",
         "//python/functest/utils",
@@ -238,4 +242,5 @@ genrule(
     cmd = """
 curl -f -o $@ http://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-""" + BIOGRAPH_VERSION + """.ml
 """,
+    tags = ["no-github-ci"],
 )

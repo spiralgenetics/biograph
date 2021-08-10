@@ -17,6 +17,10 @@ from .genotype_annotation import (
     GTAnno
 )
 
+from .aligncount_annotation import (
+    ACAnno
+)
+
 from .sam_output import (
     SamOutput
 )

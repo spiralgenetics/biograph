@@ -23,11 +23,17 @@ aoffset_t scaffold::calc_end_pos() const {
   return m_extents.back().offset + aoffset_t(m_extents.back().sequence.size());
 }
 
-dna_slice scaffold::save_storage(const dna_sequence& seq) {
+void scaffold::save_all_storage() {
+  for (auto& ext : m_extents) {
+    ext.sequence = save_storage(ext.sequence);
+  }
+}
+
+dna_slice scaffold::save_storage(dna_slice seq) {
   if (!m_seq_storage) {
     m_seq_storage = std::make_shared<std::list<dna_sequence>>();
   }
-  return *m_seq_storage->insert(m_seq_storage->begin(), seq);
+  return *m_seq_storage->insert(m_seq_storage->begin(), dna_sequence(seq));
 }
 
 bool scaffold::is_simple() const { return m_extents.size() == 1 && m_extents.front().offset == 0; }

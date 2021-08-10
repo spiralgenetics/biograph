@@ -890,6 +890,12 @@ std::ostream& operator<<(std::ostream& os, const edge_coverage_t& cov) {
             << " interior=" << print_read_ids(cov.interior);
 }
 
+std::ostream& operator<<(std::ostream& os, const align_count_t& c) {
+  return os << " lens=" << c.local_read_lens       //
+            << " local=" << c.local_aligned_bases  //
+            << " tot=" << c.tot_aligned_bases;
+}
+
 std::set<size_t> g_trace_assembly_ids;
 std::set<aoffset_t> g_trace_offsets;
 bool g_trace_all_assemblies = false;

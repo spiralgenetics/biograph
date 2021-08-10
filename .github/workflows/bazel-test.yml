@@ -1,0 +1,28 @@
+name: Bazel Test
+on: [push]
+jobs:
+  Bazel-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dead snake python
+        run: |
+          sudo add-apt-repository ppa:deadsnakes/ppa &&
+          sudo apt-get -yq update &&
+          sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Cache Bazel build state
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/bazel
+            ~/.cache/bazelisk
+          key: bazel
+      - name: Test
+        run: cd ${{ github.workspace }} && bazelisk test --config=github-ci //... --keep_going
+      - name: Archive test outputs
+        uses: actions/upload-artifact@v2
+        with:
+          name: testlogs
+          path: ${{ github.workspace }}/bazel-out/k8-fastbuildmanylinux2014/testlogs
+          if-no-files-found: ignore

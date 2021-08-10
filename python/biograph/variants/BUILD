@@ -4,8 +4,10 @@ cc_library(
     name = "wrappers",
     srcs = [
         "add_ref.cpp",
+        "align_count.cpp",
         "align_reads.cpp",
         "apply_edges.cpp",
+        "apply_graph.cpp",
         "assembly.cpp",
         "dedup_cov_reads.cpp",
         "discover.cpp",
@@ -24,8 +26,10 @@ cc_library(
     ],
     hdrs = [
         "add_ref.h",
+        "align_count.h",
         "align_reads.h",
         "apply_edges.h",
+        "apply_graph.h",
         "assembly.h",
         "dedup_cov_reads.h",
         "discover.h",
@@ -140,6 +144,13 @@ spiral_py_test(
 spiral_py_test(
     name = "apply_edges_test",
     srcs = ["apply_edges_test.py"],
+    data = ["//datasets"],
+    deps = ["//python/biograph:all_modules"],
+)
+
+spiral_py_test(
+    name = "apply_graph_test",
+    srcs = ["apply_graph_test.py"],
     data = ["//datasets"],
     deps = ["//python/biograph:all_modules"],
 )

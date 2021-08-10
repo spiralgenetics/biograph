@@ -49,6 +49,7 @@ cc_library(
     name = "assemble",
     srcs = [
         "apply_block.cpp",
+        "apply_graph.cpp",
         "apply_edges.cpp",
         "assemble.cpp",
         "dist_set.cpp",
@@ -57,6 +58,7 @@ cc_library(
     ],
     hdrs = [
         "apply_block.h",
+        "apply_graph.h",
         "apply_edges.h",
         "assemble.h",
         "dist_set.h",
@@ -270,6 +272,18 @@ cc_test(
     srcs = ["add_ref_test.cpp"],
     deps = [
         ":assemble_testutil",
+        ":pipeline_parts",
+        "//modules/bio_base:dna_testutil",
+        "//modules/test:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "apply_graph_test",
+    srcs = ["apply_graph_test.cpp"],
+    deps = [
+        ":assemble_testutil",
+        ":pair_edge_cov",
         ":pipeline_parts",
         "//modules/bio_base:dna_testutil",
         "//modules/test:gtest_main",
@@ -545,10 +559,12 @@ cc_test(
 cc_library(
     name = "filter_dup_align",
     srcs = [
+        "align_count.cpp",
         "filter_dup_align.cpp",
         "place_pair_cov.cpp",
     ],
     hdrs = [
+        "align_count.h",
         "filter_dup_align.h",
         "place_pair_cov.h",
     ],
@@ -586,6 +602,18 @@ cc_test(
 cc_test(
     name = "place_pair_cov_test",
     srcs = ["place_pair_cov_test.cpp"],
+    deps = [
+        ":assemble_testutil",
+        ":filter_dup_align",
+        ":pair_edge_cov",
+        ":pipeline_parts",
+        "//modules/test:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "align_count_test",
+    srcs = ["align_count_test.cpp"],
     deps = [
         ":assemble_testutil",
         ":filter_dup_align",

@@ -27,7 +27,7 @@ qcls_shared = types.SimpleNamespace()
 
 def parse_args(clargs):
     """ Command line UI """
-    parser = argparse.ArgumentParser(prog="gt_classifier_PP", description=__doc__,
+    parser = argparse.ArgumentParser(prog="gt_classifier", description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
 
     parser.add_argument("-v", "--vcf", required=True,
@@ -189,7 +189,6 @@ def edit_vcf(chunk):
             out_vcf.write("\t".join(entry) + '\n')
             continue
         predict = fdat.loc[key]
-        # Are you sure here?
         if predict["predict_GT"] == 1:
             stats["het_cnt"] += 1
             sample_data["GT"] = "0/1"
@@ -199,6 +198,7 @@ def edit_vcf(chunk):
         else:
             stats["hom_ref"] += 1
             sample_data["GT"] = "0/0"
+
         sample_data["GQ"] = str(int(predict["predict_GQ"]))
         sample_data["PL"] = ",".join([str(int(_)) for _ in predict[["PL_ref", "PL_het", "PL_hom"]].to_list()])
         entry[8], entry[9] = dict_to_fmt(sample_data)
@@ -273,7 +273,7 @@ def write_vcf(results, input_vcf, output_vcf, threads=1):
 
 def main(args):
     """
-    Main
+    Classify genotypes by coverage metrics
     """
     args = parse_args(args)
     if not os.path.exists(args.vcf):
@@ -285,9 +285,10 @@ def main(args):
     # Load the model
     cov_data = joblib.load(args.dataframe)
     # Load the coverage info
-    cov_data.sort_values(['key'], inplace=True)
-    cov_data = cov_data.set_index('key')
     cov_data = cov_data[cov_data["VARLEN"] >= 50]
+    cov_data = cov_data.sort_values('key')
+    cov_data = cov_data.drop_duplicates('key')
+    cov_data = cov_data.set_index('key')
     # Run the model
     results = run_model(cov_data, model)
     # Write the VCF

@@ -37,6 +37,20 @@ def vcf_compress(output):
     """
     return f" | vcf-sort | bgzip > {output} && tabix {output}"
 
+def tool_check(tools):
+    """
+    Check to ensure the environment is setup with the list of tools
+    """
+    cmd_successful = True
+    for i in tools:
+        r = cmd_exe(f"which {i}")
+        if r.ret_code != 0:
+            log.error(f"Couldn't find {i} in environment")
+            cmd_successful = False
+    if not cmd_successful:
+        log.error("At least one program not found in PATH")
+    return cmd_successful
+
 def reference_cmd(clargs):
     ''' Build a BioGraph reference from FASTA '''
     log.setup_logging()
@@ -50,8 +64,6 @@ def reference_cmd(clargs):
     parser.add_argument("--in", help="Input reference fasta or fasta.gz", required=True)
     parser.add_argument("--refdir", help="Output reference directory", required=True)
     parser.add_argument("-f", "--force", action='store_true', help="Overwrite existing refdir")
-    parser.add_argument("--min-n-run", type=int, default=50,
-                        help="Any runs of 'N's smaller than this long are replaced with the preceeding base (=%(default)s)")
 
     args = parser.parse_args(clargs)
 
@@ -167,7 +179,10 @@ def coverage_cmd(args, pipe_args, dryrun=False, single_sample=True):
         cmd = (f"biograph coverage -b {pipe_args.biograph} -r {pipe_args.reference} "
                f"-v {DISVCF} -d {CLSDF} --threads {pipe_args.threads} {args}") + vcf_compress(COVVCF)
     else:
-        cmd = (f"biograph coverage -b {pipe_args.biograph} -r {pipe_args.reference} "
+        if "--ideal-insert" not in args:
+            logging.info("--ideal-insert not set in coverage args. Assuming 400.")
+            args += " --ideal-insert 400"
+        cmd = (f"biograph coverage -b {pipe_args.biograph} -r {pipe_args.reference} --placer-max-ambig 1 "
                f"-v {pipe_args.variants} --threads {pipe_args.threads} -d {pipe_args.tmpdf} {args}") + vcf_compress(pipe_args.tmpvcf)
     if dryrun:
         return cmd
@@ -231,6 +246,17 @@ def qual_cmd(args, pipe_args, dryrun=False, single_sample=True):
     ret = cmd_exe(cmd, cap_stderr=False, pipefail=True)
     log.debug(ret)
     return ret
+
+def gtcls_cmd(args, pipe_args, dryrun=False):
+    """
+    Run gt classifier
+    """
+    cmd = (f"biograph gt_classifier -d {pipe_args.tmpdf} -v {pipe_args.tmpvcf} -m {pipe_args.model} "
+           f"--tmp {pipe_args.tmp} -t {pipe_args.threads} {args}") + vcf_compress(pipe_args.output)
+    if dryrun:
+        return cmd
+    ret = cmd_exe(cmd, cap_stderr=False, pipefail=True)
+    log.debug(ret)
 
 def clean_files(steps, keep):
     """
@@ -368,12 +394,7 @@ def full_pipeline(args): # pylint: disable=too-many-statements
             log.error(f"The {cur_key} step parameters have problems")
 
     # tool check - ensure the environment is setup
-    cmd_successful = True
-    for i in ["bgbinary", "vcf-sort", "bgzip", "truvari", "tabix"]:
-        r = cmd_exe(f"which {i}")
-        if r.ret_code != 0:
-            log.error(f"Couldn't find {i} in environment")
-            cmd_successful = False
+    cmd_successful = tool_check(["bgbinary", "vcf-sort", "bgzip", "truvari", "tabix"])
     if not cmd_successful:
         log.error("At least one program not found in PATH")
 
@@ -418,7 +439,7 @@ def squareoff_args(args):
     Parse and check squareoff arguments
     """
     parser = argparse.ArgumentParser(prog="squareoff",
-                                     description="Run the standard BioGraph pipeline for square-off of a sample: coverage, qual_classifier",
+                                     description="Run the standard BioGraph pipeline for square-off of a sample",
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("-b", "--biograph", metavar="BG", required=True,
                         help="BioGraph file (will be created if running the create step)")
@@ -427,7 +448,7 @@ def squareoff_args(args):
     parser.add_argument("-v", "--variants", metavar="VCF", required=True,
                         help="Input variants VCF file to square-off")
     parser.add_argument("-m", "--model", metavar="ML", required=True,
-                        help="BioGraph classifier model for qual_classifier")
+                        help="BioGraph classifier model for gt_classifier")
     parser.add_argument("-o", "--output", default="output.vcf.gz",
                         help="Output squared-off VCF file name (%(default)s)")
     parser.add_argument("--tmp", default=tempfile.gettempdir(),
@@ -445,8 +466,8 @@ def squareoff_args(args):
                                        description="Specify any additional parameters to be passed to steps. Must be a single \"string\"")
     cmdpar.add_argument("--coverage", default="",
                         help="coverage parameters")
-    cmdpar.add_argument("--qual_classifier", default="",
-                        help="qual_classifier parameters")
+    cmdpar.add_argument("--gt_classifier", default="",
+                        help="gt_classifier parameters")
 
     args = parser.parse_args(args)
     if not args.output.endswith(".vcf.gz"):
@@ -477,9 +498,8 @@ def squareoff(args): # pylint: disable=too-many-statements
 
     steps = OrderedDict()
 
-    # This has the problem that we assume multi-sample
     steps["coverage"] = [check_coverage, coverage_cmd, args.coverage, args]
-    steps["qual_classifier"] = [check_qual, qual_cmd, args.qual_classifier, args]
+    steps["gt_classifier"] = [check_qual, gtcls_cmd, args.gt_classifier, args]
 
     # check parameters
     par_successful = True
@@ -490,15 +510,7 @@ def squareoff(args): # pylint: disable=too-many-statements
             log.error(f"The {cur_key} step parameters have problems")
 
     # tool check - ensure the environment is setup
-    cmd_successful = True
-    for i in ["vcf-sort", "bgzip", "tabix"]:
-        r = cmd_exe(f"which {i}")
-        if r.ret_code != 0:
-            log.error(f"Couldn't find {i} in environment")
-            cmd_successful = False
-    if not cmd_successful:
-        log.error("At least one program not found in PATH")
-
+    cmd_successful = tool_check(["vcf-sort", "bgzip", "tabix"])
     if not cmd_successful or not par_successful:
         log.error("Setup errors detected. See above. Aborting.")
         exit(1)

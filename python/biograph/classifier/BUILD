@@ -6,8 +6,7 @@ spiral_py_library(
         "__init__.py",
 	"build_classifier.py",
         "qual_classifier.py",
-	"qual_classifier_PP.py",
-	"gt_classifier_PP.py"
+	"gt_classifier.py"
     ],
     lint_deps = [
         "//python/biograph:all_modules",

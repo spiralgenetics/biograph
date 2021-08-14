@@ -180,7 +180,7 @@ def coverage_cmd(args, pipe_args, dryrun=False, single_sample=True):
                f"-v {DISVCF} -d {CLSDF} --threads {pipe_args.threads} {args}") + vcf_compress(COVVCF)
     else:
         if "--ideal-insert" not in args:
-            logging.info("--ideal-insert not set in coverage args. Assuming 400.")
+            log.info("--ideal-insert not set in coverage args. Assuming 400.")
             args += " --ideal-insert 400"
         cmd = (f"biograph coverage -b {pipe_args.biograph} -r {pipe_args.reference} --placer-max-ambig 1 "
                f"-v {pipe_args.variants} --threads {pipe_args.threads} -d {pipe_args.tmpdf} {args}") + vcf_compress(pipe_args.tmpvcf)
@@ -257,6 +257,7 @@ def gtcls_cmd(args, pipe_args, dryrun=False):
         return cmd
     ret = cmd_exe(cmd, cap_stderr=False, pipefail=True)
     log.debug(ret)
+    return ret
 
 def clean_files(steps, keep):
     """

@@ -18,6 +18,6 @@ pyarrow>=3.0.0,<4
 pyathena>=2.1.1,<2.2.0
 pyparsing>=2.4.7,<3
 boto3>=1.14.0,<2
-orjson>=3.3.0,<4
+orjson>=3.3.0,<3.6.0
 # for GRM (2.0.2 or later for determinism fix):
 Truvari>=2.0.2

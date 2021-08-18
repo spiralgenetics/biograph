@@ -280,7 +280,7 @@ def main(args):
         logging.error(f"VCF {args.vcf} is missing")
         exit(1)
     logging.info(f"Loading model {args.model}")
-    model = joblib.load(args.model)
+    model = joblib.load(args.model)['gtcls_model']
     logging.info(f"Loading {args.dataframe}")
     # Load the model
     cov_data = joblib.load(args.dataframe)

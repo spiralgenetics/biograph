@@ -25,16 +25,21 @@ BioGraph can also be run as a [Docker container](https://hub.docker.com/reposito
 
 # Documentation
 
-[Full documentation available here](https://www.notion.so/BioGraph-v7-User-s-Guide-d10aa3ab4db9482f954a935ea080c552)
+[Full documentation on the GitHub wiki](https://github.com/spiralgenetics/biograph/wiki)
 
-For other dependencies and full installation instructions, see the [online installation docs](https://www.notion.so/spiralgenetics/Installation-8105bf74808a4b9e822a77fd4ad6cbf2).
+For other dependencies and full installation instructions, see the [online installation docs](https://github.com/spiralgenetics/biograph/wiki/Installation).
 
 # Building the code
 
 We recommend building on Ubuntu 18.04 or later. The following system dependencies are required:
 
-    $ apt-get install -y python3.6 python3.6-dev build-essential libbz2-dev libz-dev libcurl4-openssl-dev dh-autoreconf wamerican docker.io
+    $ sudo apt-get install -y python3.6 python3.6-dev python3-distutils python3-apt python3-virtualenv virtualenv build-essential libbz2-dev libz-dev libcurl4-openssl-dev dh-autoreconf wamerican docker.io 
 
+Note: Ubuntu 18.04.5 and later no longer include the python command by default. It is safest to avoid the system python and build from inside a virtualenv instead:
+
+    $ virtualenv --python=python3.6 ~/buildenv
+    $ . ~/buildenv/bin/activate
+    
 You will also need a recent version of [bazelisk](https://github.com/bazelbuild/bazelisk/releases/latest). 
 Download the binary for your architecture and save it to a file named **bazel** somewhere in your PATH.
 

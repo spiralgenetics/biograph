@@ -12,8 +12,8 @@ import uuid
 
 from pathlib import Path
 
-import pyarrow.parquet as pq
 import orjson as json
+import pyarrow.parquet as pq
 
 import biograph.vdb as vdb
 import biograph.vdb.athena as athena

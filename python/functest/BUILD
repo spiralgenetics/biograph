@@ -8,6 +8,7 @@ load(
     _tool_requirement = "requirement",
 )
 load("//:versions.bzl", "BIOGRAPH_VERSION")
+load("//:versions.bzl", "BIOGRAPH_MODEL_VERSION")
 
 # Change e.g. "1.2.3"-RC0-dev to just "1.2.3"
 BIOGRAPH_VERSION_BASE = BIOGRAPH_VERSION.split("-")[0]
@@ -69,7 +70,7 @@ spiral_py_test(
     ],
     data = [
         ":biograph_main",
-        ":biograph_model",
+        #":biograph_model",
         "//datasets",
         "//golden:uncategorized_test_data",
         "//modules/biograph:bgbinary",
@@ -240,7 +241,7 @@ genrule(
     name = "biograph_model",
     outs = ["biograph_model.ml"],
     cmd = """
-curl -f -o $@ http://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-""" + BIOGRAPH_VERSION + """.ml
+curl -f -o $@ http://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-""" + BIOGRAPH_MODEL_VERSION + """.ml
 """,
     tags = ["no-github-ci"],
 )

@@ -272,9 +272,7 @@ def write_vcf(results, input_vcf, output_vcf, threads=1):
     logging.info(f'Reference {stats["hom_ref"]}; Homozygous {stats["hom_cnt"]}; Heterozygous {stats["het_cnt"]}; Ratio {ratio:.2f}')
 
 def main(args):
-    """
-    Classify genotypes by coverage metrics
-    """
+    """ Classify genotypes by coverage metrics """
     args = parse_args(args)
     if not os.path.exists(args.vcf):
         logging.error(f"VCF {args.vcf} is missing")

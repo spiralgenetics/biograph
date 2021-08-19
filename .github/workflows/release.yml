@@ -26,8 +26,8 @@ jobs:
             ~/.cache/bazel
             ~/.cache/bazelisk
           key: bazel
-      - name: Test
-        run: cd ${{ github.workspace }} && bazelisk test -c opt --config=release-github //...
+#      - name: Test
+#        run: cd ${{ github.workspace }} && bazelisk test -c opt --config=release-github //...
       - name: Create tarball
         run: cd ${{ github.workspace }} && bazelisk build -c opt --config=release-github //python/biograph:package
       - name: Archive release tarball

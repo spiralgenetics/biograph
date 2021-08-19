@@ -2,20 +2,20 @@
 '''
 VDB: VCF commands
 '''
-import argparse
-import gzip
-import inspect
-import multiprocessing
-import shutil
-import subprocess
 import sys
-import tempfile
+import gzip
 import uuid
+import shutil
+import inspect
+import argparse
+import tempfile
+import subprocess
+import multiprocessing
 
 from pathlib import Path
 
-import pyarrow.parquet as pq
 import orjson as json
+import pyarrow.parquet as pq
 
 import biograph.vdb as vdb
 import biograph.vdb.athena as athena

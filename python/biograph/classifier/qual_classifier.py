@@ -12,8 +12,8 @@ import multiprocessing
 from io import StringIO
 from collections import OrderedDict
 
-import numpy
 import tabix
+import numpy
 import joblib
 import pandas as pd
 

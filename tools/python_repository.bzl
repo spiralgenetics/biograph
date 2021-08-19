@@ -1,7 +1,6 @@
-# Python repository provides both "python2" and "python3" targets
-# that expose system include directories for the respective python versions.
-
-PYTHON_VERSIONS=["3.6", "3.7", "3.8"]
+# All python versions that we can build for; not all
+# of these will be built, based on the python_versions flag.
+ALL_PYTHON_VERSIONS=["3.6", "3.7", "3.8"]
 
 def _impl(repository_ctx):
     result = repository_ctx.execute([
@@ -22,7 +21,7 @@ spiral_python_repository = repository_rule(
                "_build_script" : attr.label(default="//tools:python_repository.sh")})
 
 def spiral_python_repositories():
-    for version in PYTHON_VERSIONS:
+    for version in ALL_PYTHON_VERSIONS:
         spiral_python_repository(
             name="spiral_python" + version,
             version=version

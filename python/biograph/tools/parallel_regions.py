@@ -6,18 +6,18 @@ coverage.
 
 """
 
+import os
+import sys
+import logging
 import multiprocessing
 from types import SimpleNamespace
-import logging
-import sys
-import os
 from setproctitle import setproctitle  # pylint: disable=no-name-in-module
+import tabix
 
 import biograph.variants as bgexvar
 import biograph.coverage as bganno
 import biograph
 
-import tabix
 
 class LimitAlleles:
     "Processes assemblies to limit the number of simultaneous alleles"

@@ -18,7 +18,7 @@ from biograph.tools import (
 
 from biograph.classifier import (
     qual_classifier,
-    qual_classifier_PP
+    gt_classifier
 )
 
 from biograph import version
@@ -37,27 +37,28 @@ TOOLS = {
     "full_pipeline": bgbinary_cmds.full_pipeline,
     "install_test": install_tests.main,
     "qual_classifier": qual_classifier,
-    "qual_classifier_PP": qual_classifier_PP,
+    "gt_classifier": gt_classifier,
     "reference": bgbinary_cmds.reference_cmd,
     "refhash": refhash.main,
-    # "squareoff":bgbinary_cmds.squareoff,
+    "squareoff": bgbinary_cmds.squareoff,
     "stats": bg_qc_stats.main,
     "vdb": vdb.main,
     "version": get_version,
 }
 
-#squareoff       {TOOLS['squareoff'].__doc__}
 USAGE = f"""\
 biograph v{version()} - the BioGraph genome processing pipeline
 
     Pipeline Commands:
         full_pipeline   {TOOLS['full_pipeline'].__doc__}
+        squareoff       {TOOLS['squareoff'].__doc__}
 
         reference       {TOOLS['reference'].__doc__}
         create          {TOOLS['create'].__doc__}
         discovery       {TOOLS['discovery'].__doc__}
         coverage        {TOOLS['coverage'].__doc__}
         qual_classifier {TOOLS['qual_classifier'].__doc__}
+        gt_classifier   {TOOLS['gt_classifier'].__doc__}
         vdb             {TOOLS['vdb'].__doc__}
 
     Utility Commands:

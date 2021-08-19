@@ -132,6 +132,7 @@ void bind_assembly(module& m) {
                           "Contains information on edge coverage for an assembly.")
       .def(init<>())
       .def("__str__", str_from_ostream<edge_coverage_t>)
+      .def("__repr__", str_from_ostream<edge_coverage_t>)
       .def_readonly("variant_start", &edge_coverage_t::variant_start,
                     "Coverage for the assembly's left anchor")
       .def_readonly("variant_end", &edge_coverage_t::variant_end,
@@ -140,6 +141,17 @@ void bind_assembly(module& m) {
                     "Coverage for the reference at the assembly's left anchor")
       .def_readonly("reference_end", &edge_coverage_t::reference_end,
                     "Coverage for the reference at the assembly's right anchor");
+
+  class_<align_count_t>(m, "AlignCount",
+                          "Contains information on alignment counts for overlapping assemblies.")
+      .def(init<>())
+      .def("__str__", str_from_ostream<align_count_t>)
+      .def_readonly("local_aligned_bases", &align_count_t::local_aligned_bases,
+                    "Sum of lengths of first aligments of reads in this assembly")
+      .def_readonly("local_read_lens", &align_count_t::local_read_lens,
+                    "Sum of read lengths of all reads with alignments in this assembly")
+      .def_readonly("tot_aligned_bases", &align_count_t::tot_aligned_bases,
+                    "Sum of all alignments for this read overlapping this assembly");
 
   class_<read_coverage_read_t>(m, "ReadCoverageRead",
                                "A single read aligned to a specific position in an assembly")
@@ -214,8 +226,10 @@ void bind_assembly(module& m) {
                      "assembly is anchored to")
       .def_readwrite("seq", &assembly::seq, "Sequence of bases")
       .def_readwrite("edge_coverage", &assembly::edge_coverage)
+      .def_readwrite("align_count", &assembly::align_count)
       .def_readwrite("read_coverage", &assembly::read_coverage)
       .def_readwrite("pair_read_coverage", &assembly::pair_read_coverage)
+      .def_readwrite("align_count", &assembly::align_count)
       .def_readwrite("matches_reference", &assembly::matches_reference,
                      "True if this assembly matches reference entirely")
       .def_readwrite("min_overlap", &assembly::min_overlap,

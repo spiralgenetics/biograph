@@ -8,11 +8,14 @@
 #
 # Don't forget to also update relevant docs and README.txt files. ;)
 
-# SpEC file format + program version
-SPEC_VERSION="1.3.2-dev"
-
 # This is the public-facing program release version of biograph and the SDK
-BIOGRAPH_VERSION="7.0.0-dev"
+BIOGRAPH_VERSION="7.1.0"
+
+# Use this version of the ML model from archive.spiralgenetics.com.
+BIOGRAPH_MODEL_VERSION="7.1.0"
 
 # SEQSET is the biograph file format version
 SEQSET_VERSION="2.0.0"
+
+# SpEC file format + program version
+SPEC_VERSION="1.3.2-dev"

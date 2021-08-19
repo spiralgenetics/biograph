@@ -21,9 +21,9 @@ from pathlib import Path
 from time import sleep, time
 from types import SimpleNamespace
 
-import boto3
-import orjson as json
 import pandas as pd
+import orjson as json
+import boto3
 
 from pyathena.connection import Connection
 from pyathena.pandas.async_cursor import AsyncPandasCursor

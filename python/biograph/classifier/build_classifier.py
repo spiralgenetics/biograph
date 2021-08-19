@@ -78,7 +78,7 @@ class build_classifier:
         Write the model to a file
         """
         jl = {}
-        jl['version'] = "biograph-7.0.0"
+        jl['version'] = "biograph-7.1.0"
         jl['model'] = model
         joblib.dump(jl, out)
 

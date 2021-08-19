@@ -9,11 +9,11 @@ Releases are statically built and should run on most recent Linux distributions.
 
 In addition to the release, you will need a copy of the classifier model:
 
-    wget https://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-7.0.0.ml
+    wget https://archive.spiralgenetics.com/files/models/biograph_model-7.1.0.ml
 
 or
 
-    aws s3 cp s3://spiral-public/models/biograph_model-7.0.0.ml . --no-sign-request
+    aws s3 cp s3://spiral-archive/models/biograph_model-7.1.0.ml . --request-payer requester
 
 You will also need a few common bioinformatics packages. To install them on Ubuntu:
 

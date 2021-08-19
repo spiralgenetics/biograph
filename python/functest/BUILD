@@ -241,7 +241,7 @@ genrule(
     name = "biograph_model",
     outs = ["biograph_model.ml"],
     cmd = """
-curl -f -o $@ http://spiral-public.s3.us-west-2.amazonaws.com/models/biograph_model-""" + BIOGRAPH_MODEL_VERSION + """.ml
+curl -f -o $@ https://archive.spiralgenetics.com/files/models/biograph_model-""" + BIOGRAPH_MODEL_VERSION + """.ml
 """,
     tags = ["no-github-ci"],
 )

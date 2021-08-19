@@ -3,7 +3,7 @@ FROM spiralgenetics/manylinux2014:noref
 # References needed for tests.
 
 RUN mkdir /reference
-RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/grch38/grch38.tar.gz  |tar xfz -
-RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/human_g1k_v37/human_g1k_v37.tar.gz  |tar xfz -
-RUN cd /reference && curl https://spiral-public.s3.us-west-2.amazonaws.com/references/hs37d5/hs37d5.tar.gz  |tar xfz -
+RUN cd /reference && curl https://archive.spiralgenetics.com/files/references/grch38/grch38.tar.gz  |tar xfz -
+RUN cd /reference && curl https://archive.spiralgenetics.com/files/references/human_g1k_v37/human_g1k_v37.tar.gz  |tar xfz -
+RUN cd /reference && curl https://archive.spiralgenetics.com/files/references/hs37d5/hs37d5.tar.gz  |tar xfz -
 

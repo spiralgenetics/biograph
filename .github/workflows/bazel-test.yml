@@ -2,7 +2,7 @@ name: Bazel Test
 on: [push]
 jobs:
   Bazel-Test:
-    runs-on: ubuntu16.04
+    runs-on: ubuntu-18.04
     steps:
       - name: Install dead snake python
         run: |

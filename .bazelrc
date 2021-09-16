@@ -69,9 +69,7 @@ build:release-github --experimental_docker_image=spiralgenetics/manylinux2014:no
 build:release-github --action_env=PATH=/opt/rh/devtoolset-9/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 build:release-github --crosstool_top="//tools/gcc9_manylinux2014:toolchain"
 build:release-github --platform_suffix=manylinux2014
-build:release-github --//tools:python_versions=3.6
-build:release-github --//tools:python_versions=3.7
-build:release-github --//tools:python_versions=3.8
+build:release-github --//tools:python_versions="3.6,3.7,3.8"
 build:release-github --build_tag_filters=-no-github-ci
 test:release-github --test_tag_filters=-no-github-ci
 

@@ -2,13 +2,13 @@ name: Bazel Test
 on: [push]
 jobs:
   Bazel-Test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Install dead snake python
         run: |
           sudo add-apt-repository ppa:deadsnakes/ppa &&
           sudo apt-get -yq update &&
-          sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal
+          sudo apt-get -yq install python3.6-minimal python3.6-dev libpython3.6-minimal python3.7-minimal python3.7-dev libpython3.7-minimal python3.8-minimal python3.8-dev libpython3.8-minimal
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Cache Bazel build state

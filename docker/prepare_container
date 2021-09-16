@@ -2,8 +2,11 @@
 
 # Copy in all necessary binaries to build a biograph Docker container.
 
-# Tools needed from /share/software/bin/
-export BINARIES="bgzip vcf-sort"
+export BINDIR=${BINDIR:-/share/software/bin}
+export RELEASEDIR=${RELEASEDIR:-/share/releases}
+
+# Tools needed from $BINDIR
+export BINARIES="bgzip bcftools samtools tabix vcf-sort"
 # Full path to any library files required
 export LIBRARIES=""
 
@@ -15,7 +18,7 @@ Usage: `basename $0` [biograph release version]
 Temporary files will be written to TMPDIR (${TMPDIR})
 
 Example:
-  $ $0 6.0.1
+  $ $0 7.1.1
 
 EOM
 	exit 1
@@ -43,14 +46,14 @@ cp Dockerfile ${DEST}
 cp app/* ${DEST}/app/
 
 echo "Copying biograph..."
-cp /share/releases/BioGraph-${VERSION}.tgz ${DEST}/app/
+cp ${RELEASEDIR}/BioGraph-${VERSION}.tgz ${DEST}/app/
 
 echo "Copying the model..."
-cp /share/releases/biograph_model-${VERSION}.ml ${DEST}/app/biograph_model.ml
+cp ${RELEASEDIR}/biograph_model-${VERSION}.ml ${DEST}/app/biograph_model.ml
 
 echo "Collecting required binaries..."
 for f in ${BINARIES}; do
-  cp /share/software/bin/$f ${DEST}/app/
+  cp ${BINDIR}/$f ${DEST}/app/
 done
 
 echo "Collecting required libraries..."

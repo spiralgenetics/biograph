@@ -9,7 +9,7 @@
 # Don't forget to also update relevant docs and README.txt files. ;)
 
 # This is the public-facing program release version of biograph and the SDK
-BIOGRAPH_VERSION="7.1.1"
+BIOGRAPH_VERSION="7.1.2-dev"
 
 # Use this version of the ML model from archive.spiralgenetics.com.
 BIOGRAPH_MODEL_VERSION="7.1.0"

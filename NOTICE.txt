@@ -1,8 +1,0 @@
-Attribution Notice
-
-This NOTICE.TXT file has been created for BioGraph, per the terms and
-conditions under the Spiral Genetics Academic License V1.0, dated July 2021.
-See the LICENSE file.
-
-The original version of BioGraph was created by Spiral Genetics, Inc. and
-released on 2021-07-14.

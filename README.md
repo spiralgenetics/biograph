@@ -1,6 +1,7 @@
 # BioGraph
 
-This is the codebase for the BioGraph genomic analysis platform. It is free for academic use. See the LICENSE file for details.
+This is the codebase for the BioGraph genomic analysis platform. It is
+released under the BSD 2-clause license. See the LICENSE file for details.
 
 # Quick start
 

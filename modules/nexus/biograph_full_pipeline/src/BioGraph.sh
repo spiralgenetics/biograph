@@ -81,6 +81,7 @@ main() {
     sudo -H apt-get install -y python3-venv
     python3 -m venv pyenv
     source pyenv/bin/activate
+    python3 -m pip install setuptools==58
     python3 -m pip install --upgrade pip
     python3 -m pip install biograph.install.tgz
 

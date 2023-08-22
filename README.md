@@ -8,13 +8,7 @@ released under the BSD 2-clause license. See the LICENSE file for details.
 Download a pre-built binary from [GitHub releases](https://github.com/spiralgenetics/biograph/releases/).
 Releases are statically built and should run on most recent Linux distributions.
 
-In addition to the release, you will need a copy of the classifier model:
-
-    wget https://archive.spiralgenetics.com/files/models/biograph_model-7.1.0.ml
-
-or
-
-    aws s3 cp s3://spiral-archive/models/biograph_model-7.1.0.ml . --request-payer requester
+In addition to the release, you will need a copy of the classifier model available on [Zenodo](https://zenodo.org/record/8273311)
 
 You will also need a few common bioinformatics packages. To install them on Ubuntu:
 
